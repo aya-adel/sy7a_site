@@ -1,0 +1,30 @@
+<table class="table">
+
+<?php
+ if($this->country !== null)
+  {
+  	//var_dump($this->user["id"] );exit;
+  	?>
+<tr style="background-color:blue">
+	<td><?php echo $this->country["id"];  ?></td>
+
+</tr>
+<tr>
+<td><?php echo $this->country["name"]; echo "   " ; echo $this->user["lname"]; ?></td>
+	
+
+</tr>
+
+<tr>
+<td><?php echo $this->country["description"];?></td>
+	
+</tr>
+<tr>
+<td><img src"<?php echo $this->user["image"];?>" height='42' width='42'</td>
+	
+</tr>
+
+<?php
+  }
+?>
+</table>

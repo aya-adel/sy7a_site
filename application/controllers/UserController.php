@@ -19,8 +19,8 @@ class UserController extends Zend_Controller_Action
       $th = $user_model->listUsers();
       var_dump($th);
     }
-
-
+    
+    
 }
 
 
