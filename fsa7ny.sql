@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2016 at 05:50 PM
--- Server version: 5.5.47-0ubuntu0.14.04.1
+-- Generation Time: Mar 31, 2016 at 06:55 PM
+-- Server version: 5.6.28-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -34,7 +34,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `tel` int(30) NOT NULL,
   `gender` enum('male','female') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `email`, `password`, `tel`, `gender`) VALUES
+(1, 'admin', 'admin@yahoo.com', 'admin', 1000000, 'male');
 
 -- --------------------------------------------------------
 
@@ -72,13 +79,30 @@ CREATE TABLE IF NOT EXISTS `city` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comments`
+-- Table structure for table `city_rate`
 --
 
-CREATE TABLE IF NOT EXISTS `comments` (
+CREATE TABLE IF NOT EXISTS `city_rate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `city_id` (`city_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comment`
+--
+
+CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `content` varchar(100) NOT NULL,
   `post_id` int(30) NOT NULL,
+  `comment_time` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -100,6 +124,22 @@ CREATE TABLE IF NOT EXISTS `country` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `country_rate`
+--
+
+CREATE TABLE IF NOT EXISTS `country_rate` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `rate` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `country_id` (`country_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `hotel`
 --
 
@@ -115,14 +155,15 @@ CREATE TABLE IF NOT EXISTS `hotel` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `post`
 --
 
-CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE IF NOT EXISTS `post` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `city_id` int(30) NOT NULL,
   `user_id` int(30) NOT NULL,
   `content` varchar(100) NOT NULL,
+  `post_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `city_id` (`city_id`)
@@ -192,7 +233,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `tel` int(20) NOT NULL,
   `gender` enum('male','femal') NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `is_enable`, `tel`, `gender`) VALUES
+(1, 'amr', 'amr@yahoo', 'amr', 0, 10, 'male');
 
 --
 -- Constraints for dumped tables
@@ -211,10 +259,24 @@ ALTER TABLE `city`
   ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
 
 --
--- Constraints for table `comments`
+-- Constraints for table `city_rate`
 --
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
+ALTER TABLE `city_rate`
+  ADD CONSTRAINT `city_rate_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`),
+  ADD CONSTRAINT `city_rate_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `comment`
+--
+ALTER TABLE `comment`
+  ADD CONSTRAINT `comment_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`);
+
+--
+-- Constraints for table `country_rate`
+--
+ALTER TABLE `country_rate`
+  ADD CONSTRAINT `country_rate_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`),
+  ADD CONSTRAINT `country_rate_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `hotel`
@@ -223,11 +285,11 @@ ALTER TABLE `hotel`
   ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
--- Constraints for table `posts`
+-- Constraints for table `post`
 --
-ALTER TABLE `posts`
-  ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`),
-  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+ALTER TABLE `post`
+  ADD CONSTRAINT `post_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `post_ibfk_2` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
 -- Constraints for table `res_car`
@@ -240,8 +302,8 @@ ALTER TABLE `res_car`
 -- Constraints for table `res_room`
 --
 ALTER TABLE `res_room`
-  ADD CONSTRAINT `res_room_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `res_room_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`);
+  ADD CONSTRAINT `res_room_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`),
+  ADD CONSTRAINT `res_room_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 --
 -- Constraints for table `room`
