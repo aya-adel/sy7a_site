@@ -1,11 +1,11 @@
 <?php
 
-class Application_Form_Country extends Zend_Form
+class Application_Form_Countryedit extends Zend_Form
 {
 
-public function init()
-{
-/* Form Elements & Other Definitions Here ... */
+    public function init()
+    {
+        /* Form Elements & Other Definitions Here ... */
     //  <FORM method="post" class="form-horizontal "> 2wal 7aga lzm 23rf 2n deh form w 2dlha el attributs elly btmzha 
 $this->setMethod('POST');
 $this->setAttrib('class', 'form-horizontal');
@@ -24,7 +24,7 @@ $name->setAttribs(array(
 'placeholder' => 'example: EGYPT',
  'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
 ));
-$name->addValidator('db_NoRecordExists', true, array('country', 'name'));// field dah 2sm msh bytkrr lw mwgod fe database 
+ //$name->addValidator('db_NoRecordExists', true, array('country', 'name'));// field dah 2sm msh bytkrr lw mwgod fe database 
 
 //  description
 $description = new Zend_Form_Element_Text('description');
@@ -68,9 +68,7 @@ $image->setAttribs(array(
     		$reset
     		));
 
-}
-
-
+    }
 
 
 }

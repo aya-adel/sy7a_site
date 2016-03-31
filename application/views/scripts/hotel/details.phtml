@@ -1,0 +1,31 @@
+<table class="table">
+
+<?php
+ if($this->hotel !== null)
+  {
+  	//var_dump($this->user["id"] );exit;
+  	?>
+<tr style="background-color:blue">
+	<td><?php echo $this->hotel["id"];  ?></td>
+
+</tr>
+<tr>
+<td><?php echo $this->hotel["name"]; echo "   " ; echo $this->user["lname"]; ?></td>
+	
+
+</tr>
+
+<tr>
+<td><?php echo $this->hotel["location"];?></td>
+	
+</tr>
+<tr>
+<td><?php echo $this->hotel["city_id"];?></td>
+	
+</tr>
+
+<?php
+  }
+  // Full texts 	id 	name 	location 	city_id 
+?>
+</table>
