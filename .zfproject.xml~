@@ -43,7 +43,6 @@
           <actionMethod actionName="delete"/>
           <actionMethod actionName="update"/>
         </controllerFile>
-
         <controllerFile controllerName="Room">
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
@@ -59,7 +58,6 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="updata"/>
           <actionMethod actionName="delete"/>
-
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -69,7 +67,7 @@
         <formFile formName="Hotel"/>
         <formFile formName="Room"/>
         <formFile formName="Car"/>
-	<formFile formName="Login"/>
+<formFile formName="Login"/>
         <formFile formName="SignUp"/>
         <formFile formName="Addnewres"/>
         <formFile formName="Zendx"/>
@@ -182,7 +180,7 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="fblogout"/>
-
+          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Car">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -200,7 +198,6 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Car">
             <viewScriptFile forActionName="delete"/>
-
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

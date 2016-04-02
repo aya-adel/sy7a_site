@@ -73,5 +73,95 @@
   }
 ?>
 </table>
-    </body>
-    </html>
+   <div id="experience-title">
+        <h2>
+            Experience
+        </h2>
+    </div>
+    <div id="experience-body">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <td>post_id</td>
+                <td>city_id</td>
+                <td>user_id</td>
+                <td>post_content</td>
+                <td>edit_post</td>
+                <td>delete_post</td>
+                <td>rate_post</td>
+            </thead>
+            <?php foreach($this->posts as $key => $post): ?>
+            <tr>
+                <td> <?= $post['id'] ?> </td>
+                <td> <?= $post['city_id'] ?> </td>
+                <td> <?= $post['user_id'] ?> </td>
+                <td> <?= $post['content'] ?> </td>
+                <td> <a class='btn btn-warning' href="../fas7ny/listcomments/postid/<?= $post['id'] ?>"> Show Comments </a> </td>
+                <td> <a class='btn btn-warning' href="../fas7ny/editpost/postid/<?= $post['id'] ?>"> Edit </a> </td>
+                <td> <a class='btn btn-danger' href="../fas7ny/deletepost/postid/<?= $post['id'] ?>"> Delete </a> </td>
+                <td>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
+<!--                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>-->
+                </td>
+            </tr>
+<!--            ////////////////////////////////////////////////////////////////-->
+<?php //print_r($this->comments);exit();  
+for($i=0;$i<count($this->comments);$i++){
+    
+        foreach($this->comments[$i] as $key => $comment):    
+
+            if($post['id']==$comment['post_id']){
+?>
+            <tr>
+                <td> <?= $comment['id'] ?> </td>
+                <td> <?= $comment['content'] ?> </td>
+                <td> <?= $comment['post_id'] ?> </td>
+		<td> <a class='btn btn-warning' href="../../editcomment/commentid/<?= $comment['id'] ?>"> Edit </a> </td>
+		<td> <a class='btn btn-danger' href="../../deletecomment/commentid/<?= $comment['id'] ?>"> Delete </a> </td>
+                <td>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
+<!--                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>-->
+                </td>
+            </tr>
+<!--            <hr>-->
+            <?php }endforeach; }?>
+<!--            ////////////////////////////////////////////////////////////////-->
+
+            
+<!--            <hr>-->
+            <?php endforeach; ?>
+            <div class="alert alert-success alert-dismissible">
+                <i class="glyphicon glyphicon-remove-sign"></i> 
+                For Add Experience Click button Add  
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                <a class='btn btn-success' href='../fas7ny/addpost'> AddPost </a>
+            </div>
+        </table>
+        <div style="border:1px solid #000; display:inline-block;">
+            Div 1
+        </div>
+        <div style="border:1px solid red; display:inline-block; text-align:right;">
+            Div 2
+        </div>
+    </div>
+</div>
+    
+    
+    
+    
+    
+    
+    
