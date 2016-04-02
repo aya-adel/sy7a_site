@@ -8,5 +8,6 @@ function listUsers()
 {
 return $this->fetchAll()->toArray();
 }
+
 }
 
