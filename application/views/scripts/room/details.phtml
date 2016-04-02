@@ -1,0 +1,31 @@
+<table class="table">
+
+<?php
+ if($this->room !== null)
+  {
+  	//var_dump($this->user["id"] );exit;
+  	?>
+<tr style="background-color:blue">
+	<td><?php echo $this->room["id"];  ?></td>
+
+</tr>
+<tr>
+<td><?php echo $this->room["type"]; ?></td>
+	
+
+</tr>
+
+<tr>
+<td><?php echo $this->room["price"];?></td>
+	
+</tr>
+<tr>
+<td><?php echo $this->room["hotel_id"];?></td>
+	
+</tr>
+
+<?php
+  }
+  // Full texts 	/id 	type 	price 	hotel_id 
+?>
+</table>

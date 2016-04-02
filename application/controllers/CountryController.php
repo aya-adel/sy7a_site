@@ -59,7 +59,7 @@ class CountryController extends Zend_Controller_Action
     {
         // action body
          // 1- get client form to edit view
-        $form = new Application_Form_Country(); // hgyb object mn el form w deh elly hmleha b data elly htg3ly mn database 3shan 2sht8l 3leh
+        $form = new Application_Form_Countryedit(); // hgyb object mn el form w deh elly hmleha b data elly htg3ly mn database 3shan 2sht8l 3leh
         $country_obj = new Application_Model_Country(); // deh el object elly hyrg3 data mn database
         $id = $this->_request->getParam('id'); // deh ana b2os el ide mn ellly htb3tlly lma 2dos 3la button el update 
         $country_got = $country_obj->countryDetail($id); // deh hgyb el details bt3t el user dah b id bt3o 
