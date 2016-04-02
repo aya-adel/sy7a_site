@@ -28,3 +28,30 @@
   }
 ?>
 </table>
+<?php
+echo "<table>";
+//var_dump( $this->country);exit();
+echo "<td> <a class='btn btn-info' href='/city/add'> ADD </a> </td>" ;
+foreach($this->cites as $key => $value)
+{
+
+echo "<tr>".
+"<td>" . $value['id']
+. "</td>" .
+"<td>" . $value['name'] . "</td>" .
+"<td>" . $value['description'] . "</td>" .
+//"<td>" . $value['image'] . "</td>" .
+"<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
+
+//"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
+"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
+
+"<td> <a class='btn btn-warning' href='/city/delete/id/".$value['id']."/country_id/".$value['country_id']."'> Delete </a> </td>" .
+"<td> <a class='btn btn-primary' href='/city/edit/id/".$value['id']."'> Edit </a> </td>" .
+"</tr>";
+
+
+}
+echo "</table>";
+?>
+

@@ -10,29 +10,32 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="test"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
           <actionMethod actionName="index"/>
           <actionMethod actionName="listusers"/>
+          <actionMethod actionName="showUser"/>
+          <actionMethod actionName="blockUser"/>
+          <actionMethod actionName="editUser"/>
+          <actionMethod actionName="addUser"/>
+          <actionMethod actionName="logIn"/>
+          <actionMethod actionName="logOut"/>
+          <actionMethod actionName="activateUser"/>
+          <actionMethod actionName="fpauth"/>
+          <actionMethod actionName="listresroom"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="addreservation"/>
+          <actionMethod actionName="listrescar"/>
+          <actionMethod actionName="delrescar"/>
+          <actionMethod actionName="addrescar"/>
+          <actionMethod actionName="test"/>
+          <actionMethod actionName="getdata"/>
+          <actionMethod actionName="fblogout"/>
         </controllerFile>
         <controllerFile controllerName="Country">
-          <actionMethod actionName="index"/>
-          <actionMethod actionName="list"/>
-          <actionMethod actionName="details"/>
-          <actionMethod actionName="add"/>
-          <actionMethod actionName="delete"/>
-          <actionMethod actionName="update"/>
-        </controllerFile>
-        <controllerFile controllerName="City">
-          <actionMethod actionName="index"/>
-          <actionMethod actionName="list"/>
-          <actionMethod actionName="delete"/>
-          <actionMethod actionName="details"/>
-          <actionMethod actionName="add"/>
-          <actionMethod actionName="edit"/>
-        </controllerFile>
-        <controllerFile controllerName="Hotel">
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="details"/>
@@ -64,8 +67,19 @@
         <formFile formName="Hotel"/>
         <formFile formName="Room"/>
         <formFile formName="Car"/>
-      </formsDirectory>
-      <layoutsDirectory enabled="false"/>
+	<formFile formName="Login"/>
+        <formFile formName="SignUp"/>
+        <formFile formName="Addnewres"/>
+        <formFile formName="Zendx"/>
+        <formFile formName="Addnewcar"/>
+        <formFile formName="Test"/>
+      </controllersDirectory>
+     
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="User"/>
         <modelFile modelName="Country"/>
@@ -73,6 +87,11 @@
         <modelFile modelName="Hotel"/>
         <modelFile modelName="Room"/>
         <modelFile modelName="Car"/>
+        <modelFile modelName="Admin"/>
+        <modelFile modelName="CityRate"/>
+        <modelFile modelName="CountryRate"/>
+        <modelFile modelName="ResRoom"/>
+        <modelFile modelName="ResCar"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -107,59 +126,60 @@
           <viewControllerScriptsDirectory forControllerName="Country">
             <viewScriptFile forActionName="update"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
-            <viewScriptFile forActionName="index"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="showUser"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
-            <viewScriptFile forActionName="list"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="blockUser"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="editUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="addUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="logIn"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="logOut"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="activateUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="fpauth"/>
+            <viewScriptFile forActionName="listresroom"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
-            <viewScriptFile forActionName="details"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
-            <viewScriptFile forActionName="add"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
+          <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="edit"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Hotel">
-            <viewScriptFile forActionName="index"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="addreservation"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Hotel">
-            <viewScriptFile forActionName="list"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="listrescar"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Hotel">
-            <viewScriptFile forActionName="details"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="delrescar"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Hotel">
-            <viewScriptFile forActionName="add"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="addrescar"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Hotel">
-            <viewScriptFile forActionName="delete"/>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="test"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Hotel">
-            <viewScriptFile forActionName="update"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="test"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Room">
-            <viewScriptFile forActionName="index"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="getdata"/>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Room">
-            <viewScriptFile forActionName="list"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Room">
-            <viewScriptFile forActionName="delete"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Room">
-            <viewScriptFile forActionName="add"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Room">
-            <viewScriptFile forActionName="update"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Room">
-            <viewScriptFile forActionName="details"/>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="fblogout"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Car">
             <viewScriptFile forActionName="index"/>
