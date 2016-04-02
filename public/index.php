@@ -14,6 +14,11 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path(),
 )));
 
+
+/** Facebook JDK */
+require_once 'Zend/Facebook/autoload.php';
+
+require_once 'Zend/Glitch/Loader/Autoloader.php';
 /** Zend_Application */
 require_once 'Zend/Application.php';
 

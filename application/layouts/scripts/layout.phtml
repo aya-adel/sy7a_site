@@ -1,17 +1,55 @@
-
-
 <head>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.
 min.css" integrity="sha384-
 1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-
-theme.min.css" integrity="sha384-
-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstraptheme.min.css"
+integrity="sha384-
+<link rel="stylesheet href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-
+theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 crossorigin="anonymous"></script>
 </head>
+<div class="container">
+		<div style="margin-top: 50px;"></div>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+		  <div class="container-fluid">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#"> Zend</a>
+			</div>
+			  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">			
+				<li class="active"><a href="<?php echo $this->baseUrl() ?>/user/listusers">Home <span class="sr-only">(current)</span></a></li>
+                                <li class="active"><a href="<?php echo $this->baseUrl() ?>/user/add-user">Add New <span class="sr-only">(current)</span></a></li>
+			  </ul>
+			  <ul class="nav navbar-nav navbar-right">
+				<li>
+                <?php
+                $auth = Zend_Auth::getInstance();
+                $storage = $auth->getStorage();
+                $sessionRead = $storage->read();
+                if (!empty($sessionRead)) {
+                    $name = $sessionRead->name;
+                    echo "Welcome " . $name;
+                    ?> <a  href="<?php echo $this->baseUrl() ?>/user/log-out"> Logout </a>
+                    <?php }
+                    else{
+                        $fbsession = new Zend_Session_Namespace('facebook');
+                            if (isset($fbsession->name) && !empty(isset($fbsession->name))) {
+                                $name = $fbsession->name;
+                                echo "Welcome " . $name;
+                                ?>
+                     <a  href="<?php echo $this->baseUrl() ?>/user/fblogout"> Logout </a>
+                     <?php   
+                        }
+                    }
+                ?>
+                                </li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
 <?php echo $this->layout()->content; 
