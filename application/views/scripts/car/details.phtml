@@ -1,0 +1,31 @@
+<table class="table">
+
+<?php
+ if($this->car !== null)
+  {
+  	//var_dump($this->user["id"] );exit;
+  	?>
+<tr style="background-color:blue">
+	<td><?php echo $this->car["id"];  ?></td>
+
+</tr>
+<tr>
+<td><?php echo $this->car["location"]; echo "   " ; ?></td>
+	
+
+</tr>
+
+<tr>
+<td><?php echo $this->car["price"];?></td>
+	
+</tr>
+<tr>
+<td><?php echo $this->car["city_id"];?></td>
+	
+</tr>
+
+<?php
+  }
+  // Full texts 	id 	location 	price 	city_id 
+?>
+</table>

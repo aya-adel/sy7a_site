@@ -48,6 +48,14 @@
           <actionMethod actionName="update"/>
           <actionMethod actionName="details"/>
         </controllerFile>
+        <controllerFile controllerName="Car">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+          <actionMethod actionName="details"/>
+          <actionMethod actionName="add"/>
+          <actionMethod actionName="updata"/>
+          <actionMethod actionName="delete"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Country"/>
@@ -55,6 +63,7 @@
         <formFile formName="Countryedit"/>
         <formFile formName="Hotel"/>
         <formFile formName="Room"/>
+        <formFile formName="Car"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -63,6 +72,7 @@
         <modelFile modelName="City"/>
         <modelFile modelName="Hotel"/>
         <modelFile modelName="Room"/>
+        <modelFile modelName="Car"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -150,6 +160,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Room">
             <viewScriptFile forActionName="details"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Car">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Car">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Car">
+            <viewScriptFile forActionName="details"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Car">
+            <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Car">
+            <viewScriptFile forActionName="updata"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Car">
+            <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
