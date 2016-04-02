@@ -13,6 +13,7 @@ class IndexController extends Zend_Controller_Action
         // action body
     }
 
+<<<<<<< HEAD
 //    public function fas7nyAction()
 //    {
 //        // action body
@@ -23,3 +24,8 @@ class IndexController extends Zend_Controller_Action
 
 
 
+=======
+
+}
+
+>>>>>>> f133b5f8c84b072d84a8e9b64ded297658b22972
