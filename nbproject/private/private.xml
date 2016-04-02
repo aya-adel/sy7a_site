@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/fas7ny/editpost.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/Bootstrap.php</file>
+            <file>file:/var/www/html/fas7ny/application/models/Post.php</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/fas7ny/addpost.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/Fas7nyController.php</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/fas7ny/editcomment.phtml</file>
+        </group>
+    </open-files>
+</project-private>
