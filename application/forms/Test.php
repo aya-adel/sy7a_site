@@ -13,10 +13,12 @@ class Application_Form_Test extends Zend_Form
         $room_id= new Zend_Form_Element_Text('room_id');
 	$room_id->setLabel('RoomId');
 	$room_id->setAttrib('class','form-control');
+        $room_id->setAttrib('id','room');
         
         $user_id= new Zend_Form_Element_Text('user_id');
 	$user_id->setLabel('UserID');
 	$user_id->setAttrib('class','form-control');
+        $user_id->setAttrib('id','user');
     
         $start= new Zend_Form_Element_Text('start');
 	$start->setLabel('start');
@@ -33,9 +35,10 @@ class Application_Form_Test extends Zend_Form
 
 
 //add submit button
-	$sumbit=new  Zend_Form_Element_Submit('submit');
+	$sumbit=new Zend_Form_Element_Button('submit');
 	$sumbit->setvalue("Save");
 	$sumbit->setAttrib('class','btn btn-success');
+        $sumbit->setAttrib('id','btn');
 
 
 	//add reset button

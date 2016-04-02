@@ -1,29 +1,31 @@
 <br /><br />
+<head>
+    
+
+	
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+</head>
 <?php
 echo $this->form;
 ?>
-<body>
+
+
     <script>
-       // $('#start').
-    function AutoFill()
-    {
-        alert("hello");
-        new Ajax.Request(
-        "<?=$this->url(array('controller'=>'user','action'=>'getdata'))?>",
-            {
-                method:'get',
-                parameters: {id: value},
-                onSuccess: FillForm,
-                onFailed:FillForm
-        }
-}
+        $('#btn').on('click',hello);
+        
+        function hello () {
+           // alert("helllll0");
+        jQuery.ajax({
+    url: "http://http://localhost/fas7ny/public/user/getdata",
+    type: "get",
+    //dataType: 'json',
+    //data: data,
+    success: function(){alert("sucess");},
+    error:function(){ alert("fail");}
+        })
+    }
 
-function FillForm(rsp)
-{
-    var card = eval('(' + rsp.responseText + ')');
-    $('user_id').value = card.items[0].user_id;
-    $('room_id').value = card.items[0].room_id;
-} 
+
 </script>
-</body>
-
