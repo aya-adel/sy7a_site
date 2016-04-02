@@ -2,30 +2,16 @@
 
 // id 	name 	email 	password 	is_enable 	tel 	gender 
 class Application_Model_User extends Zend_Db_Table_Abstract {
-
-<<<<<<< HEAD
     protected $_name = 'user';
-
     function listUsers() {
         return $this->fetchAll()->toArray();
     }
-
     function showUser($uid) {
         return $this->find($uid)->toArray();
     }
-
     function deleteUser($uid) {
         $this->delete("id=$uid");
     }
-=======
-function listUsers()
-{
-return $this->fetchAll()->toArray();
-}
-
-}
->>>>>>> 06409b73457a4fb875305e19c1c069cab506434f
-
     function addNewUser($userData){
         $row = $this->createRow();
         $row->name = $userData['name'];
@@ -55,6 +41,4 @@ return $this->fetchAll()->toArray();
         $my_date['is_enable'] = 1 ;
         $this->update($my_date, "id=$uid");
     }
-
-
 }

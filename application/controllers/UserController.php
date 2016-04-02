@@ -5,13 +5,26 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-        
-    
+        $authorization = Zend_Auth::getInstance();
+        $fbsession = new Zend_Session_Namespace('facebook');
+        if (!$authorization->hasIdentity() &&
+                !isset($fbsession->name)) {
+            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+                $this->redirect("user/log-in");
+            }
+        }
     }
 
     public function indexAction()
     {
         
+    }
+
+    public function listusersAction()
+    {
+        
+        $user_obj = new Application_Model_User();
+        $this->view->users = $user_obj->listUsers();
     }
 
     public function listresroomAction()
@@ -145,6 +158,7 @@ class UserController extends Zend_Controller_Action
     //}
 
     }
+
     public function addUserAction()
     {
 // action body
@@ -227,13 +241,87 @@ class UserController extends Zend_Controller_Action
 
     public function fpauthAction()
     {
+        
+        // action body
+        $fb = new Facebook\Facebook([
+            'app_id' => '566537100167424', // Replace {app-id} with your app id
+            'app_secret' => '0e72350a1ff5d34e4a0a487f4be811cd',
+            'default_graph_version' => 'v2.2',
+        ]);
+
+
+        // use helper method of facebook for login
+        $helper = $fb->getRedirectLoginHelper();
+        try {
+            $accessToken = $helper->getAccessToken();
+        } catch (Facebook\Exceptions\FacebookResponseException $e) {
+            // When Graph returns an error (headers link)
+            echo 'Graph returned an error: ' . $e->getMessage();
+            Exit;
+        } catch (Facebook\Exceptions\FacebookSDKException $e) {
+// When validation fails or other local issues
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            Exit;
+        }// handle access toaken & print full error message
+        if (!isset($accessToken)) {
+            if ($helper->getError()) {
+                header('HTTP/1.0 401 Unauthorized');
+                echo "Error: " . $helper->getError() . "\n";
+                echo "Error Code: " . $helper->getErrorCode() . "\n";
+                echo "Error Reason: " . $helper->getErrorReason() . "\n";
+                echo "Error Description: " . $helper->getErrorDescription() .
+                "\n";
+            } else {
+                header('HTTP/1.0 400 Bad Request');
+                echo 'Bad request';
+            }
+            Exit;
+        }// Logged in
+// The OAuth 2.0 client handler helps us manage access tokens
+        $oAuth2User = $fb->getOAuth2Client();
+//check if access token expired
+        if (!$accessToken->isLongLived()) {
+// Exchanges a short-lived access token for a long-lived one
+            try {
+// try to get another access token
+                $accessToken = $oAuth2User->getLongLivedAccessToken($accessToken);
+            } catch (Facebook\Exceptions\FacebookSDKException $e) {
+                echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+                Exit;
+            }
+        }//Sets the default fallback access token so we don't have to pass it to each request
+        $fb->setDefaultAccessToken($accessToken);
+        try {
+            $response = $fb->get('/me');
+            $userNode = $response->getGraphUser();
+        } catch (Facebook\Exceptions\FacebookResponseException $e) {
+// When Graph returns an error
+            echo 'Graph returned an error: ' . $e->getMessage();
+            Exit;
+        } catch (Facebook\Exceptions\FacebookSDKException $e) {
+// When validation fails or other local issues
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            Exit;
+        }
+        $fpsession = new Zend_Session_Namespace('facebook');
+// write in session email & id & fname
+        $fpsession->name = $userNode->getName();
+        $this->redirect('/user/listusers');
+        
+    }
+
+    public function fblogoutAction()
+    {
         // action body
         
         
-        
+        Zend_Session::namespaceUnset('facebook');
+        $this->redirect("/user/log-in");
     }
 
 
 }
+
+
 
 

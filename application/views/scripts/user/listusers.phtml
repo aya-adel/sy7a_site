@@ -3,7 +3,7 @@
     <p>View script for controller <b>Clients</b> and script/action name <b>listClients</b></p>
     <table>
         <?php
-        foreach ($this->clients as $key => $value) {
+        foreach ($this->users as $key => $value) {
             if($value['is_enable'] == 0) {
                 $action = 'activate';
             } else {
