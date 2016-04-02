@@ -1,0 +1,28 @@
+<?php
+echo "<table>";
+//var_dump( $this->country);exit();
+
+// Full texts 	id 	name 	location 	city_id 
+echo "<td> <a class='btn btn-info' href='add'> ADD </a> </td>" ;
+foreach($this->room as $key => $value)
+{
+
+echo "<tr>".
+"<td>" . $value['id']
+. "</td>" .
+"<td>" . $value['type'] . "</td>" .
+"<td>" . $value['price'] . "</td>" .
+ "<td>" . $value['hotel_id'] . "</td>" .
+//"<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
+
+"<td> <a class='btn btn-info' href='details/id/".$value['id']."'> Details </a> </td>" .
+
+"<td> <a class='btn btn-warning' href='delete/id/".$value['id']."'> Delete </a> </td>" .
+"<td> <a class='btn btn-primary' href='update/id/".$value['id']."'> Edit </a> </td>" .
+"</tr>";
+
+
+}
+echo "</table>";
+//id 	type 	price 	hotel_id 
+?>

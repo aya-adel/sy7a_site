@@ -1,0 +1,87 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Fas7ny</b> and script/action name <b>listposts</b></p>
+</div>
+<br /><br />
+<div id="experience-container">
+    <div class="detailBox">
+        <div class="titleBox">
+          <label>Comment Box</label>
+        </div>
+        <div class="actionBox">
+            <ul class="commentList">
+                <li>
+                    <div class="commenterImage">
+                      <img src="http://lorempixel.com/50/50/people/6" />
+                    </div>
+                    <div class="commentText">
+                        <p class="">Hello this is a test comment.</p> <span class="date sub-text">on March 5th, 2014</span>
+
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline" role="form">
+                <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Your comments" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-default">Add</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="experience-title">
+        <h2>
+            Experience
+        </h2>
+    </div>
+    <div id="experience-body">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <td>post_id</td>
+                <td>city_id</td>
+                <td>user_id</td>
+                <td>post_content</td>
+                <td>edit_post</td>
+                <td>delete_post</td>
+                <td>rate_post</td>
+            </thead>
+            <?php foreach($this->posts as $key => $post): ?>
+            <tr>
+                <td> <?= $post['id'] ?> </td>
+                <td> <?= $post['city_id'] ?> </td>
+                <td> <?= $post['user_id'] ?> </td>
+                <td> <?= $post['content'] ?> </td>
+                <td> <a class='btn btn-warning' href="listcomments/postid/<?= $post['id'] ?>"> Show Comments </a> </td>
+                <td> <a class='btn btn-warning' href="editpost/postid/<?= $post['id'] ?>"> Edit </a> </td>
+                <td> <a class='btn btn-danger' href="deletepost/postid/<?= $post['id'] ?>"> Delete </a> </td>
+                <td>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
+<!--                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>-->
+                </td>
+            </tr>
+<!--            <hr>-->
+            <?php endforeach; ?>
+            <div class="alert alert-success alert-dismissible">
+                <i class="glyphicon glyphicon-remove-sign"></i> 
+                For Add Experience Click button Add  
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                <a class='btn btn-success' href='addpost'> AddPost </a>
+            </div>
+        </table>
+        <div style="border:1px solid #000; display:inline-block;">
+            Div 1
+        </div>
+        <div style="border:1px solid red; display:inline-block; text-align:right;">
+            Div 2
+        </div>
+    </div>
+</div>

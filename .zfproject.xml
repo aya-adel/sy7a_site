@@ -10,11 +10,13 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="test"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
           <actionMethod actionName="index"/>
           <actionMethod actionName="listusers"/>
+<<<<<<< HEAD
           <actionMethod actionName="showUser"/>
           <actionMethod actionName="blockUser"/>
           <actionMethod actionName="editUser"/>
@@ -23,6 +25,17 @@
           <actionMethod actionName="logOut"/>
           <actionMethod actionName="activateUser"/>
           <actionMethod actionName="fpauth"/>
+=======
+          <actionMethod actionName="listresroom"/>
+          <actionMethod actionName="delete"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="addreservation"/>
+          <actionMethod actionName="listrescar"/>
+          <actionMethod actionName="delrescar"/>
+          <actionMethod actionName="addrescar"/>
+          <actionMethod actionName="test"/>
+          <actionMethod actionName="getdata"/>
+>>>>>>> 06409b73457a4fb875305e19c1c069cab506434f
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -35,8 +48,15 @@
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Country"/>
+<<<<<<< HEAD
         <formFile formName="Login"/>
         <formFile formName="SignUp"/>
+=======
+        <formFile formName="Addnewres"/>
+        <formFile formName="Zendx"/>
+        <formFile formName="Addnewcar"/>
+        <formFile formName="Test"/>
+>>>>>>> 06409b73457a4fb875305e19c1c069cab506434f
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -46,9 +66,14 @@
       <modelsDirectory>
         <modelFile modelName="User"/>
         <modelFile modelName="Country"/>
+<<<<<<< HEAD
         <modelFile modelName="Admin"/>
         <modelFile modelName="CityRate"/>
         <modelFile modelName="CountryRate"/>
+=======
+        <modelFile modelName="ResRoom"/>
+        <modelFile modelName="ResCar"/>
+>>>>>>> 06409b73457a4fb875305e19c1c069cab506434f
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -84,6 +109,7 @@
             <viewScriptFile forActionName="update"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
+<<<<<<< HEAD
             <viewScriptFile forActionName="showUser"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
@@ -106,6 +132,36 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="fpauth"/>
+=======
+            <viewScriptFile forActionName="listresroom"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="addreservation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="listrescar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="delrescar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="addrescar"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="test"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="test"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="getdata"/>
+>>>>>>> 06409b73457a4fb875305e19c1c069cab506434f
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
