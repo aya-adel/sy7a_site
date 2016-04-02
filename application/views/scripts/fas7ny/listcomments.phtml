@@ -1,0 +1,57 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Fas7ny</b> and script/action name <b>listcomments</b></p>
+</div>
+<div id="experience-container">
+    <div id="experience-title">
+        <h2>
+            Experience
+        </h2>
+    </div>
+    <div id="experience-body">
+        <table class="table table-condensed table-striped">
+            <thead>
+                <td>comment_id</td>
+                <td>comment_content</td>
+                <td>post_id</td>
+                <td>edit_comment</td>
+                <td>delete_comment</td>
+                <td>rate_comment</td>
+            </thead>
+            <?php foreach($this->comments as $key => $comment): ?>
+            <tr>
+                <td> <?= $comment['id'] ?> </td>
+                <td> <?= $comment['content'] ?> </td>
+                <td> <?= $comment['post_id'] ?> </td>
+		<td> <a class='btn btn-warning' href="../../editcomment/commentid/<?= $comment['id'] ?>"> Edit </a> </td>
+		<td> <a class='btn btn-danger' href="../../deletecomment/commentid/<?= $comment['id'] ?>"> Delete </a> </td>
+                <td>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
+<!--                    <button type="button" class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>-->
+                </td>
+            </tr>
+<!--            <hr>-->
+            <?php endforeach; ?>
+            <div class="alert alert-success alert-dismissible">
+                <i class="glyphicon glyphicon-remove-sign"></i> 
+                For Add Experience Click button Add  
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                <a class='btn btn-success' href='../../addcomment'> AddComment </a>
+            </div>
+        </table>
+        <div style="border:1px solid #000; display:inline-block;">
+            Div 1
+        </div>
+        <div style="border:1px solid red; display:inline-block; text-align:right;">
+            Div 2
+        </div>
+    </div>
+</div>
