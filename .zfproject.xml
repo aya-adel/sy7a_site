@@ -15,6 +15,14 @@
         <controllerFile controllerName="User">
           <actionMethod actionName="index"/>
           <actionMethod actionName="listusers"/>
+          <actionMethod actionName="showUser"/>
+          <actionMethod actionName="blockUser"/>
+          <actionMethod actionName="editUser"/>
+          <actionMethod actionName="addUser"/>
+          <actionMethod actionName="logIn"/>
+          <actionMethod actionName="logOut"/>
+          <actionMethod actionName="activateUser"/>
+          <actionMethod actionName="fpauth"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -27,11 +35,20 @@
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Country"/>
+        <formFile formName="Login"/>
+        <formFile formName="SignUp"/>
       </formsDirectory>
-      <layoutsDirectory enabled="false"/>
+      <layoutsDirectory>
+        <layoutScriptsDirectory>
+          <layoutScriptFile layoutName="layout"/>
+        </layoutScriptsDirectory>
+      </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="User"/>
         <modelFile modelName="Country"/>
+        <modelFile modelName="Admin"/>
+        <modelFile modelName="CityRate"/>
+        <modelFile modelName="CountryRate"/>
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
@@ -65,6 +82,30 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Country">
             <viewScriptFile forActionName="update"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="showUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="blockUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="editUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="addUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="logIn"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="logOut"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="activateUser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="fpauth"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
