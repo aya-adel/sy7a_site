@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 31, 2016 at 06:55 PM
+-- Generation Time: Apr 03, 2016 at 08:54 PM
 -- Server version: 5.6.28-0ubuntu0.14.04.1
 -- PHP Version: 5.5.9-1ubuntu4.14
 
@@ -51,11 +51,10 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`, `tel`, `gender`) VALUES
 
 CREATE TABLE IF NOT EXISTS `car` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
-  `location` varchar(30) NOT NULL,
   `price` int(30) NOT NULL,
-  `city_id` int(30) NOT NULL,
+  `location_id` int(30) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `city_id` (`city_id`)
+  KEY `city_id` (`location_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -74,7 +73,16 @@ CREATE TABLE IF NOT EXISTS `city` (
   `country_id` int(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `country_id` (`country_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `city`
+--
+
+INSERT INTO `city` (`id`, `name`, `description`, `longitude`, `latitude`, `image`, `country_id`) VALUES
+(1, 'cairo', 'adsdasd', 5, 5, 'sdafdf', 1),
+(2, 'alex', 'asdasd', 5, 5, 'khk', 1),
+(3, 'alex', 'on beatch', 67, 67, 'jlasjl', 1);
 
 -- --------------------------------------------------------
 
@@ -90,7 +98,17 @@ CREATE TABLE IF NOT EXISTS `city_rate` (
   PRIMARY KEY (`id`),
   KEY `city_id` (`city_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `city_rate`
+--
+
+INSERT INTO `city_rate` (`id`, `city_id`, `user_id`, `rate`) VALUES
+(1, 1, 1, 45),
+(2, 2, 1, 2),
+(3, 1, 2, 42),
+(4, 2, 2, 23);
 
 -- --------------------------------------------------------
 
@@ -119,7 +137,14 @@ CREATE TABLE IF NOT EXISTS `country` (
   `description` varchar(100) NOT NULL,
   `image` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `country`
+--
+
+INSERT INTO `country` (`id`, `name`, `description`, `image`) VALUES
+(1, 'egypt', 'sdsd', 'sdsd');
 
 -- --------------------------------------------------------
 
@@ -146,8 +171,22 @@ CREATE TABLE IF NOT EXISTS `country_rate` (
 CREATE TABLE IF NOT EXISTS `hotel` (
   `id` int(30) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
-  `location` varchar(40) NOT NULL,
-  `city_id` int(30) NOT NULL,
+  `location_id` int(30) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `city_id` (`location_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `location`
+--
+
+CREATE TABLE IF NOT EXISTS `location` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -229,18 +268,20 @@ CREATE TABLE IF NOT EXISTS `user` (
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `is_enable` int(10) NOT NULL,
+  `is_enable` int(10) NOT NULL DEFAULT '1',
   `tel` int(20) NOT NULL,
   `gender` enum('male','femal') NOT NULL,
+  `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `name`, `email`, `password`, `is_enable`, `tel`, `gender`) VALUES
-(1, 'amr', 'amr@yahoo', 'amr', 0, 10, 'male');
+INSERT INTO `user` (`id`, `name`, `email`, `password`, `is_enable`, `tel`, `gender`, `image`) VALUES
+(1, 'amr', 'amr@yahoo', 'amr', 0, 10, 'male', ''),
+(2, 'amrfayad', 'amr@yahoo.com', '1234', 0, 144250674, 'male', '');
 
 --
 -- Constraints for dumped tables
@@ -250,7 +291,7 @@ INSERT INTO `user` (`id`, `name`, `email`, `password`, `is_enable`, `tel`, `gend
 -- Constraints for table `car`
 --
 ALTER TABLE `car`
-  ADD CONSTRAINT `car_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
+  ADD CONSTRAINT `car_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`);
 
 --
 -- Constraints for table `city`
@@ -282,7 +323,13 @@ ALTER TABLE `country_rate`
 -- Constraints for table `hotel`
 --
 ALTER TABLE `hotel`
-  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
+  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `location` (`id`);
+
+--
+-- Constraints for table `location`
+--
+ALTER TABLE `location`
+  ADD CONSTRAINT `location_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
 
 --
 -- Constraints for table `post`
