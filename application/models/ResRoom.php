@@ -32,7 +32,7 @@ class Application_Model_ResRoom extends Zend_Db_Table_Abstract
         $select = $this->_db->select()
                         ->from($this->_name,
                                     array('user_id','room_id'))
-                        ->where('id = ?', $id);
+                        ->where('id = ?','1');
         $result = $this->getAdapter()->fetchAll($select);
         return $result;
     }

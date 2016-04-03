@@ -11,6 +11,8 @@ class CountryController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $country_model = new Application_Model_Country();
+        $this->view->country = $country_model->listCountry();
     }
 
     public function listAction()
@@ -22,9 +24,13 @@ class CountryController extends Zend_Controller_Action
     public function detailsAction()
     {
         $country_model = new Application_Model_Country();
+        $city_model = new Application_Model_City();
         $country_id = $this->_request->getParam("id");
+        $allcities = $city_model->getAllCities($country_id);
         $country = $country_model->countryDetail($country_id);
         $this->view->country = $country[0];
+        $this->view->cites = $allcities;
+        
     }
 
     public function addAction()
