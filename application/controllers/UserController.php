@@ -319,8 +319,15 @@ class UserController extends Zend_Controller_Action
         $this->redirect("/user/log-in");
     }
 
+    public function mmmAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 

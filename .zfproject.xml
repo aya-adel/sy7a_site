@@ -34,6 +34,7 @@
           <actionMethod actionName="test"/>
           <actionMethod actionName="getdata"/>
           <actionMethod actionName="fblogout"/>
+          <actionMethod actionName="mmm"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -42,6 +43,9 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="update"/>
+        </controllerFile>
+        <controllerFile controllerName="Admin">
+          <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -154,6 +158,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="fblogout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="mmm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
