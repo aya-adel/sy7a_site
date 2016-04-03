@@ -1,0 +1,351 @@
+
+Warning: SimpleXMLElement::__construct(): Entity: line 78: parser error : Opening and ending tag mismatch: formsDirectory line 65 and controllersDirectory in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():       </controllersDirectory> in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():                              ^ in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): Entity: line 205: parser error : Opening and ending tag mismatch: viewControllerScriptsDirectory line 183 and viewScriptsDirectory in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():         </viewScriptsDirectory> in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():                                ^ in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): Entity: line 208: parser error : Opening and ending tag mismatch: viewScriptsDirectory line 100 and viewsDirectory in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():       </viewsDirectory> in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():                        ^ in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): Entity: line 210: parser error : Opening and ending tag mismatch: viewsDirectory line 99 and applicationDirectory in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():     </applicationDirectory> in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():                            ^ in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): Entity: line 244: parser error : Opening and ending tag mismatch: applicationDirectory line 5 and projectDirectory in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():   </projectDirectory> in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():                      ^ in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): Entity: line 245: parser error : Opening and ending tag mismatch: projectDirectory line 3 and projectProfile in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): </projectProfile> in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct():                  ^ in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+
+Warning: SimpleXMLElement::__construct(): Entity: line 246: parser error : Premature end of data in tag projectProfile line 2 in /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php on line 109
+
+Call Stack:
+    0.0020     319400   1. {main}() /var/www/html/ZendFramework-1.12.1/bin/zf.php:0
+    0.0021     319448   2. ZF::main() /var/www/html/ZendFramework-1.12.1/bin/zf.php:623
+    0.0083     568528   3. ZF->run() /var/www/html/ZendFramework-1.12.1/bin/zf.php:74
+    0.0083     568664   4. ZF->_runTool() /var/www/html/ZendFramework-1.12.1/bin/zf.php:117
+    0.0099     639456   5. Zend_Tool_Framework_Client_Abstract->dispatch() /var/www/html/ZendFramework-1.12.1/bin/zf.php:600
+    0.0768    4568760   6. Zend_Tool_Framework_Client_Abstract->_handleDispatch() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:241
+    0.0768    4569600   7. Zend_Tool_Framework_Client_Abstract->_handleDispatchExecution() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:318
+    0.0768    4570040   8. call_user_func_array() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571544   9. Zend_Tool_Project_Provider_Action->create() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Framework/Client/Abstract.php:324
+    0.0768    4571656  10. Zend_Tool_Project_Provider_Abstract->_loadProfile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Action.php:132
+    0.0769    4573432  11. Zend_Tool_Project_Profile->loadFromFile() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Provider/Abstract.php:140
+    0.0770    4585208  12. Zend_Tool_Project_Profile_FileParser_Xml->unserialize() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile.php:176
+    0.0770    4585432  13. SimpleXMLElement->__construct() /var/www/html/ZendFramework-1.12.1/library/Zend/Tool/Project/Profile/FileParser/Xml.php:109
+
+[1;37m[41m                          An Error Has Occurred                         [m
+[37m[41m String could not be parsed as XML                                      [m
+
+[1;37mZend Framework[m Command Line Console Tool v1.12.6
+[32mDetails for action "Create" and provider "Action"[m
+  Action
+[36m    zf create action[m name controller-name[=Index] view-included[=1] module
+
+
