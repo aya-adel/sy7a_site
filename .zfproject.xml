@@ -73,8 +73,8 @@
         <formFile formName="Zendx"/>
         <formFile formName="Addnewcar"/>
         <formFile formName="Test"/>
-      </controllersDirectory>
-     
+            </formsDirectory>
+
       <layoutsDirectory>
         <layoutScriptsDirectory>
           <layoutScriptFile layoutName="layout"/>

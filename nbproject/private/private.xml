@@ -2,54 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-<<<<<<< HEAD
-=======
-            <file>file:/var/www/html/fas7ny/application/controllers/UserController.php</file>
             <file>file:/var/www/html/fas7ny/application/layouts/scripts/layout.phtml</file>
         </group>
-=======
-<<<<<<< HEAD
-        <group/>
-=======
-        <group>
-<<<<<<< HEAD
-            <file>file:/var/www/html/fas7ny/application/views/scripts/fas7ny/editpost.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/Bootstrap.php</file>
-            <file>file:/var/www/html/fas7ny/application/models/Post.php</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/fas7ny/addpost.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/Fas7nyController.php</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/fas7ny/editcomment.phtml</file>
-=======
-            <file>file:/var/www/html/fas7ny/application/models/User.php</file>
->>>>>>> 199c40d4dd788723aeea62711a87b3be719a05f5
-            <file>file:/var/www/html/fas7ny/application/views/scripts/city/edit.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/hotel/update.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/room/update.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/room/delete.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/hotel/details.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/room/details.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/hotel/delete.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/room/add.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/CityController.php</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/hotel/list.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/models/Room.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/RoomController.php</file>
-            <file>file:/var/www/html/fas7ny/application/models/Hotel.php</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/hotel/add.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/forms/Hotel.php</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/room/list.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/UserController.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/HotelController.php</file>
-<<<<<<< HEAD
-            <file>file:/var/www/html/fas7ny/application/forms/Room.php</file>
-=======
-            <file>file:/var/www/html/fas7ny/application/views/scripts/country/details.phtml</file>
->>>>>>> f133b5f8c84b072d84a8e9b64ded297658b22972
->>>>>>> 199c40d4dd788723aeea62711a87b3be719a05f5
-        </group>
->>>>>>> 020723ead5feb7db330d650f7d22f53d0c3ee408
->>>>>>> 06409b73457a4fb875305e19c1c069cab506434f
     </open-files>
 </project-private>

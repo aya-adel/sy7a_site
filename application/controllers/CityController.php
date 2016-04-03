@@ -69,6 +69,10 @@ class CityController extends Zend_Controller_Action {
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                    $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpeg";
                 $city_obj->addNewcity($_POST);
                 $this->redirect('/city/list');
             }
@@ -92,7 +96,10 @@ class CityController extends Zend_Controller_Action {
         $request = $this->getRequest(); // h3dal el data w hdos submit w btally lzm 2ml function wzftha 2nha bt3ml insert l data gdeda fe database
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
-
+                        $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpeg";
                 $city_obj->updataCity($id, $_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
                 $this->redirect('/city/list'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
             }

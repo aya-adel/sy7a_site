@@ -36,14 +36,19 @@ $description->setAttribs(array(
 ));
 
 
-// image
-$image = new Zend_Form_Element_Text('image');
-// h7ot label el label dah 2bal el 5ana elly feha el text field 
-$image->setLabel('The image of the country: ');
-// h7ot attribut l fnmae in feha placeholder + class mo7dd 
-$image->setAttribs(array(
-'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
-));
+//// image
+//$image = new Zend_Form_Element_Text('image');
+//// h7ot label el label dah 2bal el 5ana elly feha el text field 
+//$image->setLabel('The image of the country: ');
+//// h7ot attribut l fnmae in feha placeholder + class mo7dd 
+//$image->setAttribs(array(
+//'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
+//));
+$image = new Zend_Form_Element_File('image');
+        $image->setLabel('Upload an image:');
+        $image->addValidator('Count', false, 1);
+        $image->addValidator('Extension',false, 'jpg,jpeg,png,gif');
+
 
 
 

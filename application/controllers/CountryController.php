@@ -45,7 +45,10 @@ class CountryController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
-
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpeg";
                 $country_obj->addNewcountry($_POST);
                 $this->redirect('/country/list');
             }
@@ -80,7 +83,10 @@ class CountryController extends Zend_Controller_Action
         {
             if($form->isValid($request->getPost()))
             {
-                
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpeg";
                 $country_obj->updataCountry($id,$_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
                 $this->redirect('/country/list'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
 

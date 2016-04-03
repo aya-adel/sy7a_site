@@ -81,9 +81,6 @@
     <div id="experience-body">
         <table class="table table-condensed table-striped">
             <thead>
-                <td>post_id</td>
-                <td>city_id</td>
-                <td>user_id</td>
                 <td>post_content</td>
                 <td>edit_post</td>
                 <td>delete_post</td>
@@ -91,13 +88,11 @@
             </thead>
             <?php foreach($this->posts as $key => $post): ?>
             <tr>
-                <td> <?= $post['id'] ?> </td>
                 <td> <?= $post['city_id'] ?> </td>
                 <td> <?= $post['user_id'] ?> </td>
                 <td> <?= $post['content'] ?> </td>
-                <td> <a class='btn btn-warning' href="../fas7ny/listcomments/postid/<?= $post['id'] ?>"> Show Comments </a> </td>
-                <td> <a class='btn btn-warning' href="../fas7ny/editpost/postid/<?= $post['id'] ?>"> Edit </a> </td>
-                <td> <a class='btn btn-danger' href="../fas7ny/deletepost/postid/<?= $post['id'] ?>"> Delete </a> </td>
+                <td> <a class='btn btn-warning' href="../../../../../fas7ny/editpost/postid/<?= $post['id'] ?>"> Edit </a> </td>
+                <td> <a class='btn btn-danger' href="../../../../../fas7ny/deletepost/postid/<?= $post['id'] ?>"> Delete </a> </td>
                 <td>
                     <a href="#"><span class="glyphicon glyphicon-star"></span></a>
                     <a href="#"><span class="glyphicon glyphicon-star"></span></a>
