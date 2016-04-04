@@ -30,6 +30,11 @@ class Application_Model_Post extends Zend_Db_Table_Abstract
         $id= $postData['id'];
         $this->update($newData,"id=".$id);
     }
+    
+   function getAllPosts($city_id) {
+        return $this->fetchAll("city_id=$city_id")->toArray();
+    }
+
 
 
 }

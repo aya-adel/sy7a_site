@@ -5,14 +5,15 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-        $authorization = Zend_Auth::getInstance();
-        $fbsession = new Zend_Session_Namespace('facebook');
-        if (!$authorization->hasIdentity() &&
-                !isset($fbsession->name)) {
-            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
-                $this->redirect("user/log-in");
-            }
-        }
+//        $authorization = Zend_Auth::getInstance();
+//        $fbsession = new Zend_Session_Namespace('facebook');
+//        if (!$authorization->hasIdentity() &&
+//                !isset($fbsession->name)) {
+//            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+//                $this->redirect("user/log-in");
+//            }
+//        }
+          $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
     }
 
     public function indexAction()
@@ -141,21 +142,19 @@ class UserController extends Zend_Controller_Action
 
     public function getdataAction()
     {
-        //$this->_helper->layout()->disableLayout();
+       $this->_helper->layout()->disableLayout();
         $users = new Application_Model_ResRoom();                           //create object of your model
-       // $this->_helper->viewRenderer->setNoRender();
-       //if ($this->getRequest()->isXmlHttpRequest()) {
-           // echo "iam here"; exit;
-           //$id = $this->_getParam('id');
-           
-            $userData = $users->getData(1);
-            //echo json_encode($userData); 
-            //var_dump($userData); exit;
-            $dojoData= new Zend_Dojo_Data('id',$userData,'id');
-            echo $dojoData->toJson();
+       $this->_helper->viewRenderer->setNoRender();
+       if ($this->getRequest()->isXmlHttpRequest()) {
+               
+           $id = $this->_getParam('id');
+           $userData = $users->getData('1');
+           //var_dump($userData);exit;
+           $dojoData= new Zend_Dojo_Data('id',$userData,'id');
+            echo $dojoData->toJson(); 
             
         
-    //}
+    }
 
     }
 
@@ -319,8 +318,15 @@ class UserController extends Zend_Controller_Action
         $this->redirect("/user/log-in");
     }
 
+    public function checkAction()
+    {
+        // action body
+    }
+
 
 }
+
+
 
 
 

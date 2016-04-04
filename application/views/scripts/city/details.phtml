@@ -73,5 +73,62 @@
   }
 ?>
 </table>
-    </body>
-    </html>
+<div id="experience-container">
+   <div id="experience-title">
+        <h2>
+            Experience
+        </h2>
+    </div>
+    <div id="experience-body">
+        <?php foreach($this->posts as $key => $post): ?>
+        <hr>
+        <div id="post-details">
+            <div id="post-contant" style="display:inline-block;" ><?= $post['content'] ?></div><!--/city/deletepost/id/country_id/1/-->
+            <div id="post-edit"  style="display:inline-block;" ><a class='btn btn-warning' href="?postidedit=<?= $post['id'] ?>"> Edit </a></div>
+            <div id="post-delete" style="display:inline-block;" ><a class='btn btn-danger' href="?postiddel=<?= $post['id'] ?>"> Delete </a></div>
+            <div id="post-rate"  style="display:inline-block;" >
+                <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
+        </div>
+        <?php 
+        for($i=0;$i<count($this->comments);$i++){
+            foreach($this->comments[$i] as $key => $comment):
+                if($post['id']==$comment['post_id']){?>
+                    <div id="comment-details" style="margin-left: 50px;">
+        <hr>
+                        <div id="comment-contant" style="display:inline-block;" ><?= $comment['content'] ?></div>
+                        <div id="comment-edit"  style="display:inline-block;" ><a class='btn btn-warning' href="../../editcomment/commentid/<?= $comment['id'] ?>"> Edit </a></div>
+                        <div id="comment-delete" style="display:inline-block;" ><a class='btn btn-danger' href="../../deletecomment/commentid/<?= $comment['id'] ?>"> Delete </a></div>
+                        <div id="comment-rate"  style="display:inline-block;" >
+                            <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                            <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                            <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                            <a href="#"><span class="glyphicon glyphicon-star"></span></a>
+                            <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
+                        </div>
+                    </div>
+        <?php }endforeach; }?>
+        <?php endforeach;?>
+        <hr>
+        <div class="alert alert-success alert-dismissible">
+            <i class="glyphicon glyphicon-remove-sign"></i> 
+            For Add Experience Click button Add  
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            <a class='btn btn-success' href='#'> AddPost </a>
+        </div>
+        <hr>
+    </div>
+    <?= $this->Post_form ?>
+</div>
+    
+    
+    
+    
+    
+    
+    
