@@ -34,6 +34,7 @@
           <actionMethod actionName="test"/>
           <actionMethod actionName="getdata"/>
           <actionMethod actionName="fblogout"/>
+          <actionMethod actionName="mmm"/>
           <actionMethod actionName="check"/>
         </controllerFile>
         <controllerFile controllerName="Country">
@@ -43,6 +44,29 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="update"/>
+        </controllerFile>
+        <controllerFile controllerName="Admin">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="login"/>
+          <actionMethod actionName="logout"/>
+          <actionMethod actionName="blockuser"/>
+          <actionMethod actionName="activateuser"/>
+          <actionMethod actionName="addcountry"/>
+          <actionMethod actionName="addcity"/>
+          <actionMethod actionName="addhotel"/>
+          <actionMethod actionName="addroom"/>
+          <actionMethod actionName="editcountry"/>
+          <actionMethod actionName="editcity"/>
+          <actionMethod actionName="edithotel"/>
+          <actionMethod actionName="editrooml"/>
+          <actionMethod actionName="deletecountry"/>
+          <actionMethod actionName="deletecity"/>
+          <actionMethod actionName="deletehotel"/>
+          <actionMethod actionName="showcountry"/>
+          <actionMethod actionName="showcity"/>
+          <actionMethod actionName="showhotel"/>
+          <actionMethod actionName="showroom"/>
+          <actionMethod actionName="showuser"/>
         </controllerFile>
         <controllerFile controllerName="Room">
           <actionMethod actionName="index"/>
@@ -186,6 +210,12 @@
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="fblogout"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="mmm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Car">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -215,6 +245,67 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="post"/>
+         </viewControllerScriptsDirectory> 
+         <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="login"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="blockuser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="activateuser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="addcountry"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="addcity"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="addhotel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="addroom"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="editcountry"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="editcity"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="edithotel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="editrooml"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="deletecountry"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="deletecity"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="deletehotel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="showcountry"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="showcity"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="showhotel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="showroom"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="showuser"/>
+>>>>>>> ac32a255392e40fd347e3140f40da58fa59de8dc
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
