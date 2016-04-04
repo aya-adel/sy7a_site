@@ -1,0 +1,17 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Admin</b> and script/action name <b>listcity</b></p>
+</div>
+<table>
+    <?php
+    echo "<td> <a class='btn btn-info' href='add'> ADD </a> </td>" ;
+    foreach ($this->city as $key => $value) {
+        echo "<tr>" .
+             "<td>" . $value['name'] . "</td>" .
+             "<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
+             "<td> <a class='btn btn-primary' href='update/id/".$value['id']."'> Edit </a> </td>" .
+             "<td> <a class='btn btn-warning' href='delete/id/".$value['id']."'> Delete </a> </td>".
+             "</tr>";
+    }
+    ?>
+</table>

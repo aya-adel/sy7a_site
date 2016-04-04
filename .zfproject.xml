@@ -67,6 +67,12 @@
           <actionMethod actionName="showhotel"/>
           <actionMethod actionName="showroom"/>
           <actionMethod actionName="showuser"/>
+          <actionMethod actionName="listuser"/>
+          <actionMethod actionName="listcountry"/>
+          <actionMethod actionName="listcity"/>
+          <actionMethod actionName="listhotel"/>
+          <actionMethod actionName="listroom"/>
+          <actionMethod actionName="adduser"/>
         </controllerFile>
         <controllerFile controllerName="Room">
           <actionMethod actionName="index"/>
@@ -245,8 +251,8 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="post"/>
-         </viewControllerScriptsDirectory> 
-         <viewControllerScriptsDirectory forControllerName="Admin">
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
@@ -305,7 +311,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="showuser"/>
->>>>>>> ac32a255392e40fd347e3140f40da58fa59de8dc
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listuser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listcountry"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listcity"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listhotel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listroom"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="adduser"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

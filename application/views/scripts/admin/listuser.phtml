@@ -1,0 +1,21 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Admin</b> and script/action name <b>listuser</b></p>
+</div>
+<table>
+    <?php
+    echo "<tr><td> <a class='btn btn-info' href='adduser'> ADD </a> </td></tr>" ;
+    foreach ($this->users as $key => $value) {
+        if($value['is_enable'] == 0) {
+            $action = 'activateuser';
+        } else {
+                $action = 'blockuser';
+
+        }
+        echo "<tr>" .
+        "<td>" . $value['name'] . "</td>" .
+        "<td> <a href='$action/uid/" . $value['id'] . "' class='btn btn-danger'> $action </a> </td>".
+        "</tr>";
+    }
+    ?>
+</table>

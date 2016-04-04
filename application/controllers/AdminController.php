@@ -1,8 +1,10 @@
 <?php
 
-class AdminController extends Zend_Controller_Action {
+class AdminController extends Zend_Controller_Action
+{
 
-    public function init() {
+    public function init()
+    {
         /* Initialize action controller here */
         $authorization = Zend_Auth::getInstance();
         $storage = $authorization->getStorage();
@@ -22,11 +24,13 @@ class AdminController extends Zend_Controller_Action {
             }
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
     }
 
-    public function loginAction() {
+    public function loginAction()
+    {
         // action body
         $login_form = new Application_Form_Login( );
         $db = Zend_Db_Table::getDefaultAdapter();
@@ -69,84 +73,174 @@ class AdminController extends Zend_Controller_Action {
         $this->view->login_form = $login_form;
     }
 
-    public function logoutAction() {
+    public function logoutAction()
+    {
         // action body
          $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
-        return $this->redirect('/user/log-in');
+        return $this->redirect('/admin/login');
     }
 
-    public function blockuserAction() {
+    public function blockuserAction()
+    {
         // action body
+        $user_obj = new Application_Model_User();
+        $user_id = $this->_request->getParam("uid");
+        $user_obj->blockUser($user_id);
+        $this->redirect('/admin/listuser');
         
-        
     }
 
-    public function activateuserAction() {
+    public function activateuserAction()
+    {
+        // action body
+        $user_obj = new Application_Model_User();
+        $user_id = $this->_request->getParam("uid");
+        $user_obj->activaetUser($user_id);
+        $this->redirect('/admin/listuser');
+    }
+
+    public function addcountryAction()
+    {
         // action body
     }
 
-    public function addcountryAction() {
+    public function addcityAction()
+    {
         // action body
     }
 
-    public function addcityAction() {
+    public function addhotelAction()
+    {
         // action body
     }
 
-    public function addhotelAction() {
+    public function addroomAction()
+    {
         // action body
     }
 
-    public function addroomAction() {
+    public function editcountryAction()
+    {
         // action body
     }
 
-    public function editcountryAction() {
+    public function editcityAction()
+    {
         // action body
     }
 
-    public function editcityAction() {
+    public function edithotelAction()
+    {
         // action body
     }
 
-    public function edithotelAction() {
+    public function editroomlAction()
+    {
         // action body
     }
 
-    public function editroomlAction() {
+    public function deletecountryAction()
+    {
         // action body
     }
 
-    public function deletecountryAction() {
+    public function deletecityAction()
+    {
         // action body
     }
 
-    public function deletecityAction() {
+    public function deletehotelAction()
+    {
         // action body
     }
 
-    public function deletehotelAction() {
+    public function showcountryAction()
+    {
         // action body
     }
 
-    public function showcountryAction() {
+    public function showcityAction()
+    {
         // action body
     }
 
-    public function showcityAction() {
+    public function showhotelAction()
+    {
         // action body
     }
 
-    public function showhotelAction() {
+    public function showroomAction()
+    {
         // action body
     }
 
-    public function showroomAction() {
+    public function showuserAction()
+    {
         // action body
     }
 
-    public function showuserAction() {
+    public function listuserAction()
+    {
         // action body
+        $user_obj = new Application_Model_User();
+        $this->view->users = $user_obj->listUsers();
     }
+
+    public function listcountryAction()
+    {
+        // action body
+        $country_model = new Application_Model_Country();
+        $this->view->country = $country_model->listCountry();
+        //var_dump($country_model->listCountry());
+    }
+
+    public function listcityAction()
+    {
+        // action body
+        $city_model = new Application_Model_City();
+        $this->view->city = $city_model->listCity();
+    }
+
+    public function listhotelAction()
+    {
+        // action body
+        $hotel_model = new Application_Model_Hotel();
+        $this->view->hotel = $hotel_model->listHotel();
+        //var_dump($hotel_model->listHotel());
+    }
+
+    public function listroomAction()
+    {
+        // action body
+//        $room_model = new Application_Model_Room();
+//        $this->view->room = $room_model->listRoom();
+    }
+
+    public function adduserAction()
+    {
+        // action body
+        $form = new Application_Form_SignUp();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $user_obj = new Application_Model_User();
+                $user_obj->addNewUser($request->getParams());
+                $this->redirect('/user');
+            }
+        }
+        $this->view->user_form = $form;
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
