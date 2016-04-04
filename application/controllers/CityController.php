@@ -10,14 +10,7 @@ class CityController extends Zend_Controller_Action {
         // action body
          $city_model = new Application_Model_City();
         $this->view->city = $city_model->listCity();
-//        //for posts
-//         $exp=new Application_Model_Post();
-//        $allPost=$exp->listPosts();
-//        // for comments
-//         $comment=new Application_Model_Comment();
-//        $allcomment=$comment->listComment();
-//        
-//        $this->view->posts= $allPost;
+
     }
 
     public function listAction() {
@@ -72,7 +65,7 @@ class CityController extends Zend_Controller_Action {
                     $upload= new Zend_File_Transfer_Adapter_Http();
                 $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
                 $upload->receive(); 
-                $_POST['image']="/images/".$_POST['name'].".jpeg";
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $city_obj->addNewcity($_POST);
                 $this->redirect('/city/list');
             }
@@ -97,9 +90,9 @@ class CityController extends Zend_Controller_Action {
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
                         $upload= new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jepg");
                 $upload->receive(); 
-                $_POST['image']="/images/".$_POST['name'].".jpeg";
+                $_POST['image']="/images/".$_POST['name'].".jepg";
                 $city_obj->updataCity($id, $_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
                 $this->redirect('/city/list'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
             }

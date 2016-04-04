@@ -632,13 +632,13 @@ text-decoration:none;
 
 /*-- banner --*/
 .banner{
-background: url(../images/3.jpg) no-repeat 0px 0px;
+/*background: url(../images/3.jpg) no-repeat 0px 0px;*/
 background-size:cover;
 -webkit-background-size: cover;
 -o-background-size: cover;
 -ms-background-size: cover;
 -moz-background-size: cover;
-min-height: 800px;
+
 }
 ul.social-icons {
     margin-top: 28px;
@@ -690,7 +690,7 @@ background: url(../images/img-sprite-hover.png) no-repeat -78px 0px;
   font-size: 29px;
 }
 .banner-info {
-  padding-top: 250px;
+  padding-top: 20px;
 }
 .banner-text {
   text-align: center;
@@ -2050,7 +2050,7 @@ p.est span{
 		min-height: 620px;
 	}
 	.banner-bottom, .comfort, .collections, .about, .team, .advantages, .contact, .typrography, .blog-section, .gallery {
-		padding: 65px 0;
+		padding-top: 65px 0;
 	}
 	h3.tittle {
 		margin-bottom: 30px;
@@ -2554,6 +2554,7 @@ p.est span{
 	  float: left;
 	  width: 48%;
 	}
+        .gt{ height:20px}
 	.banner-bottom, .comfort, .collections, .about, .team, .advantages, .contact, .typrography, .blog-section, .gallery {
 	  padding: 50px 0;
 	}
