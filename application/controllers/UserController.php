@@ -25,7 +25,7 @@ class UserController extends Zend_Controller_Action {
 //            $rate->updaterate($rt['id'], 45);
 //        }
 //
-        var_dump($rate->calchighRate());
+        print_r($rate->calchighRate());
     }
 
     public function listusersAction() {
