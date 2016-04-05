@@ -319,10 +319,10 @@ $this->redirect("/user/log-in");
     public function pagtestAction()
     {
         // body
-         $trees=new Application_Model_ResCar();
-         $paginator = Zend_Paginator::factory($trees->listall());
-         //var_dump($trees->listall()); exit;
-        $paginator->setDefaultItemCountPerPage(1);
+         $Rescar=new Application_Model_ResCar();
+         $paginator = Zend_Paginator::factory($Rescar->listall());
+         //var_dump($Rescar->listall()); exit;
+        $paginator->setDefaultItemCountPerPage(2);
         $allItems = $paginator->getTotalItemCount();
         $countPages = $paginator->count();
 
