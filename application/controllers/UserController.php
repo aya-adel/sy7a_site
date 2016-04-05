@@ -25,7 +25,7 @@ class UserController extends Zend_Controller_Action {
 //            $rate->updaterate($rt['id'], 45);
 //        }
 //
-        var_dump($rate->calchighRate());
+        print_r($rate->calchighRate());
     }
 
     public function listusersAction() {
@@ -300,7 +300,27 @@ class UserController extends Zend_Controller_Action {
     }
 
     public function mmmAction() {
-        
+        // Create new jQuery Form
+        $form = new ZendX_JQuery_Form();
+        $form->setAction('formdemo.php');
+        // Wrap the complete form inside a Dialog box
+        $form->setDecorators(array(
+            'FormElements',
+            'Form',
+            array('DialogContainer', array(
+                    'id' => 'tabContainer',
+                    'style' => 'width: 600px;',
+                    'jQueryParams' => array(
+                        'tabPosition' => 'top'
+                    ),
+                )),
+        ));
+// Add Element Spinner
+        $elem = new ZendX_JQuery_Form_Element_Spinner("spinner1", array('label' => 'Spinner:', 'attribs' => array('class' => 'flora')));
+        $elem->setJQueryParams(array('min' => 0, 'max' => 1000, 'start' => 100));
+
+        $form->addElement($elem);
+        $this->view->test = $form ;
     }
 
     public function checkAction() {

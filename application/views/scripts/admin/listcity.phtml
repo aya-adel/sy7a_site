@@ -1,0 +1,26 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>Admin</b> and script/action name <b>listcity</b></p>
+</div>
+<div class="alert alert-info alert-dismissible">
+    For Add City.
+    <a href='addcity'>ClickHere</a>
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+
+<table class="table table-condensed table-striped">
+    <?php
+    echo "<tr><th> CityName </th><th> CityImage </th><th> CityCountry </th><th>EditCity</th><th>DeleteCity</th></tr>" ;
+    foreach ($this->city as $key => $value) {
+        echo "<tr>" .
+             "<td>" . $value['name'] . "</td>" .
+             "<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
+             "<td>" . $value[0] . "</td>" .
+             "<td> <a class='btn btn-primary' href='../admin/editcity/id/".$value['id']."'> Edit </a> </td>" .
+             "<td> <a class='btn btn-warning' href='../admin/deletecity/id/".$value['id']."'> Delete </a> </td>".
+             "</tr>";
+    }
+    ?>
+</table>
