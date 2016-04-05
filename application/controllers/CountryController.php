@@ -4,15 +4,39 @@ class CountryController extends Zend_Controller_Action
 {
 
     public function init()
-    {
-        /* Initialize action controller here */
-    }
+    { }
 
     public function indexAction()
     {
         // action body
         $country_model = new Application_Model_Country();
         $this->view->country = $country_model->listCountry();
+        $rate= new Application_Model_CountryRate;
+        $result=$rate->calchighRate();
+ 
+        $s=array();
+        foreach($result as $key => $value)
+{          // $country[]=$value['country_id'];
+               $xx= $country_model->countryDetail($value['country_id']);
+               $s[]=$xx;
+        
+}
+//var_dump($s); exit;
+        $this->view->countryarr=$s;
+        $city=new Application_Model_City();
+        $city_model=new Application_Model_CityRate();
+         $result_1=$city_model->calchighRate();
+ 
+        $ss=array();
+        foreach($result_1 as $key => $value)
+{          // $country[]=$value['country_id'];
+               $xx= $city->cityDetail($value['city_id']);
+               $ss[]=$xx;
+        
+}
+//var_dump($s); exit;
+        $this->view->cityarr=$ss;
+        
     }
 
     public function listAction()
@@ -45,7 +69,10 @@ class CountryController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
-
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $country_obj->addNewcountry($_POST);
                 $this->redirect('/country/list');
             }
@@ -80,7 +107,10 @@ class CountryController extends Zend_Controller_Action
         {
             if($form->isValid($request->getPost()))
             {
-                
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpeg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpeg";
                 $country_obj->updataCountry($id,$_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
                 $this->redirect('/country/list'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
 

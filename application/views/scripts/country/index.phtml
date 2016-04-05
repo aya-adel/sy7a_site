@@ -1,8 +1,10 @@
 
 <?php
 echo "<table>";
-//var_dump( $this->country);exit();
+
+//////var_dump( $this->country);exit();
 echo "<td> <a class='btn btn-info' href='add'> ADD </a> </td>" ;
+
 foreach($this->country as $key => $value)
 {
 
@@ -11,7 +13,7 @@ echo "<tr>".
 . "</td>" .
 "<td>" . $value['name'] . "</td>" .
 "<td>" . $value['description'] . "</td>" .
-//"<td>" . $value['image'] . "</td>" .
+"<td>" . $value['image'] . "</td>" .
 "<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
 
 "<td> <a class='btn btn-info' href='details/id/".$value['id']."'> Details </a> </td>" .
@@ -19,8 +21,296 @@ echo "<tr>".
 "<td> <a class='btn btn-warning' href='delete/id/".$value['id']."'> Delete </a> </td>" .
 "<td> <a class='btn btn-primary' href='update/id/".$value['id']."'> Edit </a> </td>" .
 "</tr>";
-
-
+////
+////
 }
 echo "</table>";
+//
+//
+////var_dump( $this->countryarr);
+
 ?>
+<style>
+ 
+
+ 
+  .carousel-inner img {
+     
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+  }
+ 
+  
+
+
+ 
+  </style>
+</head>
+
+
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+    </ol>
+
+<!--    
+       foreach($this->countryarr as $key=>$value)
+        
+   {
+//  echo  "<div class='carousel-inner' role='listbox'>";
+//     echo "<div class='item active'>";
+//    // var_dump($value[0]['image']); exit;
+//       echo "<img src='".$value[0]['image']."'" ." width='1200' height='700'>";
+//        echo "<div class='carousel-caption'>";
+//         echo  "<h3>".$value[0]['name']."</h3>";
+//       echo "</div>";      
+//     echo "</div>";
+// echo "</div>";
+//    }
+    -->
+    
+    
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="<?=  $this->countryarr[0][0]['image'];?>"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3>New York</h3>
+          <p>The atmosphere in New York is lorem ipsum.</p>
+        </div>      
+      </div>
+        
+        <div class="item">
+            <img src="<?= $this->countryarr[1][0]['image'];?>" alt="Chicago" style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3>Chicago</h3>
+          <p>Thank you, Chicago - A night we won't forget.</p>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="<?= $this->countryarr[2][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>      
+      </div>
+        
+        <div class="item">
+        <img src="<?= $this->countryarr[3][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>      
+      </div>
+        <div class="item">
+        <img src="<?= $this->countryarr[4][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>      
+      </div>
+        <div class="item">
+        <img src="<?= $this->countryarr[5][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3>LA</h3>
+          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+        </div>      
+      </div>
+</div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+
+
+<div id="hello" class="banner-bottom">
+	<div class="container">
+		<div class="btm-header">
+			<h3 class="tittle">HELLO!</h3>
+		
+		</div>
+		
+		
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="collections">
+	<div class="container">
+		<h3 class="tittle-two">FURNITURE DESIGNS</h3>
+		<div class="collection-grids cs-style-1">
+			<div class="col-md-4 collection-grid grid">
+				<figure>
+						<img src="<?=  $this->cityarr[0][0]['image'];?>"alt="">
+						<figcaption>
+							<h3>LUXUS</h3>
+							<span>Accusantium Dolor</span>
+							<a class="example-image-link" href="images/g11.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+						</figcaption>
+				</figure>
+			</div>	
+			<div class="col-md-8 collection-grid grid">
+				<figure>
+						<img src="<?= $this->cityarr[1][0]['image'];?>" alt="">
+						<figcaption>
+							<h3>LUXUS</h3>
+							<span>Accusantium Dolor</span>
+							<a class="example-image-link" href="images/22.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+						</figcaption>
+				</figure>
+			</div>
+			<div class="col-md-4 collection-grid grid">
+				<figure>
+						<img src="<?=  $this->cityarr[2][0]['image'];?>" alt="">
+						<figcaption>
+							<h3>LUXUS</h3>
+							<span>Accusantium Dolor</span>
+							<a class="example-image-link" href="images/g66.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+						</figcaption>
+				</figure>
+			</div>	
+			<div class="col-md-4 collection-grid grid">
+				<figure>
+						<img src="<?=  $this->cityarr[3][0]['image'];?>" alt="">
+						<figcaption>
+							<h3>LUXUS</h3>
+							<span>Accusantium Dolor</span>
+							<a class="example-image-link" href="images/g44.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+						</figcaption>
+				</figure>
+			</div>	
+			<div class="col-md-4 collection-grid grid">
+				<figure>
+						<img src="<?=  $this->cityarr[4][0]['image'];?>" alt="">
+						<figcaption>
+							<h3>LUXUS</h3>
+							<span>Accusantium Dolor</span>
+							<a class="example-image-link" href="images/g55.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+						</figcaption>
+				</figure>
+			</div>
+			<div class="col-md-8 collection-grid grid">
+				<figure>
+						<img src="<?=  $this->cityarr[5][0]['image'];?>" alt="">
+						<figcaption>
+							<h3>LUXUS</h3>
+							<span>Accusantium Dolor</span>
+							<a class="example-image-link" href="images/g33.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+						</figcaption>
+				</figure>
+			</div>	
+			<div class="clearfix"></div>
+		</div>
+		 <script src="js/lightbox.js"></script>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+})
+
+
+</script>

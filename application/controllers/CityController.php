@@ -13,14 +13,7 @@ class CityController extends Zend_Controller_Action
         // action body
          $city_model = new Application_Model_City();
         $this->view->city = $city_model->listCity();
-//        //for posts
-//         $exp=new Application_Model_Post();
-//        $allPost=$exp->listPosts();
-//        // for comments
-//         $comment=new Application_Model_Comment();
-//        $allcomment=$comment->listComment();
-//        
-//        $this->view->posts= $allPost;
+
     }
 
     public function listAction()
@@ -44,32 +37,34 @@ class CityController extends Zend_Controller_Action
     {
         // action body
         $city_model = new Application_Model_City();
+        $exp=new Application_Model_Post();
+        $form = new Application_Form_Post();
+        $comment=new Application_Model_Comment();
+        
+        
         $city_id = $this->_request->getParam("id");
         $county_id = $this->_request->getParam("country_id");
-        $city = $city_model->getAllCities($county_id);
-        $this->view->city = $city[0];
+        $city = $city_model->getAllCities($county_id)[0];
         
-        $exp=new Application_Model_Post();
-        $allPost=$exp->listPosts();
-        $this->view->posts= $allPost;
-        $comment=new Application_Model_Comment();
-        $allcomment =[];
-        for($i=0;$i<count($allPost);$i++){
+        $allPost=$exp->getAllPosts($city_id);
+        //$allcomment =[];
+        for($i=0;$i<count($allPost);$i++)
+        {
             $postid=$allPost[$i]["id"];
-            $allcomment[$i]=$comment->listComments($postid);
+            //$pscom[$postid] = array();
+            $allcomment[$postid]=$comment->listComments($postid);
         }
-        $this->view->comments= $allcomment;
-        
         //addPostForm
-        $form = new Application_Form_Post();
-        $this->view->Post_form= $form;
         $request = $this->getRequest();
-        if(null !== $this->_request->getParam("postiddel")){//for delete
+        if(null !== $this->_request->getParam("postiddel"))
+        {//for delete
             $post_model = new Application_Model_Post();
             $post_id = $this->_request->getParam("postiddel");
             $post_model->deletePost($post_id);
             $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-        }  elseif (null !== $this->_request->getParam("postidedit")) {//for edit
+        }
+        elseif (null !== $this->_request->getParam("postidedit"))
+        {//for edit
             $post_model = new Application_Model_Post();
             $post_id = $this->_request->getParam("postidedit");
             $old_post = $post_model->getPost($post_id);
@@ -94,9 +89,15 @@ class CityController extends Zend_Controller_Action
                     $this->redirect("/city/details/id/$city_id/country_id/$county_id");
                 }
             }            
-        }//end elseif        
-    }
+        }//end elseif  
+        $this->view->city = $city;
+        $this->view->posts= $allPost;
+        $this->view->comments= $allcomment;
+        $this->view->Post_form= $form;
 
+        
+    }
+    
     public function addAction()
     {
         // this funtion  that use to add form to the view 
@@ -106,6 +107,10 @@ class CityController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                    $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $city_obj->addNewcity($_POST);
                 $this->redirect('/city/list');
             }
@@ -130,7 +135,10 @@ class CityController extends Zend_Controller_Action
         $request = $this->getRequest(); // h3dal el data w hdos submit w btally lzm 2ml function wzftha 2nha bt3ml insert l data gdeda fe database
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
-
+                        $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jepg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jepg";
                 $city_obj->updataCity($id, $_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
                 $this->redirect('/city/list'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
             }
