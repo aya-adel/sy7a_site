@@ -44,32 +44,34 @@ class CityController extends Zend_Controller_Action
     {
         // action body
         $city_model = new Application_Model_City();
+        $exp=new Application_Model_Post();
+        $form = new Application_Form_Post();
+        $comment=new Application_Model_Comment();
+        
+        
         $city_id = $this->_request->getParam("id");
         $county_id = $this->_request->getParam("country_id");
-        $city = $city_model->getAllCities($county_id);
-        $this->view->city = $city[0];
+        $city = $city_model->getAllCities($county_id)[0];
         
-        $exp=new Application_Model_Post();
-        $allPost=$exp->listPosts();
-        $this->view->posts= $allPost;
-        $comment=new Application_Model_Comment();
-        $allcomment =[];
-        for($i=0;$i<count($allPost);$i++){
+        $allPost=$exp->getAllPosts($city_id);
+        //$allcomment =[];
+        for($i=0;$i<count($allPost);$i++)
+        {
             $postid=$allPost[$i]["id"];
-            $allcomment[$i]=$comment->listComments($postid);
+            //$pscom[$postid] = array();
+            $allcomment[$postid]=$comment->listComments($postid);
         }
-        $this->view->comments= $allcomment;
-        
         //addPostForm
-        $form = new Application_Form_Post();
-        $this->view->Post_form= $form;
         $request = $this->getRequest();
-        if(null !== $this->_request->getParam("postiddel")){//for delete
+        if(null !== $this->_request->getParam("postiddel"))
+        {//for delete
             $post_model = new Application_Model_Post();
             $post_id = $this->_request->getParam("postiddel");
             $post_model->deletePost($post_id);
             $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-        }  elseif (null !== $this->_request->getParam("postidedit")) {//for edit
+        }
+        elseif (null !== $this->_request->getParam("postidedit"))
+        {//for edit
             $post_model = new Application_Model_Post();
             $post_id = $this->_request->getParam("postidedit");
             $old_post = $post_model->getPost($post_id);
@@ -94,9 +96,15 @@ class CityController extends Zend_Controller_Action
                     $this->redirect("/city/details/id/$city_id/country_id/$county_id");
                 }
             }            
-        }//end elseif        
-    }
+        }//end elseif  
+        $this->view->city = $city;
+        $this->view->posts= $allPost;
+        $this->view->comments= $allcomment;
+        $this->view->Post_form= $form;
 
+        
+    }
+    
     public function addAction()
     {
         // this funtion  that use to add form to the view 

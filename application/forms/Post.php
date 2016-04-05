@@ -23,19 +23,29 @@ class Application_Form_Post extends Zend_Form
         			'placeholder'=>'user_id',
         			'class'=>'form-control'
         			));
-        $content = new Zend_Form_Element_Text('content');
+        $content = new Zend_Form_Element_Textarea('content');
         $content -> setLabel ('New Post Content: ');
         $content ->setAttribs(array(
         			'placeholder'=>'Content',
-        			'class'=>'form-control'
-        			));
+        			'class'=>'form-control',
+                                'cols' => '10',
+                                'rows' => '10'
+        			)); 
         $submit = new Zend_Form_Element_Submit('Post');
         $submit->setAttrib('class', 'btn btn-success');
-        
         $reset = new Zend_Form_Element_Reset('Reset');
         $reset->setAttrib('class', 'btn btn-danger');
         
-        $this->addElements(array($id,$city_id,$user_id,$content,$submit,$reset));
+        $this->addElements(
+                array(
+                        $id,
+                        $city_id,
+                        $user_id,
+                        $content,
+                        $submit,
+                        $reset
+                    )
+                );
     }
 
 

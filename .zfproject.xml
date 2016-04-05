@@ -11,6 +11,8 @@
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
           <actionMethod actionName="test"/>
+          <actionMethod actionName="ajax"/>
+          <actionMethod actionName="add"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
@@ -89,6 +91,9 @@
           <actionMethod actionName="deletepost"/>
           <actionMethod actionName="post"/>
         </controllerFile>
+        <controllerFile controllerName="Ajax">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Country"/>
@@ -103,6 +108,7 @@
         <formFile formName="Zendx"/>
         <formFile formName="Addnewcar"/>
         <formFile formName="Test"/>
+        <formFile formName="Ui"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -245,8 +251,8 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="post"/>
-         </viewControllerScriptsDirectory> 
-         <viewControllerScriptsDirectory forControllerName="Admin">
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
@@ -305,7 +311,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="showuser"/>
->>>>>>> ac32a255392e40fd347e3140f40da58fa59de8dc
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ajax">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="ajax"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
