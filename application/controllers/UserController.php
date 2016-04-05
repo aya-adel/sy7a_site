@@ -30,8 +30,8 @@ class UserController extends Zend_Controller_Action
 
     public function listresroomAction()
     {
-        $user_obj = new Application_Model_User();
-        $this->view->clients = $user_obj->listUsers();
+        $res_obj = new Application_Model_ResRoom();
+        $this->view->form = $res_obj->listall();
     }
 
     public function showUserAction()
@@ -312,19 +312,61 @@ class UserController extends Zend_Controller_Action
     public function fblogoutAction()
     {
         // action body
-        
-        
         Zend_Session::namespaceUnset('facebook');
-        $this->redirect("/user/log-in");
+$this->redirect("/user/log-in");
     }
 
-    public function checkAction()
+    public function pagtestAction()
     {
-        // action body
+        // body
+         $trees=new Application_Model_ResCar();
+         $paginator = Zend_Paginator::factory($trees->listall());
+         //var_dump($trees->listall()); exit;
+        $paginator->setDefaultItemCountPerPage(1);
+        $allItems = $paginator->getTotalItemCount();
+        $countPages = $paginator->count();
+
+        $p = $this->getRequest()->getParam('p');
+        if(isset($p))
+        {
+          $paginator->setCurrentPageNumber($p);
+        } else $paginator->setCurrentPageNumber(1);
+
+        $currentPage = $paginator->getCurrentPageNumber();
+
+        $this->view->trees = $paginator;
+        $this->view->countItems = $allItems;
+        $this->view->countPages = $countPages;
+        $this->view->currentPage = $currentPage;
+
+        if($currentPage == $countPages)
+        {
+             $this->view->nextPage = $countPages;
+             $this->view->previousPage = $currentPage-1;
+        }
+        else if($currentPage == 1)
+        {
+             $this->view->nextPage = $currentPage+1;
+             $this->view->previousPage = 1;
+        }
+        else {
+            $this->view->nextPage = $currentPage+1;
+            $this->view->previousPage = $currentPage-1;
+        }
+
+        
     }
 
 
 }
+
+
+
+
+
+
+
+
 
 
 

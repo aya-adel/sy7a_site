@@ -11,6 +11,8 @@
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
           <actionMethod actionName="test"/>
+          <actionMethod actionName="check"/>
+          <actionMethod actionName="chc"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
@@ -35,6 +37,10 @@
           <actionMethod actionName="getdata"/>
           <actionMethod actionName="fblogout"/>
           <actionMethod actionName="check"/>
+          <actionMethod actionName="hanan"/>
+          <actionMethod actionName="ajax"/>
+          <actionMethod actionName="showcarrental"/>
+          <actionMethod actionName="pagtest"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -60,6 +66,14 @@
           <actionMethod actionName="updata"/>
           <actionMethod actionName="delete"/>
         </controllerFile>
+        <controllerFile controllerName="Ajaxtest">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="ajaxlist"/>
+        </controllerFile>
+        <controllerFile controllerName="Rescontroller">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Country"/>
@@ -74,6 +88,8 @@
         <formFile formName="Zendx"/>
         <formFile formName="Addnewcar"/>
         <formFile formName="Test"/>
+        <formFile formName="Test"/>
+        <formFile formName="Resroom"/>
       </formsDirectory>
       <layoutsDirectory>
         <layoutScriptsDirectory>
@@ -201,6 +217,36 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="check"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="check"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="chc"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="hanan"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ajaxtest">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ajaxtest">
+            <viewScriptFile forActionName="ajaxlist"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="ajax"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Rescontroller">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Rescontroller">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="showcarrental"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="pagtest"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

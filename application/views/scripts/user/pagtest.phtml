@@ -1,0 +1,12 @@
+<h2>Reservation List <?php echo "( ".$this->countItems." )"; ?></h2>
+<p>
+<?php foreach ($this->trees as $tree): ?>
+<?php echo "reservation_id :: " .$tree['id'] ?><br/>
+<?php echo "user_id :: ".$tree['user_id'] ?><br/>
+<?php endforeach; ?>
+</p>
+<br/>
+<a href="<?php echo $this->url(array('controller'=>'user','action'=>'pagtest','p'=>$this->previousPage)) ?>"> previous </a>
+<?php echo "".$this->currentPage."/".$this->countPages; ?>
+<a href="<?php echo $this->url(array('controller'=>'user','action'=>'pagtest','p'=>$this->nextPage)) ?>"> next </a>
+<br/>
