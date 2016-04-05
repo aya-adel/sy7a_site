@@ -69,6 +69,12 @@
           <actionMethod actionName="showhotel"/>
           <actionMethod actionName="showroom"/>
           <actionMethod actionName="showuser"/>
+          <actionMethod actionName="listuser"/>
+          <actionMethod actionName="listcountry"/>
+          <actionMethod actionName="listcity"/>
+          <actionMethod actionName="listhotel"/>
+          <actionMethod actionName="listroom"/>
+          <actionMethod actionName="adduser"/>
         </controllerFile>
         <controllerFile controllerName="Room">
           <actionMethod actionName="index"/>
@@ -320,6 +326,24 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="add"/>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listuser"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listcountry"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listcity"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listhotel"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listroom"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="adduser"/>
+          </viewControllerScriptsDirectory>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
