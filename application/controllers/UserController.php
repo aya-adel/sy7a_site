@@ -3,29 +3,19 @@
 class UserController extends Zend_Controller_Action {
 
     public function init() {
-//        $authorization = Zend_Auth::getInstance();
-//        $fbsession = new Zend_Session_Namespace('facebook');
-//        if (!$authorization->hasIdentity() &&
-//                !isset($fbsession->name)) {
-//            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
-//                $this->redirect("user/log-in");
-//            }
-//        }
+        $authorization = Zend_Auth::getInstance();
+        $fbsession = new Zend_Session_Namespace('facebook');
+        if (!$authorization->hasIdentity() &&
+                !isset($fbsession->name)) {
+            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+                $this->redirect("user/log-in");
+            }
+        }
         $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
     }
 
     public function indexAction() {
-        $rate = new Application_Model_CityRate();
-//        $rt = $rate->check( 2 , 2) ; 
-//        if($rt == NULL)
-//        {
-//            $rate->addrate(2, 2, 3);    
-//        }
-//        else{
-//            $rate->updaterate($rt['id'], 45);
-//        }
-//
-        print_r($rate->calchighRate());
+        
     }
 
     public function listusersAction() {
@@ -34,6 +24,7 @@ class UserController extends Zend_Controller_Action {
         $this->view->users = $user_obj->listUsers();
     }
 
+    
     public function listresroomAction() {
         $user_obj = new Application_Model_User();
         $this->view->clients = $user_obj->listUsers();
@@ -292,39 +283,47 @@ class UserController extends Zend_Controller_Action {
     }
 
     public function fblogoutAction() {
-        // action body
-
-
-        Zend_Session::namespaceUnset('facebook');
-        $this->redirect("/user/log-in");
+    Zend_Session::namespaceUnset('facebook');
+    $this->redirect("/user/log-in");
     }
 
-    public function mmmAction() {
-        // Create new jQuery Form
-        $form = new ZendX_JQuery_Form();
-        $form->setAction('formdemo.php');
-        // Wrap the complete form inside a Dialog box
-        $form->setDecorators(array(
-            'FormElements',
-            'Form',
-            array('DialogContainer', array(
-                    'id' => 'tabContainer',
-                    'style' => 'width: 600px;',
-                    'jQueryParams' => array(
-                        'tabPosition' => 'top'
-                    ),
-                )),
-        ));
-// Add Element Spinner
-        $elem = new ZendX_JQuery_Form_Element_Spinner("spinner1", array('label' => 'Spinner:', 'attribs' => array('class' => 'flora')));
-        $elem->setJQueryParams(array('min' => 0, 'max' => 1000, 'start' => 100));
 
-        $form->addElement($elem);
-        $this->view->test = $form ;
-    }
+    public function pagtestAction()
+    {
+        // body
+         $Rescar=new Application_Model_ResCar();
+         $paginator = Zend_Paginator::factory($Rescar->listall());
+         //var_dump($Rescar->listall()); exit;
+        $paginator->setDefaultItemCountPerPage(2);
+        $allItems = $paginator->getTotalItemCount();
+        $countPages = $paginator->count();
 
-    public function checkAction() {
-        // action body
-    }
+        $p = $this->getRequest()->getParam('p');
+        if(isset($p))
+        {
+          $paginator->setCurrentPageNumber($p);
+        } else $paginator->setCurrentPageNumber(1);
 
+        $currentPage = $paginator->getCurrentPageNumber();
+
+        $this->view->trees = $paginator;
+        $this->view->countItems = $allItems;
+        $this->view->countPages = $countPages;
+        $this->view->currentPage = $currentPage;
+
+        if($currentPage == $countPages)
+        {
+             $this->view->nextPage = $countPages;
+             $this->view->previousPage = $currentPage-1;
+        }
+        else if($currentPage == 1)
+        {
+             $this->view->nextPage = $currentPage+1;
+             $this->view->previousPage = 1;
+        }
+        else {
+            $this->view->nextPage = $currentPage+1;
+            $this->view->previousPage = $currentPage-1;
+        }       
+}
 }

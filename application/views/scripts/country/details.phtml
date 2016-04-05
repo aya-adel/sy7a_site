@@ -1,33 +1,22 @@
-<table class="table">
-
 <?php
  if($this->country !== null)
   {
   	//var_dump($this->user["id"] );exit;
   	?>
-<tr style="background-color:blue">
-	<td><?php echo $this->country["id"];  ?></td>
 
-</tr>
-<tr>
-<td><?php echo $this->country["name"]; echo "   " ; echo $this->user["lname"]; ?></td>
-	
-
-</tr>
-
-<tr>
-<td><?php echo $this->country["description"];?></td>
-	
-</tr>
-<tr>
-<td><img src"<?php echo $this->country["image"];?>" height='42' width='42'</td>
-	
+<div class="item">
+	<img src="<?=  $this->country["image"];?>"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3><?=  $this->country["name"]; ?></h3>
+          <p><?= $this->country["description"];?></p>
+        </div>
+</div>	
 </tr>
 
 <?php
   }
 ?>
-</table>
+
 <?php
 echo "<table>";
 //var_dump( $this->country);exit();
