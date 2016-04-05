@@ -79,24 +79,24 @@ class Fas7nyController extends Zend_Controller_Action
     public function addcommentAction()
     {
         // action body
-        $form = new Application_Form_Comment();
-        $request = $this->getRequest();
-        if($request->isPost()){
-            if($form->isValid($request->getPost())){
-                $comment_model = new Application_Model_Comment();
-                $comment_model-> addComment($request->getParams());
-                $this->redirect('/fas7ny/listcomments/postid/'.$request->getParams()["post_id"]);
-                //http://fas7ny.iti.com/post/listcomments/postid/2
-                //var_dump($request->getParams());exit();
-                //array(7) { ["controller"]=> string(7) "comment" 
-                //["action"]=> string(3) "add" 
-                //["module"]=> string(7) "default" 
-                //["id"]=> string(0) "" ["content"]=> string(23) "comment no 4 for post 1" 
-                //["post_id"]=> string(1) "2" 
-                //["Comment"]=> string(7) "Comment" }
+//        $form = new Application_Form_Comment();
+//        $request = $this->getRequest();
+//        if($request->isPost()){
+//            if($form->isValid($request->getPost())){
+//                $comment_model = new Application_Model_Comment();
+//                $comment_model-> addComment($request->getParams());
+//                $this->redirect('/fas7ny/listcomments/postid/'.$request->getParams()["post_id"]);
+//               
+//            }
+//        }
+//        $this->view->addComment_form= $form;
+        $this->_helper->layout()->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
+        $req=$this->getRequest();
+        if($req->isPost()){
+            $com_obj=new Application_Model_Comment();
+            $com_obj->addComment($req->getParams());
             }
-        }
-        $this->view->addComment_form= $form;
     }
 
     public function editcommentAction()
