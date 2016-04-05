@@ -62,8 +62,10 @@ class Fas7nyController extends Zend_Controller_Action
         // action body
         $post_model = new Application_Model_Post();
         $post_id = $this->_request->getParam("postid");
+        $city_id=$post_model->getPost($post_id)[0]["city_id"];
+        $country_id = $this->_request->getParam("country_id");
         $post_model->deletePost($post_id);
-        $this->redirect("/fas7ny/listposts");
+        $this->redirect("/city/details/id/$city_id/country_id/$country_id");//http://fas7ny.iti.com/city/details/id/1/country_id/3
     }
 
     public function listcommentsAction()

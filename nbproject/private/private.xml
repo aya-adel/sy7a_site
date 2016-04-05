@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/var/www/html/fas7ny/application/models/CityRate.php</file>
+            <file>file:/var/www/html/fas7ny/public/css/style.css</file>
+            <file>file:/var/www/html/fas7ny/application/models/Country.php</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/CountryController.php</file>
+            <file>file:/var/www/html/fas7ny/application/layouts/scripts/layout.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/country/index.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/CityController.php</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/country/details.phtml</file>
+        </group>
     </open-files>
 </project-private>

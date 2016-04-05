@@ -1,41 +1,36 @@
 <?php
 
-class UserController extends Zend_Controller_Action
-{
+class UserController extends Zend_Controller_Action {
 
-    public function init()
-    {
-//        $authorization = Zend_Auth::getInstance();
-//        $fbsession = new Zend_Session_Namespace('facebook');
-//        if (!$authorization->hasIdentity() &&
-//                !isset($fbsession->name)) {
-//            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
-//                $this->redirect("user/log-in");
-//            }
-//        }
-          $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
+    public function init() {
+        $authorization = Zend_Auth::getInstance();
+        $fbsession = new Zend_Session_Namespace('facebook');
+        if (!$authorization->hasIdentity() &&
+                !isset($fbsession->name)) {
+            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+                $this->redirect("user/log-in");
+            }
+        }
+        $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
     }
 
-    public function indexAction()
-    {
+    public function indexAction() {
         
     }
 
-    public function listusersAction()
-    {
-        
+    public function listusersAction() {
+
         $user_obj = new Application_Model_User();
         $this->view->users = $user_obj->listUsers();
     }
 
-    public function listresroomAction()
-    {
-        $res_obj = new Application_Model_ResRoom();
-        $this->view->form = $res_obj->listall();
+    
+    public function listresroomAction() {
+        $user_obj = new Application_Model_User();
+        $this->view->clients = $user_obj->listUsers();
     }
 
-    public function showUserAction()
-    {
+    public function showUserAction() {
 // action body      
 
         $user_obj = new Application_Model_User();
@@ -44,8 +39,7 @@ class UserController extends Zend_Controller_Action
         $this->view->ul = $user[0];
     }
 
-    public function blockUserAction()
-    {
+    public function blockUserAction() {
 // action body
         $user_obj = new Application_Model_User();
         $user_id = $this->_request->getParam("uid");
@@ -53,8 +47,7 @@ class UserController extends Zend_Controller_Action
         $this->redirect('/user/listusers');
     }
 
-    public function editUserAction()
-    {
+    public function editUserAction() {
 // action body
         $form = new Application_Form_SignUp();
         $user_obj = new Application_Model_User();
@@ -72,94 +65,79 @@ class UserController extends Zend_Controller_Action
                 $this->redirect('/user/listusers');
             }
         }
-        $resform=new Application_Model_ResRoom();
-        $this->view->form=$resform->listall();
+        $resform = new Application_Model_ResRoom();
+        $this->view->form = $resform->listall();
     }
 
-    public function deleteAction()
-    {
-      $reservation_model = new Application_Model_ResRoom();
-      $reservation_id = $this->_request->getParam("id");
-      // echo $reservation_id;
-      //exit;
-      $reservation_model->deletereservation($reservation_id);
-      $this->redirect("/user/listresroom");
+    public function deleteAction() {
+        $reservation_model = new Application_Model_ResRoom();
+        $reservation_id = $this->_request->getParam("id");
+        // echo $reservation_id;
+        //exit;
+        $reservation_model->deletereservation($reservation_id);
+        $this->redirect("/user/listresroom");
     }
 
-    public function addreservationAction()
-    {
-     
+    public function addreservationAction() {
+
         $form = new Application_Form_Addnewres();
         $request = $this->getRequest();
-        if($request->isPost()){
-        if($form->isValid($request->getPost())){
-        $Res_model = new Application_Model_ResRoom();
-        $Res_model-> addNewRes($_POST);
-        $this->redirect("/user/listresroom");
-         }
-         
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $Res_model = new Application_Model_ResRoom();
+                $Res_model->addNewRes($_POST);
+                $this->redirect("/user/listresroom");
+            }
         }
-          $this->view->form=$form;
+        $this->view->form = $form;
     }
 
-    public function listrescarAction()
-    {
-        $resform=new Application_Model_ResCar();
-        $this->view->form=$resform->listall();
+    public function listrescarAction() {
+        $resform = new Application_Model_ResCar();
+        $this->view->form = $resform->listall();
     }
 
-    public function delrescarAction()
-    {
-      $reservation_model = new Application_Model_ResCar();
-      $reservation_id = $this->_request->getParam("id");
-      $reservation_model->deletereservation($reservation_id);
-      $this->redirect("/user/listrescar");
-    }
-
-    public function addrescarAction()
-    {
-        $form = new Application_Form_Addnewcar();
-        $request = $this->getRequest();
-        if($request->isPost()){
-        if($form->isValid($request->getPost())){
-        $Res_model = new Application_Model_ResCar();
-        //var_dump($_POST);exit;
-        $Res_model-> addNewRes($_POST);
+    public function delrescarAction() {
+        $reservation_model = new Application_Model_ResCar();
+        $reservation_id = $this->_request->getParam("id");
+        $reservation_model->deletereservation($reservation_id);
         $this->redirect("/user/listrescar");
     }
 
-
-}
-          $this->view->form=$form;
-
+    public function addrescarAction() {
+        $form = new Application_Form_Addnewcar();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $Res_model = new Application_Model_ResCar();
+                //var_dump($_POST);exit;
+                $Res_model->addNewRes($_POST);
+                $this->redirect("/user/listrescar");
+            }
+        }
+        $this->view->form = $form;
     }
 
-    public function testAction()
-    {
-        $testform= new Application_Form_Test();
-        $this->view->form=$testform;
+    public function testAction() {
+        $testform = new Application_Form_Test();
+        $this->view->form = $testform;
     }
 
-    public function getdataAction()
-    {
-       $this->_helper->layout()->disableLayout();
+    public function getdataAction() {
+        $this->_helper->layout()->disableLayout();
         $users = new Application_Model_ResRoom();                           //create object of your model
-       $this->_helper->viewRenderer->setNoRender();
-       if ($this->getRequest()->isXmlHttpRequest()) {
-               
-           $id = $this->_getParam('id');
-           $userData = $users->getData('1');
-           //var_dump($userData);exit;
-           $dojoData= new Zend_Dojo_Data('id',$userData,'id');
-            echo $dojoData->toJson(); 
-            
-        
+        $this->_helper->viewRenderer->setNoRender();
+        if ($this->getRequest()->isXmlHttpRequest()) {
+
+            $id = $this->_getParam('id');
+            $userData = $users->getData('1');
+            //var_dump($userData);exit;
+            $dojoData = new Zend_Dojo_Data('id', $userData, 'id');
+            echo $dojoData->toJson();
+        }
     }
 
-    }
-
-    public function addUserAction()
-    {
+    public function addUserAction() {
 // action body
         $form = new Application_Form_SignUp();
         $request = $this->getRequest();
@@ -173,8 +151,7 @@ class UserController extends Zend_Controller_Action
         $this->view->user_form = $form;
     }
 
-    public function logInAction()
-    {
+    public function logInAction() {
         // action body
         // get login form and check for validation
         $login_form = new Application_Form_Login( );
@@ -191,7 +168,7 @@ class UserController extends Zend_Controller_Action
                 //authenticate
                 $result = $authAdapter->authenticate();
                 if ($result->isValid()) {
-                //if the user is valid register his info in session
+                    //if the user is valid register his info in session
                     $auth = Zend_Auth::getInstance(); //if the user is valid register his info in session
                     $storage = $auth->getStorage();
                     // write in session email & id & first_name
@@ -206,9 +183,9 @@ class UserController extends Zend_Controller_Action
             }
         }
         $this->view->login_form = $login_form;
-        
-        
-        
+
+
+
         $fb = new Facebook\Facebook([
             'app_id' => '566537100167424', // Replace {app-id} with your app id
             'app_secret' => '0e72350a1ff5d34e4a0a487f4be811cd',
@@ -220,17 +197,15 @@ class UserController extends Zend_Controller_Action
         $this->view->facebook_url = $loginUrl;
     }
 
-    public function logOutAction()
-    {
-        
-         // action body
+    public function logOutAction() {
+
+        // action body
         $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
         return $this->redirect('/user/log-in');
     }
 
-    public function activateUserAction()
-    {
+    public function activateUserAction() {
 // action body
         $user_obj = new Application_Model_User();
         $user_id = $this->_request->getParam("uid");
@@ -238,9 +213,8 @@ class UserController extends Zend_Controller_Action
         $this->redirect('/user/listusers');
     }
 
-    public function fpauthAction()
-    {
-        
+    public function fpauthAction() {
+
         // action body
         $fb = new Facebook\Facebook([
             'app_id' => '566537100167424', // Replace {app-id} with your app id
@@ -306,15 +280,13 @@ class UserController extends Zend_Controller_Action
 // write in session email & id & fname
         $fpsession->name = $userNode->getName();
         $this->redirect('/user/listusers');
-        
     }
 
-    public function fblogoutAction()
-    {
-        // action body
-        Zend_Session::namespaceUnset('facebook');
-$this->redirect("/user/log-in");
+    public function fblogoutAction() {
+    Zend_Session::namespaceUnset('facebook');
+    $this->redirect("/user/log-in");
     }
+
 
     public function pagtestAction()
     {
@@ -352,24 +324,6 @@ $this->redirect("/user/log-in");
         else {
             $this->view->nextPage = $currentPage+1;
             $this->view->previousPage = $currentPage-1;
-        }
-
-        
-    }
-
-
+        }       
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
