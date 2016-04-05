@@ -282,14 +282,37 @@ class AdminController extends Zend_Controller_Action
     {
         // action body
         $city_model = new Application_Model_City();
-        $this->view->city = $city_model->listCity();
+        $cityFields = $city_model->listCity();
+        //get country name of each city & send it to db
+        $country_obj = new Application_Model_Country();
+        for($i=0;$i<count($cityFields);$i++){
+            //getcountry name
+            $country_got = $country_obj->countryDetail($cityFields[$i]['id']);
+            $countryName=$country_got[0]['name'];
+            if($countryName==""){
+                $countryName= "Unknown";                 
+            }
+            array_push($cityFields[$i],$countryName);
+        }
+        $this->view->city = $cityFields;
     }
 
     public function listhotelAction()
     {
         // action body
         $hotel_model = new Application_Model_Hotel();
-        $this->view->hotel = $hotel_model->listHotel();
+        $hotelFields = $hotel_model->listHotel();
+        $city_obj = new Application_Model_City();
+        for($i=0;$i<count($hotelFields);$i++){
+            //getcountry name
+            $city_got = $city_obj->cityDetail($hotelFields[$i]['id']);
+            $cityName= $city_got[0]['name'];//array_values($array)
+            if($cityName==""){
+                $cityName= "Unknown";                 
+            }
+            array_push($hotelFields[$i],$cityName);
+        }
+        $this->view->hotel = $hotelFields;
         //var_dump($hotel_model->listHotel());
     }
 
