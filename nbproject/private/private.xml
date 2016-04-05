@@ -3,6 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/admin/listcity.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/AdminController.php</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/admin/listhotel.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/HotelController.php</file>
             <file>file:/var/www/html/fas7ny/application/models/CityRate.php</file>
             <file>file:/var/www/html/fas7ny/public/css/style.css</file>
             <file>file:/var/www/html/fas7ny/application/models/Country.php</file>
