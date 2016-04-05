@@ -22,12 +22,48 @@ class UserController extends Zend_Controller_Action {
 
         $user_obj = new Application_Model_User();
         $this->view->users = $user_obj->listUsers();
+        
+        
+        
+        
     }
 
     
     public function listresroomAction() {
-        $user_obj = new Application_Model_User();
-        $this->view->clients = $user_obj->listUsers();
+        $room = new Application_Model_ResRoom();
+         $paginator = Zend_Paginator::factory($room->listall());
+         //var_dump($Rescar->listall()); exit;
+        $paginator->setDefaultItemCountPerPage(2);
+        $allItems = $paginator->getTotalItemCount();
+        $countPages = $paginator->count();
+
+        $p = $this->getRequest()->getParam('p');
+        if(isset($p))
+        {
+          $paginator->setCurrentPageNumber($p);
+        } else $paginator->setCurrentPageNumber(1);
+
+        $currentPage = $paginator->getCurrentPageNumber();
+
+        $this->view->trees = $paginator;
+        $this->view->countItems = $allItems;
+        $this->view->countPages = $countPages;
+        $this->view->currentPage = $currentPage;
+
+        if($currentPage == $countPages)
+        {
+             $this->view->nextPage = $countPages;
+             $this->view->previousPage = $currentPage-1;
+        }
+        else if($currentPage == 1)
+        {
+             $this->view->nextPage = $currentPage+1;
+             $this->view->previousPage = 1;
+        }
+        else {
+            $this->view->nextPage = $currentPage+1;
+            $this->view->previousPage = $currentPage-1;
+        } 
     }
 
     public function showUserAction() {
