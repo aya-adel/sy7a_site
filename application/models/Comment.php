@@ -26,6 +26,8 @@ class Application_Model_Comment extends Zend_Db_Table_Abstract
         $row = $this->createRow();
         $row->content = $commentData['content'];
         $row->post_id = $commentData['post_id'];
+        $row->user_id = $commentData['user_id'];
+
         $row->save();
     }
     function editcomment ($commentData){
