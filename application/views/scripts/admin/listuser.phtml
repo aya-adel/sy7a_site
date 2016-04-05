@@ -2,9 +2,17 @@
 <div id="view-content">
 	<p>View script for controller <b>Admin</b> and script/action name <b>listuser</b></p>
 </div>
-<table>
+<div class="alert alert-info alert-dismissible">
+    For Add User.
+    <a href='adduser'>ClickHere</a>
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+
+<table class="table table-condensed table-striped">
     <?php
-    echo "<tr><td> <a class='btn btn-info' href='adduser'> ADD </a> </td></tr>" ;
+    echo "<tr><th> UserName </th><th> UserStatus </th></tr>" ;
     foreach ($this->users as $key => $value) {
         if($value['is_enable'] == 0) {
             $action = 'activateuser';

@@ -2,16 +2,23 @@
 <div id="view-content">
 	<p>View script for controller <b>Admin</b> and script/action name <b>listcountry</b></p>
 </div>
-<table>
+<div class="alert alert-info alert-dismissible">
+    For Add Country.
+    <a href='addcountry'>ClickHere</a>
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+
+<table class="table table-condensed table-striped">
     <?php
-    echo "<td> <a class='btn btn-info' href='add'> ADD </a> </td>" ;
+    echo "<tr><th> CountryName </th><th> CountryImage </th><th>EditCountry</th><th>DeleteCountry</th></tr>" ;
     foreach ($this->country as $key => $value) {
         echo "<tr>" .
              "<td>" . $value['name'] . "</td>" .
              "<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
-             "<td> <a class='btn btn-primary' href='update/id/".$value['id']."'> Edit </a> </td>" .
-             "<td> <a class='btn btn-warning' href='delete/id/".$value['id']."'> Delete </a> </td>".
+             "<td> <a class='btn btn-primary' href='../admin/editcountry/id/".$value['id']."'> Edit </a> </td>" .
+             "<td> <a class='btn btn-warning' href='../admin/deletecountry/id/".$value['id']."'> Delete </a> </td>".
              "</tr>";
-    }
-    ?>
+    }?>
 </table>

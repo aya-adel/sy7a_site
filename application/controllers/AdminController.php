@@ -103,16 +103,46 @@ class AdminController extends Zend_Controller_Action
     public function addcountryAction()
     {
         // action body
+        $form = new Application_Form_Country();
+        $this->view->addCountryForm = $form;
+        $country_obj = new Application_Model_Country();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $country_obj->addNewcountry($_POST);
+                $this->redirect('/admin/listcountry');
+            }
+        }
     }
 
     public function addcityAction()
     {
         // action body
+        $form = new Application_Form_City();
+        $this->view->addCityForm = $form;
+        $city_obj = new Application_Model_City();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $city_obj->addNewcity($_POST);
+                $this->redirect("/admin/listcity");
+            }
+        }
     }
 
     public function addhotelAction()
     {
         // action body
+        $form = new Application_Form_Hotel();
+        $this->view->addHotelForm = $form;
+        $hotel_obj = new Application_Model_Hotel();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $hotel_obj->addNewHotel($_POST);
+                $this->redirect("/admin/listhotel");
+            }
+        }
     }
 
     public function addroomAction()
@@ -123,16 +153,57 @@ class AdminController extends Zend_Controller_Action
     public function editcountryAction()
     {
         // action body
+        $form = new Application_Form_Countryedit();
+        $country_obj = new Application_Model_Country();
+        $id = $this->_request->getParam('id');
+        $country_got = $country_obj->countryDetail($id);
+        $form->populate($country_got[0]);
+        $this->view->editCountryForm = $form;
+        $request = $this->getRequest();
+        if($request->isPost())
+        {
+            if($form->isValid($request->getPost()))
+            {
+                $country_obj->updataCountry($id,$_POST);
+                $this->redirect("/admin/listcountry");
+            }
+        }
     }
 
     public function editcityAction()
     {
         // action body
+        $form = new Application_Form_City();
+        $city_obj = new Application_Model_City();
+        $id = $this->_request->getParam('id');
+        $city_got = $city_obj->cityDetail($id);
+        $form->populate($city_got[0]);
+        $this->view->editCityForm = $form;
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $city_obj->updataCity($id, $_POST);
+                $this->redirect("/admin/listcity");
+            }
+        }
     }
 
     public function edithotelAction()
     {
         // action body
+        $form = new Application_Form_Hotel();
+        $hotel_obj = new Application_Model_Hotel();
+        $id = $this->_request->getParam('id');
+        $hotel_got = $hotel_obj->hotelDetail($id);
+        $form->populate($hotel_got[0]);
+        $this->view->editHotelForm = $form;
+        $request = $this->getRequest();
+        if($request->isPost()){
+            if($form->isValid($request->getPost())){
+                $hotel_obj->updataHotel($id,$_POST);
+                $this->redirect("/admin/listhotel");
+            }
+        }
     }
 
     public function editroomlAction()
@@ -143,16 +214,28 @@ class AdminController extends Zend_Controller_Action
     public function deletecountryAction()
     {
         // action body
+        $country_obj = new Application_Model_Country();
+        $country_id = $this->_request->getParam("id");
+        $country_obj->deleteCountry($country_id);
+        $this->redirect("/admin/listcountry");
     }
 
     public function deletecityAction()
     {
         // action body
+        $city_obj = new Application_Model_City();
+        $city_id = $this->_request->getParam("id");
+        $city_obj->deleteCity($city_id);
+        $this->redirect("/admin/listcity");
     }
 
     public function deletehotelAction()
     {
         // action body
+        $hotel_obj = new Application_Model_Hotel();
+        $hotel_id = $this->_request->getParam("id");
+        $hotel_obj->deleteHotel($hotel_id);
+        $this->redirect("/admin/listhotel");
     }
 
     public function showcountryAction()
@@ -231,8 +314,6 @@ class AdminController extends Zend_Controller_Action
         }
         $this->view->user_form = $form;
     }
-
-
 }
 
 

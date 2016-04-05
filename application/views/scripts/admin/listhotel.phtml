@@ -3,15 +3,23 @@
 	<p>View script for controller <b>Admin</b> and script/action name <b>listhotel</b></p>
 </div>
 
-<table>
+<div class="alert alert-info alert-dismissible">
+    For Add Hotel.
+    <a href='addhotel'>ClickHere</a>
+    <button type="button" class="close" data-dismiss="alert">
+        <span>&times;</span>
+    </button>
+</div>
+
+<table class="table table-condensed table-striped">
     <?php
-    echo "<td> <a class='btn btn-info' href='add'> ADD </a> </td>" ;
+    echo "<tr><th> HotelName </th><th> HotelImage </th><th>EditHotel</th><th>DeleteHotel</th></tr>" ;
     foreach ($this->hotel as $key => $value) {
         echo "<tr>" .
         "<td>" . $value['name'] . "</td>" .
         "<td>" . $value['location'] . "</td>" .
-        "<td> <a href='edit-user/uid/" . $value['id'] . "' class='btn btn-warning'> Update </a> </td>".
-        "<td> <a href='action-user/uid/" . $value['id'] . "' class='btn btn-danger'> Delete </a> </td>".
+        "<td> <a href='../admin/edithotel/id/" . $value['id'] . "' class='btn btn-warning'> Edit </a> </td>".
+        "<td> <a href='../admin/deletehotel/id/" . $value['id'] . "' class='btn btn-danger'> Delete </a> </td>".
         "</tr>";
     }
     ?>
