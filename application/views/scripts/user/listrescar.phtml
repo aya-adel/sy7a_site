@@ -1,20 +1,7 @@
 <br /><br />
-<head>
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.
-min.css" integrity="sha384-
-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-
-theme.min.css" integrity="sha384-
-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-crossorigin="anonymous"></script>
-</head>
+<h2>Reservation Car List <?php echo "( ".$this->countItems." )"; ?></h2>
 <table class="table table-inverse">
-    <tr  class="info">
+        <tr  class="info">
         <th >Reservation_id</th>
         <th >Car_id</th>
         <th >user_id</th>
@@ -22,14 +9,19 @@ crossorigin="anonymous"></script>
         <th >end_Date</th>
         <th class="text-center">Action</th> 
     </tr>
-<?php foreach($this->form as $key => $post):  ?>
-    <tr class="success">
-    	<td> <?= $post['id'] ?> </td>
-    <td> <?= $post['car_id'] ?> </td>
-    <td> <?= $post['user_id'] ?> </td>
-    <td> <?= $post['start'] ?> </td>
-    <td> <?= $post['end'] ?> </td>
-    <td> <a href="delrescar?id=<?= $post['id']?>">DELETE</a> <td>
+<?php foreach ($this->trees as $tree): ?>
+<tr class="success">
+    <td> <?= $tree['id'] ?> </td>
+    <td> <?= $tree['car_id'] ?> </td>
+    <td> <?= $tree['user_id'] ?> </td>
+    <td> <?= $tree['start'] ?> </td>
+    <td> <?= $tree['end'] ?> </td>
+    <td> <a href="delrescar?id=<?= $tree['id']?>">DELETE</a> <td>
 </tr>
 <?php endforeach; ?>
 </table>
+<a href="<?php echo $this->url(array('controller'=>'user','action'=>'listrescar','p'=>$this->previousPage)) ?>"> previous </a>
+<?php echo "".$this->currentPage."/".$this->countPages; ?>
+<a href="<?php echo $this->url(array('controller'=>'user','action'=>'listrescar','p'=>$this->nextPage)) ?>"> next </a>
+<br/>
+<br/>

@@ -3,15 +3,15 @@
 class UserController extends Zend_Controller_Action {
 
     public function init() {
-        $authorization = Zend_Auth::getInstance();
-        $fbsession = new Zend_Session_Namespace('facebook');
-        if (!$authorization->hasIdentity() &&
-                !isset($fbsession->name)) {
-            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
-                $this->redirect("user/log-in");
-            }
-        }
-        $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
+//        $authorization = Zend_Auth::getInstance();
+//        $fbsession = new Zend_Session_Namespace('facebook');
+//        if (!$authorization->hasIdentity() &&
+//                !isset($fbsession->name)) {
+//            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+//                $this->redirect("user/log-in");
+//            }
+//        }
+//        $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
     }
 
     public function indexAction() {
@@ -93,8 +93,44 @@ class UserController extends Zend_Controller_Action {
     }
 
     public function listrescarAction() {
-        $resform = new Application_Model_ResCar();
-        $this->view->form = $resform->listall();
+        // body
+         $Rescar=new Application_Model_ResCar();
+         $paginator = Zend_Paginator::factory($Rescar->listall());
+         //var_dump($Rescar->listall()); exit;
+        $paginator->setDefaultItemCountPerPage(2);
+        $allItems = $paginator->getTotalItemCount();
+        $countPages = $paginator->count();
+
+        $p = $this->getRequest()->getParam('p');
+        if(isset($p))
+        {
+          $paginator->setCurrentPageNumber($p);
+        } else $paginator->setCurrentPageNumber(1);
+
+        $currentPage = $paginator->getCurrentPageNumber();
+
+        $this->view->trees = $paginator;
+        $this->view->countItems = $allItems;
+        $this->view->countPages = $countPages;
+        $this->view->currentPage = $currentPage;
+
+        if($currentPage == $countPages)
+        {
+             $this->view->nextPage = $countPages;
+             $this->view->previousPage = $currentPage-1;
+        }
+        else if($currentPage == 1)
+        {
+             $this->view->nextPage = $currentPage+1;
+             $this->view->previousPage = 1;
+        }
+        else {
+            $this->view->nextPage = $currentPage+1;
+            $this->view->previousPage = $currentPage-1;
+        }       
+        
+        
+        
     }
 
     public function delrescarAction() {
