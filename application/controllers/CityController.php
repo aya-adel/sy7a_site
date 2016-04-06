@@ -37,70 +37,18 @@ class CityController extends Zend_Controller_Action
     {
         // action body
         $city_model = new Application_Model_City();
-        $exp=new Application_Model_Post();
-        $form = new Application_Form_Post();
-        $comment=new Application_Model_Comment();
-        
-        
         $city_id = $this->_request->getParam("id");
         $county_id = $this->_request->getParam("country_id");
         $city = $city_model->getAllCities($county_id)[0];
         
-        $allPost=$exp->getAllPosts($city_id);
-        //$allcomment =[];
-        for($i=0;$i<count($allPost);$i++)
-        {
-            $postid=$allPost[$i]["id"];
-            //$pscom[$postid] = array();
-            $allcomment[$postid]=$comment->listComments($postid);
-        }
-        //addPostForm
-        $request = $this->getRequest();
-        if(null !== $this->_request->getParam("postiddel"))
-        {//for delete
-            $post_model = new Application_Model_Post();
-            $post_id = $this->_request->getParam("postiddel");
-            $post_model->deletePost($post_id);
-            $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-        }
-        elseif (null !== $this->_request->getParam("postidedit"))
-        {//for edit
-            $post_model = new Application_Model_Post();
-            $post_id = $this->_request->getParam("postidedit");
-            $old_post = $post_model->getPost($post_id);
-            $form->populate($old_post[0]);
-            $request = $this->getRequest();
-            if($request-> isPost()){
-                if($form-> isValid($request-> getPost())){
-                        $post_model-> editPost($_POST);
-                            //send new_post to model->edit 
-                        $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-                }
-            }            
-        }  else {//for add
-            if($request->isPost()){
-                if($form->isValid($request->getPost())){
-                    $post_model = new Application_Model_Post();
-                    $post = array('city_id' => $city_id,
-                                  'user_id' => 1,
-                                  'content' => $request->getParam("content")
-                            );
-                    $post_model-> addPost($post);
-                    $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-                }
-            }            
-        }//end elseif  
         $this->view->city = $city;
-        $this->view->posts= $allPost;
-        $this->view->comments= $allcomment;
-        $this->view->Post_form= $form;
         
         $location=new Application_Model_Location();
-          $paginator = Zend_Paginator::factory( $location-> listLocation()); 
-       $paginator->setDefaultItemCountPerPage(2);
-       $allItems = $paginator->getTotalItemCount(); 
-       $countPages = $paginator->count();
-       $p = $this->getRequest()->getParam('p'); 
+        $paginator = Zend_Paginator::factory( $location-> listLocation()); 
+        $paginator->setDefaultItemCountPerPage(2);
+        $allItems = $paginator->getTotalItemCount(); 
+        $countPages = $paginator->count();
+        $p = $this->getRequest()->getParam('p'); 
        if(isset($p)) 
            { $paginator->setCurrentPageNumber($p); } 
            else
@@ -116,7 +64,25 @@ class CityController extends Zend_Controller_Action
                else if($currentPage == 1)
                    { $this->view->nextPage = $currentPage+1; $this->view->previousPage = 1; } 
                    else { $this->view->nextPage = $currentPage+1; $this->view->previousPage = $currentPage-1; }
+                   
+                   
         
+        $post_model = new Application_Model_Post();
+        $comment=new Application_Model_Comment();
+        //$exp=new Application_Model_Post();
+        $allPost=$post_model->getAllPosts($city_id);
+        //var_dump($allPost);die();
+        $allcomment =[];
+          for($i=0;$i<count($allPost);$i++)
+        {
+            $postid=$allPost[$i]["id"];
+            //$pscom[$postid] = array();
+            $allcomment[$postid]=$comment->listComments($postid);
+        }
+        //var_dump($allcomment);die();
+        $this->view->posts = $allPost;
+        $this->view->comments= $allcomment;
+
     }
     
     public function addAction()

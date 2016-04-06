@@ -17,41 +17,26 @@
   }
 ?>
 
-<?php
-echo "<table>";
-//var_dump( $this->country);exit();
-echo "<td> <a class='btn btn-info' href='/city/add'> ADD </a> </td>" ;
-foreach($this->cites as $key => $value)
-{
 
-echo "<tr>".
-"<td>" . $value['id']
-. "</td>" .
-"<td>" . $value['name'] . "</td>" .
-"<td>" . $value['description'] . "</td>" .
-//"<td>" . $value['image'] . "</td>" .
-"<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
-
-//"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
-"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
-
-"<td> <a class='btn btn-warning' href='/city/delete/id/".$value['id']."/country_id/".$value['country_id']."'> Delete </a> </td>" .
-"<td> <a class='btn btn-primary' href='/city/edit/id/".$value['id']."'> Edit </a> </td>" .
-"</tr>";
-
-
-}
-echo "</table>";
-?>
 
 
 <h2>available location in country <?php echo "( ".$this->countItems." )"; ?></h2> 
-<p> <?php foreach ($this->cites as $tree): ?>
- <?php echo "reservation_id :: " .$tree['id'] ?>
-    <br/> <?php echo "user_id :: ".$tree['name'] ?><br/>
-    <?php echo "reservation_id :: " .$tree['description'] ?><br/>
-      <?php echo "reservation_id :: " .$tree['image'] ?><br/>
- <?php endforeach; ?> </p> <br/> 
+<table class="table table-hover">
+ <?php foreach ($this->cites as $tree): ?>
+    <tr>
+    <td>
+        
+        <a href="/city/details/id/<?= $tree['id'] ?>/country_id/<?= $this->country['id'] ?>"> READ MORE</a><br>
+    </td>
+    <td>
+    <h1><?= $tree['name'] ?></h1><br>
+    <h1> <?= $tree['description'] ?></h1><br>
+   
+   <img src='<?= $tree['image'] ?>'style='width: 200px;height: 200px'><br>
+   </td>
+    </tr>
+ <?php endforeach; ?> 
+</table> <br/> 
 <a href="<?php echo $this->url(array('controller'=>'country','action'=>'details','p'=>$this->previousPage)) ?>">
     previous </a> 
         <?php echo "".$this->currentPage."/".$this->countPages; ?> 
