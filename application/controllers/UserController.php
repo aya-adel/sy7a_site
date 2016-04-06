@@ -172,9 +172,9 @@ class UserController extends Zend_Controller_Action {
                     $auth = Zend_Auth::getInstance(); //if the user is valid register his info in session
                     $storage = $auth->getStorage();
                     // write in session email & id & first_name
-                    $storage->write($authAdapter->getResultRowObject(array('email', 'id', 'name')));
+                    $storage->write($authAdapter->getResultRowObject(array('email', 'id', 'name' , 'image')));
                     // redirect to root index/index
-                    return $this->redirect('/user/listusers');
+                    return $this->redirect('/ajax/details/id/1/country_id/1');
                 } else {
                     // if user is not valid send error message to view
                     //$this->view->error_message = "Invalid Email or Password!";

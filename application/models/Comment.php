@@ -29,11 +29,13 @@ class Application_Model_Comment extends Zend_Db_Table_Abstract
         $row->user_id = $commentData['user_id'];
 
         $row->save();
+        return $row['id'];
     }
     function editcomment ($commentData){
-        $newData['content'] = $commentData['content'];
-        $newData['post_id'] = $commentData['post_id'];
+//        $newData['content'] = $commentData['content'];
+//        $newData['post_id'] = $commentData['post_id'];
         $id= $commentData['id'];
+        $newData['content'] = $commentData['content'];
         $this->update($newData,"id=".$id);
     }
 
