@@ -1,35 +1,3 @@
-
-<?php
-echo "<table>";
-
-//////var_dump( $this->country);exit();
-echo "<td> <a class='btn btn-info' href='add'> ADD </a> </td>" ;
-
-foreach($this->country as $key => $value)
-{
-
-echo "<tr>".
-"<td>" . $value['id']
-. "</td>" .
-"<td>" . $value['name'] . "</td>" .
-"<td>" . $value['description'] . "</td>" .
-"<td>" . $value['image'] . "</td>" .
-"<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
-
-"<td> <a class='btn btn-info' href='details/id/".$value['id']."'> Details </a> </td>" .
-
-"<td> <a class='btn btn-warning' href='delete/id/".$value['id']."'> Delete </a> </td>" .
-"<td> <a class='btn btn-primary' href='update/id/".$value['id']."'> Edit </a> </td>" .
-"</tr>";
-////
-////
-}
-echo "</table>";
-//
-//
-////var_dump( $this->countryarr);
-
-?>
 <style>
  
 
@@ -45,24 +13,24 @@ echo "</table>";
 
  
   </style>
-  <div >
-      <ul class=" nav navbar-nav navbar-right">
-          <li class='dropdown'>
-          <a href="#" class="dropdown-toggle" data-toggle="drop">Destination</a>
-          <ul class='dropdown-menu'>
-              <?php foreach($this->country as $key=>$value ): ?>
-              <li><a href="country/details/id/<?= $value['id']?>"><?= $value['name']?></a>
-                  <?php endforeach ;?>
-              
-          </ul>          
-      </li>
-      </ul>
+ 
       
       
       
-      
-      
+      <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+         <?php foreach($this->country as $key=>$value ): ?>
+      <li><a href="country/details/id/<?= $value['id']?>"><?= $value['name']?></a></li>
+        <?php endforeach ;?>
+     
+    </ul>
   </div>
+      
+      
+      
+
 
 
 
@@ -101,46 +69,47 @@ echo "</table>";
       <div class="item active">
         <img src="<?=  $this->countryarr[0][0]['image'];?>"  style="width: 1800px ; height: 500px">
         <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>The atmosphere in New York is lorem ipsum.</p>
+          <h1><?=  $this->countryarr[0][0]['name'];?></h1>
+          <h3>  <a href="/country/details/id/<?=  $this->countryarr[0][0]['id'];?>">ReadMore</a></h3>
         </div>      
+       
       </div>
         
         <div class="item">
             <img src="<?= $this->countryarr[1][0]['image'];?>" alt="Chicago" style="width: 1800px ; height: 500px">
         <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago - A night we won't forget.</p>
+          <h3><?=  $this->countryarr[1][0]['name'];?></h3>
+           <h3>  <a href="/country/details/id/<?=  $this->countryarr[1][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
     
       <div class="item">
         <img src="<?= $this->countryarr[2][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
         <div class="carousel-caption">
-          <h3>LA</h3>
-          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+          <h3><?=  $this->countryarr[2][0]['name'];?></h3>
+          <h3>  <a href="/country/details/id/<?=  $this->countryarr[2][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
         
         <div class="item">
         <img src="<?= $this->countryarr[3][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
         <div class="carousel-caption">
-          <h3>LA</h3>
-          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+          <h3><?=  $this->countryarr[3][0]['name'];?></h3>
+          <h3>  <a href="/country/details/id/<?=  $this->countryarr[3][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
         <div class="item">
         <img src="<?= $this->countryarr[4][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
         <div class="carousel-caption">
-          <h3>LA</h3>
-          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+          <h3><?=  $this->countryarr[4][0]['name'];?></h3>
+           <h3>  <a href="/country/details/id/<?=  $this->countryarr[4][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
         <div class="item">
         <img src="<?= $this->countryarr[5][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
         <div class="carousel-caption">
-          <h3>LA</h3>
-          <p>Even though the traffic was a mess, we had the best time playing at Venice Beach!</p>
+          <h3><?=  $this->countryarr[5][0]['name'];?></h3>
+           <h3>  <a href="/country/details/id/<?=  $this->countryarr[5][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
 </div>
@@ -184,9 +153,9 @@ echo "</table>";
 				<figure>
 						<img src="<?=  $this->cityarr[0][0]['image'];?>"alt="">
 						<figcaption>
-							<h3>LUXUS</h3>
-							<span>Accusantium Dolor</span>
-							<a class="example-image-link" href="images/g11.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+							<h3><?=  $this->cityarr[0][0]['name'];?></h3>
+							<span><?=  $this->cityarr[0][0]['description'];?></span>
+							<a class="example-image-link" href="/city/details/id/<?=  $this->cityarr[0][0]['id'];?>/country_id/<?=  $this->cityarr[0][0]['country_id'];?>" data-lightbox="example-1" data-title="Luxus">VIEW</a>
 						</figcaption>
 				</figure>
 			</div>	
@@ -194,9 +163,9 @@ echo "</table>";
 				<figure>
 						<img src="<?= $this->cityarr[1][0]['image'];?>" alt="">
 						<figcaption>
-							<h3>LUXUS</h3>
-							<span>Accusantium Dolor</span>
-							<a class="example-image-link" href="images/22.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+							<h3><?=  $this->cityarr[1][0]['name'];?></h3>
+							<span><?=  $this->cityarr[1][0]['description'];?></span>
+                                                        <a class="example-image-link" href="/city/details/id/<?=  $this->cityarr[1][0]['id'];?>/country_id/<?=  $this->cityarr[1][0]['country_id'];?>" data-lightbox="example-1" data-title="Luxus">VIEW</a>
 						</figcaption>
 				</figure>
 			</div>
@@ -204,9 +173,9 @@ echo "</table>";
 				<figure>
 						<img src="<?=  $this->cityarr[2][0]['image'];?>" alt="">
 						<figcaption>
-							<h3>LUXUS</h3>
-							<span>Accusantium Dolor</span>
-							<a class="example-image-link" href="images/g66.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+							<h3><?=  $this->cityarr[2][0]['name'];?></h3>
+							<span><?=  $this->cityarr[2][0]['description'];?></span>
+                                                        <a class="example-image-link" href="/city/details/id/<?=  $this->cityarr[2][0]['id'];?>/country_id/<?=  $this->cityarr[2][0]['country_id'];?>" data-lightbox="example-1" data-title="Luxus">VIEW</a>
 						</figcaption>
 				</figure>
 			</div>	
@@ -214,9 +183,9 @@ echo "</table>";
 				<figure>
 						<img src="<?=  $this->cityarr[3][0]['image'];?>" alt="">
 						<figcaption>
-							<h3>LUXUS</h3>
-							<span>Accusantium Dolor</span>
-							<a class="example-image-link" href="images/g44.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+							<h3><?=  $this->cityarr[3][0]['name'];?></h3>
+							<span><?=  $this->cityarr[3][0]['description'];?></span>
+                                                        <a class="example-image-link" href="/city/details/id/<?=  $this->cityarr[3][0]['id'];?>/country_id/<?=  $this->cityarr[3][0]['country_id'];?>" data-lightbox="example-1" data-title="Luxus">VIEW</a>
 						</figcaption>
 				</figure>
 			</div>	
@@ -224,9 +193,10 @@ echo "</table>";
 				<figure>
 						<img src="<?=  $this->cityarr[4][0]['image'];?>" alt="">
 						<figcaption>
-							<h3>LUXUS</h3>
-							<span>Accusantium Dolor</span>
-							<a class="example-image-link" href="images/g55.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+							<h3><?=  $this->cityarr[4][0]['name'];?></h3>
+							<span><?=  $this->cityarr[4][0]['description'];?></span>
+          <a class="example-image-link" href="/city/details/id/<?=  $this->cityarr[4][0]['id'];?>/country_id/<?=  $this->cityarr[4][0]['country_id'];?>" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+
 						</figcaption>
 				</figure>
 			</div>
@@ -234,9 +204,9 @@ echo "</table>";
 				<figure>
 						<img src="<?=  $this->cityarr[5][0]['image'];?>" alt="">
 						<figcaption>
-							<h3>LUXUS</h3>
-							<span>Accusantium Dolor</span>
-							<a class="example-image-link" href="images/g33.jpg" data-lightbox="example-1" data-title="Luxus">VIEW</a>
+							<h3><?=  $this->cityarr[5][0]['name'];?></h3>
+							<span><?=  $this->cityarr[5][0]['description'];?></span>
+          <a class="example-image-link" href="/city/details/id/<?=  $this->cityarr[5][0]['id'];?>/country_id/<?=  $this->cityarr[5][0]['country_id'];?>" data-lightbox="example-1" data-title="Luxus">VIEW</a>
 						</figcaption>
 				</figure>
 			</div>	

@@ -1,191 +1,136 @@
 <?php
-                $auth = Zend_Auth::getInstance();
-                $storage = $auth->getStorage();
-                $sessionRead = $storage->read();
-                if (!empty($sessionRead)) {
-                    $name = $sessionRead->name;
-                     echo "Welcome " . $name;
-                    ?> <a  href="<?php echo $this->baseUrl() ?>/user/log-out"> Logout </a>
-                    <?php }
-                    else{
-                        
-                        $fbsession = new Zend_Session_Namespace('facebook');
-                            if (isset($fbsession->fname) && !empty(isset($fbsession->fname))) {
-                                $name = $fbsession->fname;
-                                echo "Welcome " . $name;
-                                ?>
-                    
-                     <a  href="<?php echo $this->baseUrl() ?>/user/fblogout"> Logout </a>
-                     <?php   
-                        }
-                    }
-                ?>
-                              
+$auth = Zend_Auth::getInstance();
+$storage = $auth->getStorage();
+$sessionRead = $storage->read();
+$flag = 0;
+$facebook = 0;
+if (isset($sessionRead)) {
+    $flag = 1;
+} else {
+    $fbsession = new Zend_Session_Namespace('facebook');
+    if (isset($fbsession->fname) && !empty(isset($fbsession->fname))) {
+        $facebook = 1;
+    }
+}
+?>
+
 
 <head>
-<!-- Latest compiled and minified CSS -->
-<title> FAS7NY SITE</title>
-<!-- for-mobile-apps -->
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  
-  
-  
-  
-  
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content=" this is the site to enjoy your time" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-		function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //for-mobile-apps -->
-<link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="/css/component.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all" />
-<script src="/js/modernizr.custom.js"></script>
-<!-- js -->
+    <!-- Latest compiled and minified CSS -->
+    <title> FAS7NY SITE</title>
+    <!-- for-mobile-apps -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 
-<script src="/js/jquery-1.11.1.min.js"></script>
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-  <script type="text/javascript" src="/js/gmaps.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/stylee.css" />
-  <script type="text/javascript">
-<!-- //js -->
-<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-	<!-- start-smoth-scrolling -->
-		<script type="text/javascript" src="/js/move-top.js"></script>
-		<script type="text/javascript" src="/js/easing.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-				});
-			});
-		</script>
-                  <style>
-   
-      #map {
-        height: 100%;
-      }
+
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content=" this is the site to enjoy your time" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+        function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/component.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="all" />
+    <script src="/js/modernizr.custom.js"></script>
+    <!-- js -->
+
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="/js/gmaps.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/stylee.css" />
+    <script type="text/javascript">
+  <!-- //js -->
+        < link href = '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel = 'stylesheet' type = 'text/css' ><!-- start-smoth-scrolling -->
+                  < script type = "text/javascript" src = "/js/move-top.js" ></script>
+    <script type="text/javascript" src="/js/easing.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+            });
+        });
+    </script>
+    <style>
+
+        #map {
+            height: 100%;
+        }
     </style>
 </head>
 
 <!------------------------------------------------- the start of the code ----->
-<body class="cbp-spmenu-push">
-    
-		  <section class="button">
-					<button id="showLeftPush"><img src="/images/menu.png" alt=""></button>
-                                        
-		   </section>
-			<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>Menu</h3>
-						<a href="index.html" class="active">HOME</a>
-						<a href="about.html">ABOUT</a>
-						<a href="shortcodes.html">SHORT CODES</a>
-						<a href="gallery.html">GALLERY</a>
-					    <a href="blog.html">BLOG</a>
-						<a href="contact.html">CONTACT</a>
-				<ul class="social-icons text-center">
-					<li><a href="#" class="f1"></a></li>
-					<li><a href="#" class="f2"></a></li>
-					<li><a href="#" class="f3"></a></li>
-					<li><a href="#" class="f4"></a></li>
-				</ul>
-		  </nav>
-		
-		<script src="/js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
-				showLeftPush = document.getElementById( 'showLeftPush' ),
-				showRightPush = document.getElementById( 'showRightPush' ),
-				body = document.body;
+<body>
 
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-			};
 
-			function disableOther( button ) {
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-				if( button !== 'showRightPush' ) {
-					classie.toggle( showRightPush, 'disabled' );
-				}
-			}
-		</script>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                </button>
+                <a class="navbar-brand" href="#">FAS7NY</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Page 1-1</a></li>
+                            <li><a href="#">Page 1-2</a></li>
+                            <li><a href="#">Page 1-3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
 
-<div class="banner">
-	<div class="logo">
-		<h1><a href="index.html">FAS7NY :) </a></h1>
-	</div>
-	<div class="search-in">
-			<div class="search" style="display: none;">
-				<form>
-					<input type="text" class="text">
-					<input type="submit" value="SEARCH">
-				</form>
-				<div class="close-in"><img src="/images/close.png" alt=""></div>
-			</div>
-			<div class="right"><button> </button></div>
+<?php
+if ($flag == 1) {
+    ?>
+                        <li>Welcome 
+                        <?php
+                        echo $sessionRead->name;
+                    
+                    ?>
+                        </li><li><a href="/user/log-out"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                        <?php
+                        }else {
+                        if ($facebook == 1) {
+                            ?>
                         
-	</div>
-			<script type="text/javascript">
-				$('.search').hide();
-				$('button').click(function (){
-				$('.search').show();
-				$('.text').focus();
-				}
-				);
-				$('.close-in').click(function(){
-				$('.search').hide();
-				});
-			</script>
-	<div class="banner-info">
-		<script src="/js/responsiveslides.min.js"></script>
-			<script>
-									// You can also use "$(window).load(function() {"
-									$(function () {
-									 // Slideshow 4
-									$("#slider3").responsiveSlides({
-										auto: true,
-										pager: true,
-										nav: false,
-										speed: 500,
-										namespace: "callbacks",
-										before: function () {
-									$('.events').append("<li>before event fired.</li>");
-									},
-									after: function () {
-										$('.events').append("<li>after event fired.</li>");
-										}
-										});
-										});
-			</script>
+                        <li>Welcome <?php
+                                echo $fbsession->fname;
+                            ?>
+                                </li><li><a href="/user/log-out"><span class="glyphicon glyphicon-log-out"></span>Log out</a></li>
+                        
+                                <?php} else {
+                                ?>
+                            <li><a href="/user/add-user"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="/user/log-in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
-	</div>
-	
-</div>
-
-
-
-
-
-
-
-
-
-
-
-<!-------------------------------------------------------------------->
+                                <?php
+                            }
+                        }
+                        ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-------------------------------------------------------------------->
 
 
 
@@ -209,48 +154,24 @@
 
 
 
-<div><?php echo $this->layout()->content; ?></div>
-<!-- footer -->
-<div class="footer">
-	<div class="container">
-		<h2><a href="index.html">LUXUS</a></h2>
-		<div class="footer-grids">
-			<div class="col-md-3 footer-grid">
-				<h3>KEEP IN TOUCH</h3>
-				<ul>
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">Twitter</a></li>
-					<li><a href="#">Behance</a></li>
-					<li><a href="#">Dribbble</a></li>
-					<li><a href="#">Vimeo</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer-grid">
-				<h3>SITES</h3>
-				<ul>
-					<li><a href="#">Tumblr</a></li>
-					<li><a href="#">Pinterest</a></li>
-					<li><a href="#">Linkedin</a></li>
-					<li><a href="#">Email</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer-grid special-icons">
-				<h3>LIKE</h3>
-				<ul>
-					<li><a href="#" class="fb">Facebook</a></li>
-					<li><a href="#" class="twitt">Twitter</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 footer-grid">
-				<h3>COPYRIGHT</h3>
-				<p> &copy; 2015 Luxus. All Rights Reserved | Design  by <a href="http://w3layouts.com" target="target_blank">W3layouts</a></p>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-<!-- //footer -->
-<!-- Bootstrap core JavaScript-->
+    <div><?php echo $this->layout()->content; ?></div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <h2><a href="index.html">FAS7NY</a></h2>
+            <div class="footer-grids">
+           
+            
+                <div class="col-md-3 footer-grid">
+                    <h3>COPYRIGHT</h3>
+                    <p> AMR & AYA & HANA & NORHAN</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- //footer -->
+    <!-- Bootstrap core JavaScript-->
     <!-- Placed at the end of the document so the pages load faster -->
 	<!-- js -->
 		 <script src="/js/bootstrap.js"></script>

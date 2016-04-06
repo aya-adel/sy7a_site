@@ -5,15 +5,14 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-//        $authorization = Zend_Auth::getInstance();
-//        $fbsession = new Zend_Session_Namespace('facebook');
-//        if (!$authorization->hasIdentity() &&
-//                !isset($fbsession->name)) {
-//            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
-//                $this->redirect("user/log-in");
-//            }
-//        }
-//        $this->view->addHelperPath('Zend/Glitch/View/Helper', 'Glitch_View_Helper_');
+        $authorization = Zend_Auth::getInstance();
+        $fbsession = new Zend_Session_Namespace('facebook');
+        if (!$authorization->hasIdentity() &&
+                !isset($fbsession->name)) {
+            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+                $this->redirect("user/log-in");
+            }
+        }
     }
 
     public function indexAction()
@@ -97,14 +96,19 @@ class UserController extends Zend_Controller_Action
         $id = $this->_request->getParam('uid');
         $user_data = $user_obj->showUser($id)[0];
         $form->populate($user_data);
-        $form->getElement('email')->setAttrib('readonly', 'readonly');
+       // $form->getElement('email')->setAttrib('readonly', 'readonly');
         $form->getElement('submit')->setName('Update');
+        $form->removeElement('email');
 //$form->getElement('email')->setAttrib('disabled','disabled' );
         $this->view->user_form = $form;
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
-                $user_obj->updateClient($_POST);
+                $upload = new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename', "/var/www/html/fas7ny/public/images/" . $_POST['name'] . ".jepg");
+                $upload->receive();
+                $_POST['image'] = "/images/" . $_POST['name'] . ".jepg";
+                $user_obj->updateUser($_POST);
                 $this->redirect('/user/listusers');
             }
         }
@@ -230,8 +234,12 @@ class UserController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                $upload = new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename', "/var/www/html/fas7ny/public/images/" . $_POST['name'] . ".jpg");
+                $upload->receive();
+                $_POST['image'] = "/images/" . $_POST['name'] . ".jpg";
                 $user_obj = new Application_Model_User();
-                $user_obj->addNewUser($request->getParams());
+                $user_obj->addNewUser($_POST);
                 $this->redirect('/user');
             }
         }
@@ -262,7 +270,7 @@ class UserController extends Zend_Controller_Action
                     // write in session email & id & first_name
                     $storage->write($authAdapter->getResultRowObject(array('email', 'id', 'name' , 'image')));
                     // redirect to root index/index
-                    return $this->redirect('/ajax/details/id/1/country_id/1');
+                    return $this->redirect('/country/');
                 } else {
                     // if user is not valid send error message to view
                     //$this->view->error_message = "Invalid Email or Password!";
@@ -420,8 +428,7 @@ class UserController extends Zend_Controller_Action
 
     public function ratetestAction()
     {
-            $form=new Application_Form_City();
-            $this->view->form=$form;
+           
 
            }
 

@@ -1,5 +1,117 @@
 
 
+<head>
+    <script language="javascript" type="text/javascript">
+        //anynomous function to inital the page 
+        (function (a) {
+            // execute the initalization of the page style 
+            a.fn.codexworld_rating_widget = function (p) {
+                var b = p.starLength ? p.starLength : "5";
+                var c = p.callbackFunctionName ? p.callbackFunctionName : "";
+                var e = p.initialValue ? p.initialValue : "0";
+                var r = p.inputAttr ? p.inputAttr : "";
+                var g = a(this);
+                init();
+                g.next("ul").children("li").hover(function () {
+                    $(this).parent().children("li").css('background-position', '0px 0px');
+
+                    var a = $(this).parent().children("li").index($(this));
+                    $(this).parent().children("li").slice(0, a + 1).css('background-position', '0px -28px')
+                }, function () {
+                });
+
+                g.next("ul").children("li").click(function () {
+                    var a = $(this).parent().children("li").index($(this));
+                    var attrVal = (r != '') ? g.attr(r) : '';
+                    f = a + 1;
+                    g.val(f);
+                    if (c != "") {
+                        eval(c + "(" + g.val() + ", " + attrVal + ")")
+                    }
+                });
+
+                g.next("ul").hover(function () {
+                }, function () {
+                    if (f == "") {
+                        $(this).children("li").slice(0, f).css('background-position', '0px 0px')
+                    } else {
+                        $(this).children("li").css('background-position', '0px 0px');
+                        $(this).children("li").slice(0, f).css('background-position', '0px -28px')
+                    }
+                });
+                function init() {
+                    $('<div style="clear:both;"></div>').insertAfter(g);
+                    g.css("float", "left");
+                    var a = $("<ul>");
+                    a.addClass("codexworld_rating_widget");
+                    for (var i = 1; i <= b; i++) {
+                        a.append('<li style="background-image:url(/images/widget_star.gif)"><span>' + i + '</span></li>')
+                    }
+                    a.insertAfter(g);
+                    if (e != "") {
+                        f = e;
+                        g.val(e);
+                        g.next("ul").children("li").slice(0, f).css('background-position', '0px -28px')
+                    }
+                }
+            }
+        })(jQuery);
+
+
+
+        $(function () {
+            $("#rating_star").codexworld_rating_widget({
+                starLength: '5',
+                initialValue: prevrate(),
+                callbackFunctionName: 'processRating',
+                imageDirectory: '/images/',
+                inputAttr: 'postID'
+            });
+        });
+
+        function prevrate() {
+            var x = $.ajax({
+                url: "/city/getrate",
+                type:'POST',
+                data: 'id=' + 1 + '&user_id='+ 2 ,
+                async: false,
+            }).responseText;
+            return x;
+        }
+
+        function processRating(val, attrVal) {
+            $.ajax({
+                type: 'POST',
+                url: '/city/addrate',
+                data: 'id=' + attrVal + '&user_id='+ 2 +  '&ratingPoints=' + val,
+                dataType: 'json'
+            });
+        }
+    </script>
+    <style type="text/css">
+        .overall-rating{font-size: 14px;margin-top: 5px;color: #8e8d8d;}
+        .codexworld_rating_widget{
+            padding: 0px;
+            margin: 0px;
+            float: left;
+        }
+        .codexworld_rating_widget li{
+            line-height: 0px;
+            width: 28px;
+            height: 28px;
+            padding: 0px;
+            margin: 0px;
+            margin-left: 2px;
+            list-style: none;
+            float: left;
+            cursor: pointer;
+        }
+        .codexworld_rating_widget li span{
+            display: none;
+        }
+    </style>
+</head>
+
 
 <?php
  if($this->city !== null)
@@ -21,7 +133,11 @@
 ?>
  
 
-
+<br/>
+    <div>
+    <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
+    </div>
+<br/>
 
 <div id="map"></div>
     <script>
@@ -47,5 +163,99 @@
     previous </a> 
         <?php echo "".$this->currentPage."/".$this->countPages; ?> 
 <a href="<?php echo $this->url(array('controller'=>'city','action'=>'details','p'=>$this->nextPage)) ?>"> next </a> <br/>
-      
- 
+        <table class="table">
+            <?php
+            $auth = Zend_Auth::getInstance();
+            $storage = $auth->getStorage();
+            $sessionRead = $storage->read();
+            if (isset($sessionRead)) {
+                $user_id = $sessionRead->id;  // must be get from sesion
+                $logedusername =$sessionRead->name;
+                $logedimage = $sessionRead->image;
+            }
+            if ($this->city !== null) {
+                ?>
+                <tr style="background-color:blue">
+                    <td><?php echo $this->city["id"]; ?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $this->city["name"]; ?></td>
+                </tr>
+                <tr>
+                    <td><?php echo $this->city["description"]; ?></td>
+                </tr>
+                <tr>
+                    <td><img src="<?php echo $this->city["image"]; ?>" height='42' width='42'</td>
+                </tr>
+    <?php
+}
+?>
+        </table>
+        <div class='container-fluid'>
+            <div class='container' id="posts">
+<?php
+foreach ($this->posts as $key => $post):
+    $user = new Application_Model_User();
+    $us = $user->showUser($post['user_id'])[0];
+    $username = $us['name'];
+    $image = $us['image'];
+    ?>
+                    <div id="post-details<?= $post['id'] ?>">
+                        <label><?= $username ?></label>
+                        <img src="<?= $image ?>" width="50" height="50">
+                        <textarea id ="post<?= $post['id'] ?>" rows="20" cols="100" disabled="disabled" ><?= $post['content'] ?></textarea>
+                               <?php if(isset($sessionRead)){if($us['id'] == $user_id){?>
+                        <input type = "button" id="postedit<?= $post['id'] ?>" value="edit" onclick="edit(<?= $post['id'] ?>)"/>
+                        <input type = "button" id="postdel<?= $post['id'] ?>" value="delete" onclick="del(<?= $post['id'] ?>)"/>
+                               <?php }}?>
+                        <?php if(isset($sessionRead)) { ?>
+                    
+                        <div>
+                            <label>Add New Comment : </label>
+                            <textarea id ="addcom<?= $post['id'] ?>" rows="3" cols="100"></textarea>
+                            <input type="button" value="Add" onclick="addcom(<?= $post['id'] ?>,<?= $user_id ?>, '<?= $logedusername ?>', '<?= $logedimage ?>')">
+                        </div> 
+                            <?php  } ?>
+    <?php
+    //for ($i = 0; $i < count($this->comments); $i++) {
+    for($i = 0 ;$i<count($this->comments[$post['id']]); $i++)/*as $key => $comment)*/{
+        $comment = $this->comments[$post['id']][$i];
+        $us = $user->showUser($comment['user_id'])[0];
+        $username = $us['name'];
+        $image = $us['image'];
+        ?>
+                            <div id="comment-details" style="margin-left: 50px;">
+                                <hr>
+                                <label><?= $username ?></label>
+                                <img src="<?= $image ?>" width="50" height="50">
+                                <textarea id ="com<?= $comment['id'] ?>" rows="3" cols="100" disabled="disabled"><?= $comment['content'] ?></textarea>
+                                
+                               <?php if(isset($sessionRead)){if($us['id'] == $user_id){?>
+                                    <input type = "button" id="comedit<?= $comment['id'] ?>" value="edit" onclick="editcom(<?= $comment['id'] ?>)"/>
+                                    <input type = "button" id="comdel<?= $comment['id'] ?>" value="delete" onclick="delcom(<?= $comment['id'] ?>)"/>
+                               <?php }}?>
+
+                            </div>
+    <?php }
+    //endforeach;
+    //} 
+    ?>
+
+                    
+                        <hr>
+                    </div>
+                   
+<?php endforeach; ?>
+
+            </div>
+
+            <?php if(isset($sessionRead)) { ?>
+                    
+            <div>
+                <label>Add New Post : </label>
+                <textarea id ="addpost" rows="20" cols="100"></textarea>
+                <input type="button" value="Add" onclick="add(<?= $this->city["id"] ?>,<?= $user_id ?>, '<?= $logedusername ?>', '<?= $logedimage ?>')">
+            </div> 
+             <?php  } ?>
+            <script src="/js/jquery-1.11.1.min.js"></script>           
+            <script src="/js/comments.js"></script>
