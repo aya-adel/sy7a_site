@@ -1,0 +1,116 @@
+<head>
+<link href="rating.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="rating.js"></script>
+<script language="javascript" type="text/javascript">
+    //anynomous function to inital the page 
+ (function(a){
+     // execute the initalization of the page style 
+    a.fn.codexworld_rating_widget = function(p){
+   
+        var b = p&&p.starLength?p.starLength:"5";
+        var c = p&&p.callbackFunctionName?p.callbackFunctionName:"";
+        var e = p&&p.initialValue?p.initialValue:"0";
+        var r = p&&p.inputAttr?p.inputAttr:"";
+        var g = a(this);
+        init();
+        g.next("ul").children("li").hover(function(){
+            $(this).parent().children("li").css('background-position','0px 0px');
+            
+            var a = $(this).parent().children("li").index($(this));
+            $(this).parent().children("li").slice(0,a+1).css('background-position','0px -28px')
+        },function(){});
+        
+        g.next("ul").children("li").click(function(){
+            var a = $(this).parent().children("li").index($(this));
+            var attrVal = (r != '')?g.attr(r):'';
+            f = a+1;
+            g.val(f);
+            if(c != ""){
+                eval(c+"("+g.val()+", "+attrVal+")")
+            }
+        });
+        
+        g.next("ul").hover(function(){},function(){
+            if(f == ""){
+                $(this).children("li").slice(0,f).css('background-position','0px 0px')
+            }else{
+                $(this).children("li").css('background-position','0px 0px');
+                $(this).children("li").slice(0,f).css('background-position','0px -28px')
+            }
+        });
+        function init(){
+            $('<div style="clear:both;"></div>').insertAfter(g);
+            g.css("float","left");
+            var a = $("<ul>");
+            a.addClass("codexworld_rating_widget");
+            for(var i=1;i<=b;i++){
+                a.append('<li style="background-image:url(/images/widget_star.gif)"><span>'+i+'</span></li>')
+            }
+            a.insertAfter(g);
+            if(e != ""){
+                f = e;
+                g.val(e);
+                g.next("ul").children("li").slice(0,f).css('background-position','0px -28px')
+            }
+        }
+    }
+})(jQuery);
+    
+$(function() {
+    $("#rating_star").codexworld_rating_widget({
+        starLength: '5',
+        initialValue: '',
+        callbackFunctionName: 'processRating',
+        imageDirectory: '/images/',
+        inputAttr: 'postID'
+    });
+});
+
+
+
+function processRating(val, attrVal){
+    $.ajax({
+        type: 'POST',
+        url: 'rating.php',
+        data: 'postID='+attrVal+'&ratingPoints='+val,
+        dataType: 'json',
+        success : function(data) {
+            if (data.status == 'ok') {
+                alert('You have rated '+val);
+            }else{
+                alert('Some problem occured, please try again.');
+            }
+        }
+    });
+}
+</script>
+<style type="text/css">
+    .overall-rating{font-size: 14px;margin-top: 5px;color: #8e8d8d;}
+    .codexworld_rating_widget{
+    padding: 0px;
+    margin: 0px;
+    float: left;
+}
+.codexworld_rating_widget li{
+    line-height: 0px;
+    width: 28px;
+    height: 28px;
+    padding: 0px;
+    margin: 0px;
+    margin-left: 2px;
+    list-style: none;
+    float: left;
+    cursor: pointer;
+}
+.codexworld_rating_widget li span{
+    display: none;
+}
+</style>
+</head>
+<body>
+    <div>
+        <br/><br/><br/>
+    <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
+    </div>
+</body>
