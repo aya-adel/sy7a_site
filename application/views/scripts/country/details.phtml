@@ -161,14 +161,23 @@ echo "<tr>".
 echo "</table>";
 ?>
 
-
 <h2>available location in country <?php echo "( ".$this->countItems." )"; ?></h2> 
-<p> <?php foreach ($this->cites as $tree): ?>
- <?php echo "reservation_id :: " .$tree['id'] ?>
-    <br/> <?php echo "user_id :: ".$tree['name'] ?><br/>
-    <?php echo "reservation_id :: " .$tree['description'] ?><br/>
-      <?php echo "reservation_id :: " .$tree['image'] ?><br/>
- <?php endforeach; ?> </p> <br/> 
+<table class="table table-hover">
+ <?php foreach ($this->cites as $tree): ?>
+    <tr>
+    <td>
+        
+        <a href="/city/details/id/<?= $tree['id'] ?>/country_id/<?= $this->country['id'] ?>"> READ MORE</a><br>
+    </td>
+    <td>
+    <h1><?= $tree['name'] ?></h1><br>
+    <h1> <?= $tree['description'] ?></h1><br>
+   
+   <img src='<?= $tree['image'] ?>'style='width: 200px;height: 200px'><br>
+   </td>
+    </tr>
+ <?php endforeach; ?> 
+</table> <br/> 
 <a href="<?php echo $this->url(array('controller'=>'country','action'=>'details','p'=>$this->previousPage)) ?>">
     previous </a> 
         <?php echo "".$this->currentPage."/".$this->countPages; ?> 

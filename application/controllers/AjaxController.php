@@ -12,7 +12,7 @@ class AjaxController extends Zend_Controller_Action
     {
         // action body
          $city_model = new Application_Model_City();
-        $this->view->city = $city_model->listCity();
+         $this->view->city = $city_model->listCity();
 //        //for posts
 //         $exp=new Application_Model_Post();
 //        $allPost=$exp->listPosts();
