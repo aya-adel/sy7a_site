@@ -53,6 +53,8 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="update"/>
+          <actionMethod actionName="addrate"/>
+          <actionMethod actionName="getrate"/>
         </controllerFile>
         <controllerFile controllerName="Admin">
           <actionMethod actionName="index"/>
@@ -118,6 +120,8 @@
           <actionMethod actionName="addpost"/>
           <actionMethod actionName="deletepost"/>
           <actionMethod actionName="post"/>
+          <actionMethod actionName="getrate"/>
+          <actionMethod actionName="addrate"/>
         </controllerFile>
         <controllerFile controllerName="Ajax">
           <actionMethod actionName="index"/>
@@ -407,6 +411,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="ratetest"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="addrate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="getrate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="getrate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="City">
+            <viewScriptFile forActionName="addrate"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
