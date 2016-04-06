@@ -1,202 +1,51 @@
 
-    <body>
 
-<table class="table">
 
 <?php
  if($this->city !== null)
   {
   	//var_dump($this->user["id"] );exit;
   	?>
-<tr style="background-color:blue">
-	<td><?php echo $this->city["id"];  ?></td>
 
-</tr>
-<tr>
-<td><?php echo $this->city["name"]; ?></td>
-	
+<div class="item">
+	<img src="<?=  $this->city["image"];?>"  style="width: 1800px ; height: 500px">
+        <div class="carousel-caption">
+          <h3><?=  $this->city["name"]; ?></h3>
+          <p><?= $this->city["description"];?></p>
+        </div>
+</div>	
 
-</tr>
-
-<tr>
-<td><?php echo $this->city["description"];?></td>
-	
-</tr>
-
-
-
-
-
-<tr>
-<td><img src="<?php echo $this->city["image"];?>" height='42' width='42'</td>
-	
-</tr>
 
 <?php
   }
 ?>
  
 
-</table>
-        <script type="text/javascript">
-    var map;
-    $(document).ready(function(){
-      map = new GMaps({
-        el: '#map',
-        lat: -12.043333,
-        lng: -77.028333,
-        zoomControl : true,
-        zoomControlOpt: {
-            style : 'SMALL',
-            position: 'TOP_LEFT'
-        },
-        panControl : false,
-        streetViewControl : false,
-        mapTypeControl: false,
-        overviewMapControl: false
-      });
-    });
-  </script>
 
-      <div id="map"></div>
+<div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8qj-3E6nRcvPyJP9DwpAZ3Xr_iSq_ot8&callback=initMap"
+    async defer></script>
 
-   <div id="experience-title">
-        <h2>
-            Experience
-        </h2>
-    </div>
-    <div id="experience-body">
-        <table class="table table-condensed table-striped">
-            <thead>
-                <td>post_content</td>
-                <td>edit_post</td>
-                <td>delete_post</td>
-                <td>rate_post</td>
-            </thead>
-            <?php foreach($this->posts as $key => $post): ?>
-            <tr>
-                <td> <?= $post['city_id'] ?> </td>
-                <td> <?= $post['user_id'] ?> </td>
-                <td> <?= $post['content'] ?> </td>
-                <td> <a class='btn btn-warning' href="../../../../../fas7ny/editpost/postid/<?= $post['id'] ?>"> Edit </a> </td>
-                <td> <a class='btn btn-danger' href="../../../../../fas7ny/deletepost/postid/<?= $post['id'] ?>"> Delete </a> </td>
-                <td>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
-<!--                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>-->
-                </td>
-            </tr>
-<!--            ////////////////////////////////////////////////////////////////-->
-<?php //print_r($this->comments);exit();  
-for($i=0;$i<count($this->comments);$i++){
-    
-        foreach($this->comments[$i] as $key => $comment):    
-
-            if($post['id']==$comment['post_id']){
-?>
-            <tr>
-                <td> <?= $comment['id'] ?> </td>
-                <td> <?= $comment['content'] ?> </td>
-                <td> <?= $comment['post_id'] ?> </td>
-		<td> <a class='btn btn-warning' href="../../editcomment/commentid/<?= $comment['id'] ?>"> Edit </a> </td>
-		<td> <a class='btn btn-danger' href="../../deletecomment/commentid/<?= $comment['id'] ?>"> Delete </a> </td>
-                <td>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-star-empty"></span></a>
-<!--                    <button type="button" class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>-->
-                </td>
-            </tr>
-<!--            <hr>-->
-            <?php }endforeach; }?>
-<!--            ////////////////////////////////////////////////////////////////-->
-
-            
-<!--            <hr>-->
-            <?php endforeach; ?>
-            <div class="alert alert-success alert-dismissible">
-                <i class="glyphicon glyphicon-remove-sign"></i> 
-                For Add Experience Click button Add  
-                <button type="button" class="close" data-dismiss="alert">
-                    <span>&times;</span>
-                </button>
-                <a class='btn btn-success' href='../fas7ny/addpost'> AddPost </a>
-            </div>
-<html>
-    <head> 
-    </head>
-    <body>
-        <table class="table">
-            <?php
-            if ($this->city !== null) {
-                ?>
-                <tr style="background-color:blue">
-                    <td><?php echo $this->city["id"]; ?></td>
-                </tr>
-                <tr>
-                    <td><?php echo $this->city["name"]; ?></td>
-                </tr>
-                <tr>
-                    <td><?php echo $this->city["description"]; ?></td>
-                </tr>
-                <tr>
-                    <td><img src="<?php echo $this->city["image"]; ?>" height='42' width='42'</td>
-                </tr>
-                <?php
-            }
-            ?>
-  </table>
-        <div id="experience-container">
-            <div id="experience-title">
-                <h2>
-                    Experience
-                </h2>
-            </div>
-            <div id="experience-body">
-                <?php
-                foreach ($this->posts as $key => $post):
-                    $user = new Application_Model_User();
-                    $username = $user->showUser($post['user_id'])[0]['name'];
-                    ?>
-                    <hr>
-                    <div id="post-details">
-                        <div id="post-contant" style="display:inline-block;" ><?= $username ?></div><!--/city/deletepost/id/country_id/1/-->
-                        <div id="post-contant" style="display:inline-block; color: #0398CA" ><?= $post['content'] ?></div><!--/city/deletepost/id/country_id/1/-->
-                        <div id="post-edit"  style="display:inline-block;  margin-left:850px;" ><a  href="?postidedit=<?= $post['id'] ?>"> Edit </a></div>
-                        <div id="post-delete" style="display:inline-block;" ><a href="?postiddel=<?= $post['id'] ?>"> Delete </a></div>
-                        <?php
-                        //for ($i = 0; $i < count($this->comments); $i++) {
-                        foreach ($this->comments[$post['id']] as $key => $comment):
-                            $username = $user->showUser($comment['user_id'])[0]['name'];
-                            ?>
-                            <div id="comment-details" style="margin-left: 50px;">
-                                <hr>
-                                <div id="comment-contant" style="display:inline-block;" ><?= $username ?></div>
-                                <div id="comment-contant" style="display:inline-block;" ><?= $comment['content'] ?></div>
-                                <div id="comment-edit"  style="display:inline-block;  margin-left:850px;" ><a  href="../../editcomment/commentid/<?= $comment['id'] ?>"> Edit </a></div>
-                                <div id="comment-delete" style="display:inline-block;" ><a href="../../deletecomment/commentid/<?= $comment['id'] ?>"> Delete </a></div>
-                            </div>
-                            <?php
-                        endforeach;
-                        //} 
-                        ?>
-        <?php endforeach; ?>
-                    <hr>
-
-                    <hr>
-                </div>
-        <?= $this->Post_form ?>
-            </div>
-            
-            <script>
-                
-            </script>
+      
+      <h2>available location  <?php echo "( ".$this->countItems." )"; ?></h2> 
+<p> <?php foreach ($this->locations as $tree): ?>
+ <?php echo "reservation_id :: " .$tree['id'] ?>
+    <br/> <?php echo "user_id :: ".$tree['name'] ?><br/>
+      <?php echo "reservation_id :: " .$tree['image'] ?><br/>
+ <?php endforeach; ?> </p> <br/> 
+<a href="<?php echo $this->url(array('controller'=>'city','action'=>'details','p'=>$this->previousPage)) ?>">
+    previous </a> 
+        <?php echo "".$this->currentPage."/".$this->countPages; ?> 
+<a href="<?php echo $this->url(array('controller'=>'city','action'=>'details','p'=>$this->nextPage)) ?>"> next </a> <br/>
+      
+      
+   

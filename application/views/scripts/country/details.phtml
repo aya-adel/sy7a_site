@@ -11,7 +11,7 @@
           <p><?= $this->country["description"];?></p>
         </div>
 </div>	
-</tr>
+
 
 <?php
   }
@@ -44,3 +44,15 @@ echo "<tr>".
 echo "</table>";
 ?>
 
+
+<h2>available location in country <?php echo "( ".$this->countItems." )"; ?></h2> 
+<p> <?php foreach ($this->cites as $tree): ?>
+ <?php echo "reservation_id :: " .$tree['id'] ?>
+    <br/> <?php echo "user_id :: ".$tree['name'] ?><br/>
+    <?php echo "reservation_id :: " .$tree['description'] ?><br/>
+      <?php echo "reservation_id :: " .$tree['image'] ?><br/>
+ <?php endforeach; ?> </p> <br/> 
+<a href="<?php echo $this->url(array('controller'=>'country','action'=>'details','p'=>$this->previousPage)) ?>">
+    previous </a> 
+        <?php echo "".$this->currentPage."/".$this->countPages; ?> 
+<a href="<?php echo $this->url(array('controller'=>'country','action'=>'details','p'=>$this->nextPage)) ?>"> next </a> <br/>
