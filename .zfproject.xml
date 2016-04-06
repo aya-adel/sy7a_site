@@ -11,6 +11,8 @@
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
           <actionMethod actionName="test"/>
+          <actionMethod actionName="check"/>
+          <actionMethod actionName="chc"/>
           <actionMethod actionName="ajax"/>
           <actionMethod actionName="add"/>
         </controllerFile>
@@ -38,6 +40,11 @@
           <actionMethod actionName="fblogout"/>
           <actionMethod actionName="mmm"/>
           <actionMethod actionName="check"/>
+          <actionMethod actionName="hanan"/>
+          <actionMethod actionName="ajax"/>
+          <actionMethod actionName="showcarrental"/>
+          <actionMethod actionName="pagtest"/>
+          <actionMethod actionName="ratetest"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -92,15 +99,22 @@
           <actionMethod actionName="updata"/>
           <actionMethod actionName="delete"/>
         </controllerFile>
+        <controllerFile controllerName="Ajaxtest">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="ajaxlist"/>
+        </controllerFile>
+        <controllerFile controllerName="Rescontroller">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="list"/>
+        </controllerFile>
         <controllerFile controllerName="Location">
           <actionMethod actionName="index"/>
           <actionMethod actionName="list"/>
           <actionMethod actionName="add"/>
           <actionMethod actionName="update"/>
-          
           <actionMethod actionName="details"/>
-       </controllerFile> 
-       <controllerFile controllerName="City">
+        </controllerFile>
+        <controllerFile controllerName="City">
           <actionMethod actionName="addpost"/>
           <actionMethod actionName="deletepost"/>
           <actionMethod actionName="post"/>
@@ -122,7 +136,8 @@
         <formFile formName="Zendx"/>
         <formFile formName="Addnewcar"/>
         <formFile formName="Test"/>
-
+        <formFile formName="Test"/>
+        <formFile formName="Resroom"/>
         <formFile formName="Location"/>
         <formFile formName="Ui"/>
       </formsDirectory>
@@ -260,6 +275,36 @@
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="check"/>
           </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="check"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="chc"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="hanan"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ajaxtest">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Ajaxtest">
+            <viewScriptFile forActionName="ajaxlist"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="ajax"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Rescontroller">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Rescontroller">
+            <viewScriptFile forActionName="list"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="showcarrental"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="pagtest"/>
+          </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="addpost"/>
           </viewControllerScriptsDirectory>
@@ -332,7 +377,7 @@
           <viewControllerScriptsDirectory forControllerName="Location">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
-           <viewScriptFile forActionName="details"/>
+          <viewScriptFile forActionName="details"/>
           <viewControllerScriptsDirectory forControllerName="Ajax">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
@@ -341,24 +386,27 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="add"/>
-          <viewControllerScriptsDirectory forControllerName="Admin">
-            <viewScriptFile forActionName="listuser"/>
+            <viewControllerScriptsDirectory forControllerName="Admin">
+              <viewScriptFile forActionName="listuser"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Admin">
+              <viewScriptFile forActionName="listcountry"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Admin">
+              <viewScriptFile forActionName="listcity"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Admin">
+              <viewScriptFile forActionName="listhotel"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Admin">
+              <viewScriptFile forActionName="listroom"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Admin">
+              <viewScriptFile forActionName="adduser"/>
+            </viewControllerScriptsDirectory>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Admin">
-            <viewScriptFile forActionName="listcountry"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Admin">
-            <viewScriptFile forActionName="listcity"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Admin">
-            <viewScriptFile forActionName="listhotel"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Admin">
-            <viewScriptFile forActionName="listroom"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Admin">
-            <viewScriptFile forActionName="adduser"/>
-          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="ratetest"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

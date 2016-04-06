@@ -190,9 +190,3 @@ class CityController extends Zend_Controller_Action
 
 
 }
-
-
-
-
-
-

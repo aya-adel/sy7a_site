@@ -46,7 +46,7 @@ class Application_Form_Addnewres extends Zend_Form
         
         
         $end= new Zend_Form_Element_Text('end');
-        $end->setAttrib("type","date");
+        $end->setAttrib("type","datetime-local");
 	$end->setLabel('end');
 	$end->setAttrib('class','form-control');
    
