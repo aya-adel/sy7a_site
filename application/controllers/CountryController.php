@@ -54,6 +54,27 @@ class CountryController extends Zend_Controller_Action
         $country = $country_model->countryDetail($country_id);
         $this->view->country = $country[0];
         $this->view->cites = $allcities;
+   
+        $paginator = Zend_Paginator::factory( $allcities); 
+       $paginator->setDefaultItemCountPerPage(2);
+       $allItems = $paginator->getTotalItemCount(); 
+       $countPages = $paginator->count();
+       $p = $this->getRequest()->getParam('p'); 
+       if(isset($p)) 
+           { $paginator->setCurrentPageNumber($p); } 
+           else
+               $paginator->setCurrentPageNumber(1); 
+           $currentPage = $paginator->getCurrentPageNumber(); 
+           $this->view->cites = $paginator; 
+           $this->view->countItems = $allItems; 
+           $this->view->countPages = $countPages; 
+           $this->view->currentPage = $currentPage; 
+           if($currentPage == $countPages)
+               { $this->view->nextPage = $countPages;
+               $this->view->previousPage = $currentPage-1; }
+               else if($currentPage == 1)
+                   { $this->view->nextPage = $currentPage+1; $this->view->previousPage = 1; } 
+                   else { $this->view->nextPage = $currentPage+1; $this->view->previousPage = $currentPage-1; }
         
     }
 

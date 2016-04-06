@@ -45,7 +45,24 @@ echo "</table>";
 
  
   </style>
-</head>
+  <div >
+      <ul class=" nav navbar-nav navbar-right">
+          <li class='dropdown'>
+          <a href="#" class="dropdown-toggle" data-toggle="drop">Destination</a>
+          <ul class='dropdown-menu'>
+              <?php foreach($this->country as $key=>$value ): ?>
+              <li><a href="country/details/id/<?= $value['id']?>"><?= $value['name']?></a>
+                  <?php endforeach ;?>
+              
+          </ul>          
+      </li>
+      </ul>
+      
+      
+      
+      
+      
+  </div>
 
 
 
@@ -159,31 +176,9 @@ echo "</table>";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="collections">
 	<div class="container">
-		<h3 class="tittle-two">FURNITURE DESIGNS</h3>
+		<h3 class="tittle-two">CITIES</h3>
 		<div class="collection-grids cs-style-1">
 			<div class="col-md-4 collection-grid grid">
 				<figure>
@@ -257,7 +252,21 @@ echo "</table>";
 
 
 
+ <div >
+      <ul class=" nav navbar-nav navbar-right">
+          <li class='dropdown'>
+              <a href="#" class="dropdown-toggle" data-toggle="drop">Destination</a></li>
+          <ul class='dropdown-menu'>
+              <?php foreach($this->country as $key=>$value ): ?>
+              <li><a href="country/details/id/<?= $value['id']?>"><?= $value['name']?></a>
+                  <?php endforeach ;?>
+              
+          </ul>          
+      </li>
+      </ul>
 
+      
+  </div>
 
 
 

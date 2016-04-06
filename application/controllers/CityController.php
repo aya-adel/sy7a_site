@@ -94,7 +94,28 @@ class CityController extends Zend_Controller_Action
         $this->view->posts= $allPost;
         $this->view->comments= $allcomment;
         $this->view->Post_form= $form;
-
+        
+        $location=new Application_Model_Location();
+          $paginator = Zend_Paginator::factory( $location-> listLocation()); 
+       $paginator->setDefaultItemCountPerPage(2);
+       $allItems = $paginator->getTotalItemCount(); 
+       $countPages = $paginator->count();
+       $p = $this->getRequest()->getParam('p'); 
+       if(isset($p)) 
+           { $paginator->setCurrentPageNumber($p); } 
+           else
+               $paginator->setCurrentPageNumber(1); 
+           $currentPage = $paginator->getCurrentPageNumber(); 
+           $this->view->locations = $paginator; 
+           $this->view->countItems = $allItems; 
+           $this->view->countPages = $countPages; 
+           $this->view->currentPage = $currentPage; 
+           if($currentPage == $countPages)
+               { $this->view->nextPage = $countPages;
+               $this->view->previousPage = $currentPage-1; }
+               else if($currentPage == 1)
+                   { $this->view->nextPage = $currentPage+1; $this->view->previousPage = 1; } 
+                   else { $this->view->nextPage = $currentPage+1; $this->view->previousPage = $currentPage-1; }
         
     }
     

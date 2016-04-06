@@ -56,7 +56,6 @@ $this->addElements(array(
                         $user_id,
                         $start,
                         $end,
-    //$email,
 			$sumbit,
 			$reset
 ));

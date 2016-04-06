@@ -27,7 +27,7 @@ $name->setAttribs(array(
 'placeholder' => 'example: EGYPT',
  'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
 ));
-$name->addValidator('db_NoRecordExists', true, array('country', 'name'));// field dah 2sm msh bytkrr lw mwgod fe database 
+//$name->addValidator('db_NoRecordExists', true, array('country', 'name'));// field dah 2sm msh bytkrr lw mwgod fe database 
 
 
 
