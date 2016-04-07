@@ -55,11 +55,21 @@ class LocationController extends Zend_Controller_Action
 
         $request = $this->getRequest(); // h3dal el data w hdos submit w btally lzm 2ml function wzftha 2nha bt3ml insert l data gdeda fe database
         if ($request->isPost()) {
-            if ($form->isValid($request->getPost())) {
-                        $upload= new Zend_File_Transfer_Adapter_Http();
-                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jepg");
-                $upload->receive(); 
-                $_POST['image']="/images/".$_POST['name'].".jepg";
+               if ($form->isValid($request->getPost())) {
+                $upload = new Zend_File_Transfer_Adapter_Http();
+
+                $name = $_FILES['image']['name'];
+
+
+                if ($name != "") {
+                    $upload->addFilter('Rename', array('target' => "/var/www/html/fas7ny/public/images/". $name, 'overwrite' => true));
+                    $_POST['image'] = "/images/" .$name;
+                } else {
+                    $_POST['image'] = "";
+                }
+
+                $upload->receive();
+              
                 $location_obj->updataLocation($id, $_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
                 $this->redirect('/location/list'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
             }

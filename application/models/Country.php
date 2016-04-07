@@ -33,7 +33,9 @@ class Application_Model_Country extends Zend_Db_Table_Abstract {
        
         $country_Data['name'] = $countryData['name']; // 23dl 2sm el country
          $country_Data['description'] = $countryData['description']; // 23dl description  el country
+         if ($countryData['image']!=""){
         $country_Data['image'] = $countryData['image']; // 23dl image el country
+         }
         $this->update($country_Data,"id=$id"); // 2amr el update elly byst5dmo el zend
     }
 
