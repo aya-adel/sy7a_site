@@ -45,7 +45,11 @@ class Application_Model_City extends Zend_Db_Table_Abstract {
         $city_Data['description'] = $cityData['description']; // 23dl description  el city
         $city_Data['longitude'] = $cityData['longitude']; // 23dl longitude el city
         $city_Data['latitude'] = $cityData['latitude']; // 23dl latitude el city
-        $city_Data['image'] = $cityData['image']; // 23dl image el city
+        if ($cityData['image']!=""){
+             $city_Data['image'] = $cityData['image']; // 23dl image el city
+            
+        }
+       
         $city_Data['country_id'] = $cityData['country_id']; // 23dl image el city
         $this->update($city_Data,"id=$id"); // 2amr el update elly byst5dmo el zend
     }

@@ -28,27 +28,20 @@ $name->setAttribs(array(
 ));
 
 
-//  location
-$location = new Zend_Form_Element_Text('location_id');
-// h7ot label el label dah 2bal el 5ana elly feha el text field 
-$location->setLabel('The location of the hotel: ');
-// h7ot attribut l fnmae in feha placeholder + class mo7dd 
-$location->setAttribs(array(
-'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
-));
+
 // city_id
-$city_id = new Zend_Form_Element_Select('city_id');
+$location_id = new Zend_Form_Element_Select('location_id');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-$city_id->setLabel('The city_id of the city: ');
+$location_id->setLabel('The location_id of the location: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
-$city_id->setAttribs(array(
+$location_id->setAttribs(array(
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
         ));
-$city_obj = new Application_Model_City();
-$all_cities= $city_obj->listCity();
-foreach ($all_cities as $key=>$value)
+$location_obj = new Application_Model_Location();
+$all_locations= $location_obj->listLocation();
+foreach ($all_locations as $key=>$value)
 {
-        $city_id->addMultiOption($value['id'],$value['name']);
+        $location_id->addMultiOption($value['id'],$value['name']);
 }
 	// submit
     	$submit = new Zend_Form_Element_Submit('submit');
@@ -65,8 +58,8 @@ foreach ($all_cities as $key=>$value)
     	$this->addElements(array(
     		$id,
     		$name,
-      		$location,
-                $city_id,
+      		$location_id,
+               
                 $submit,
     		$reset
     		));
