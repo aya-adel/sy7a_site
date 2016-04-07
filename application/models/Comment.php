@@ -38,10 +38,7 @@ class Application_Model_Comment extends Zend_Db_Table_Abstract
         $newData['content'] = $commentData['content'];
         $this->update($newData,"id=".$id);
     }
-
-    
-    
-    
+ 
 
 }
 

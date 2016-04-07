@@ -84,7 +84,6 @@ class CityController extends Zend_Controller_Action {
     }
 
     public function addAction() {
-        // this funtion  that use to add form to the view 
         $form = new Application_Form_City();
         $this->view->city_form = $form;
         $city_obj = new Application_Model_City();
@@ -155,7 +154,60 @@ class CityController extends Zend_Controller_Action {
 //    }
 
     public function postAction() {
-        // action body
+      // action body
     }
 
+    public function getrateAction()
+    {
+         // action body
+    	//stop the layout from rendring in case you have enabled it
+		$this->_helper->layout()->disableLayout();
+            //when some one wirte /index/te7aajax they won't be rendered to the view script
+		 $this->_helper->viewRenderer->setNoRender(true);
+                 $country_id=$_POST['id']; 
+                 $user_id=$_POST['user_id']; 
+                 $country_rate=new Application_Model_CityRate();
+                 $prevRatingRow=$country_rate->check($user_id, $country_id);
+                 if($prevRatingRow == null)
+                 {
+                     echo 0 ;
+                 
+                 }else{
+                     echo $prevRatingRow['rate'];
+                 }
+    }
+
+    public function addrateAction()
+    {
+        
+         // action body
+        	
+    	//stop the layout from rendring in case you have enabled it
+		$this->_helper->layout()->disableLayout();
+
+		
+		//when some one wirte /index/te7aajax they won't be rendered to the view script
+		 $this->_helper->viewRenderer->setNoRender(true);
+
+        $country_rate=new Application_Model_CityRate();
+        $user_id=$_POST['user_id']; 
+        $country_id=$_POST['id']; 
+        //static for testing 
+        if(!empty($_POST['ratingPoints'])){
+              $ratingPoints =  $_POST['ratingPoints']; 
+              $prevRatingRow=$country_rate->check($user_id, $country_id);
+               if($prevRatingRow !=null): 
+                    $rate_id = $prevRatingRow->toArray()['id'];
+                    $country_rate->updaterate($rate_id,$ratingPoints);
+                else:
+                    $country_rate->addrate($user_id, $country_id,$ratingPoints);
+            endif;
+                }
+      
+        
+    }
 }
+
+
+
+

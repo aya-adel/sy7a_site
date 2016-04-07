@@ -428,8 +428,7 @@ class UserController extends Zend_Controller_Action
 
     public function ratetestAction()
     {
-            $form=new Application_Form_City();
-            $this->view->form=$form;
+           
 
            }
 
