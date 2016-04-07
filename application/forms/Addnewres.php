@@ -12,16 +12,31 @@ class Application_Form_Addnewres extends Zend_Form
         $this->setMethod('POST');
         
         $this->setAttrib('class','form-horizontal');
-        $room_id= new Zend_Form_Element_Text('room_id');
-	$room_id->setLabel('RoomId');
-	$room_id->setAttrib('class','form-control');
-        $room_id->setAttrib('id','room');
+        $room_id= new Zend_Form_Element_Hidden('room_id');
+	
         
-        $user_id= new Zend_Form_Element_Text('user_id');
-	$user_id->setLabel('UserID');
-	$user_id->setAttrib('class','form-control');
-        $user_id->setAttrib('id','user');
-    
+        $user_id= new Zend_Form_Element_Hidden('user_id');
+	
+       
+      
+//        $hotel_name = new Zend_Form_Element_Select('hotel_name');
+//
+//        $hotel_name->setLabel('The hotels name  ');
+//
+//        $hotel_name->setAttribs(array(
+//            'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
+//        ));
+//        $hotel_obj = new Application_Model_Hotel();
+//    	$all_hotels= $hotel_obj->getAllHotels(1);
+//    	foreach ($all_hotels as $key=>$value)
+//    	{
+//    		$hotel_name->addMultiOption($value['id'],$value['name']);
+//    	}
+//        
+//        
+        
+        
+        
         $start= new Zend_Form_Element_Text('start');
         $start->setLabel('start');
         $start->setAttrib("type", "date");
@@ -31,7 +46,7 @@ class Application_Form_Addnewres extends Zend_Form
         
         
         $end= new Zend_Form_Element_Text('end');
-        $end->setAttrib("type","date");
+        $end->setAttrib("type","datetime-local");
 	$end->setLabel('end');
 	$end->setAttrib('class','form-control');
    
@@ -53,9 +68,9 @@ $this->addElements(array(
 			
 			$room_id,
                         $user_id,
+//     $hotel_name ,
                         $start,
                         $end,
-    //$email,
 			$sumbit,
 			$reset
 ));

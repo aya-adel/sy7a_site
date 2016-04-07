@@ -2,10 +2,7 @@
 -- version 4.0.10deb1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 06, 2016 at 07:31 PM
--- Server version: 5.6.28-0ubuntu0.14.04.1
--- PHP Version: 5.5.9-1ubuntu4.14
+-- Host: localhostbuntu4.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -126,8 +123,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   KEY `post_id` (`post_id`),
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=76 ;
-
---
+)
 -- Dumping data for table `comment`
 --
 
@@ -138,6 +134,10 @@ INSERT INTO `comment` (`id`, `content`, `post_id`, `user_id`, `comment_time`) VA
 (31, 'test', 44, 2, '0000-00-00 00:00:00'),
 (74, 'zz', 45, 2, '0000-00-00 00:00:00'),
 (75, 'zz', 45, 2, '0000-00-00 00:00:00');
+(1, 'first commment', 1, 1, '0000-00-00 00:00:00'),
+(2, 'second commment', 1, 1, '0000-00-00 00:00:00'),
+(3, 'frst commment', 2, 1, '0000-00-00 00:00:00'),
+(4, 'scnd commment', 2, 1, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -236,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   KEY `user_id` (`user_id`),
   KEY `city_id` (`city_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
-
+)
 --
 -- Dumping data for table `post`
 --
@@ -244,6 +244,9 @@ CREATE TABLE IF NOT EXISTS `post` (
 INSERT INTO `post` (`id`, `city_id`, `user_id`, `content`, `post_time`) VALUES
 (44, 1, 1, 'test\n', '2016-04-06 13:33:22'),
 (45, 1, 1, 'ali', '2016-04-06 13:33:40');
+(1, 1, 1, 'eidted  post', '2016-04-05 07:32:01'),
+(2, 1, 1, 'second post', '2016-04-04 17:02:35'),
+(3, 1, 1, 'asasa', '2016-04-05 08:04:57');
 
 -- --------------------------------------------------------
 
@@ -384,7 +387,7 @@ ALTER TABLE `res_car`
   ADD CONSTRAINT `res_car_ibfk_2` FOREIGN KEY (`car_id`) REFERENCES `car` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `res_room`
+-- Constraints for table `res_room`,
 --
 ALTER TABLE `res_room`
   ADD CONSTRAINT `res_room_ibfk_1` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

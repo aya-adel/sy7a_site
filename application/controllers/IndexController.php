@@ -11,8 +11,19 @@ class IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $this->redirect("/country/");
     }
 
+    public function checkAction()
+    {
+        // action body
+    }
+
+    public function chcAction()
+    {
+        // action body
+        
+    }
     public function ajaxAction()
     {
         // action body
@@ -46,8 +57,4 @@ class IndexController extends Zend_Controller_Action
 		 $user_name =$_POST['name'];
        		 echo json_encode($user_name);
     }
-
-
 }
-
-

@@ -59,6 +59,11 @@ class Application_Form_SignUp extends Zend_Form
         $tel = new Zend_Form_Element_Text('tel');
         $tel->setLabel('Tel Number : ');
         $tel->setAttrib('class', 'form-control');
+         $image = new Zend_Form_Element_File('image');
+        $image->setLabel('Upload an image:');
+        $image->addValidator('Count', false, 1);
+        $image->addValidator('Extension',false, 'jpg,jpeg,png,gif');
+
         // submit
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setValue('Save');
@@ -79,6 +84,7 @@ class Application_Form_SignUp extends Zend_Form
             $confirm,
             $gender,
             $tel,
+             $image,
             $submit,
             $reset
         ));

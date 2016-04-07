@@ -19,15 +19,17 @@ class Application_Model_User extends Zend_Db_Table_Abstract {
         $row->password = $userData['password'];
         $row->tel = $userData['tel'];
         $row->gender = $userData['gender'];
+        $row->image = $userData['image'];
         $row->save();
     }
 
     function updateUser($data) {
         $my_data['name'] = $data['name'];
-        $my_data['email'] = $data['email'];
+        //$my_data['email'] = $data['email'];
         $my_data['password'] = $data['password'];
         $my_data['tel'] = $data['tel'];
         $my_data['gender'] = $data['gender'];
+        $my_data['image'] = $data['image'];
         $id = $data['id'];
         $this->update($my_data, "id=$id");
     }

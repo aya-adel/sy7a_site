@@ -37,67 +37,54 @@ class CityController extends Zend_Controller_Action
     {
         // action body
         $city_model = new Application_Model_City();
-        $exp=new Application_Model_Post();
-        $form = new Application_Form_Post();
-        $comment=new Application_Model_Comment();
-        
-        
         $city_id = $this->_request->getParam("id");
         $county_id = $this->_request->getParam("country_id");
         $city = $city_model->getAllCities($county_id)[0];
         
-        $allPost=$exp->getAllPosts($city_id);
-        //$allcomment =[];
-        for($i=0;$i<count($allPost);$i++)
+        $this->view->city = $city;
+        
+        $location=new Application_Model_Location();
+        $paginator = Zend_Paginator::factory( $location-> listLocation()); 
+        $paginator->setDefaultItemCountPerPage(2);
+        $allItems = $paginator->getTotalItemCount(); 
+        $countPages = $paginator->count();
+        $p = $this->getRequest()->getParam('p'); 
+       if(isset($p)) 
+           { $paginator->setCurrentPageNumber($p); } 
+           else
+               $paginator->setCurrentPageNumber(1); 
+           $currentPage = $paginator->getCurrentPageNumber(); 
+           $this->view->locations = $paginator; 
+           $this->view->countItems = $allItems; 
+           $this->view->countPages = $countPages; 
+           $this->view->currentPage = $currentPage; 
+           if($currentPage == $countPages)
+               { $this->view->nextPage = $countPages;
+               $this->view->previousPage = $currentPage-1; }
+               else if($currentPage == 1)
+                   { $this->view->nextPage = $currentPage+1; $this->view->previousPage = 1; } 
+                   else { $this->view->nextPage = $currentPage+1; $this->view->previousPage = $currentPage-1; }
+                   
+                   
+        
+        $post_model = new Application_Model_Post();
+        $comment=new Application_Model_Comment();
+        //$exp=new Application_Model_Post();
+        $allPost=$post_model->getAllPosts($city_id);
+        //var_dump($allPost);die();
+        $allcomment =[];
+          for($i=0;$i<count($allPost);$i++)
         {
             $postid=$allPost[$i]["id"];
             //$pscom[$postid] = array();
             $allcomment[$postid]=$comment->listComments($postid);
         }
-        //addPostForm
-        $request = $this->getRequest();
-        if(null !== $this->_request->getParam("postiddel"))
-        {//for delete
-            $post_model = new Application_Model_Post();
-            $post_id = $this->_request->getParam("postiddel");
-            $post_model->deletePost($post_id);
-            $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-        }
-        elseif (null !== $this->_request->getParam("postidedit"))
-        {//for edit
-            $post_model = new Application_Model_Post();
-            $post_id = $this->_request->getParam("postidedit");
-            $old_post = $post_model->getPost($post_id);
-            $form->populate($old_post[0]);
-            $request = $this->getRequest();
-            if($request-> isPost()){
-                if($form-> isValid($request-> getPost())){
-                        $post_model-> editPost($_POST);
-                            //send new_post to model->edit 
-                        $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-                }
-            }            
-        }  else {//for add
-            if($request->isPost()){
-                if($form->isValid($request->getPost())){
-                    $post_model = new Application_Model_Post();
-                    $post = array('city_id' => $city_id,
-                                  'user_id' => 1,
-                                  'content' => $request->getParam("content")
-                            );
-                    $post_model-> addPost($post);
-                    $this->redirect("/city/details/id/$city_id/country_id/$county_id");
-                }
-            }            
-        }//end elseif  
-        $this->view->city = $city;
-        $this->view->posts= $allPost;
+        //var_dump($allcomment);die();
+        $this->view->posts = $allPost;
         $this->view->comments= $allcomment;
-        $this->view->Post_form= $form;
 
-        
     }
-    
+
     public function addAction()
     {
         // this funtion  that use to add form to the view 
@@ -145,32 +132,64 @@ class CityController extends Zend_Controller_Action
         }
     }
 
-//    public function addpostAction()
-//    {
-//        // action body
-//    }
-//
-//    public function deletepostAction()
-//    {
-//        // action body
-//        $post_model = new Application_Model_Post();
-//        $city_id = $this->_request->getParam("id");
-//        $country_id = $this->_request->getParam("country_id");
-//        $post_id = $this->_request->getParam("postid");//postiddel
-//        $post_model->deletePost($post_id);
-//        $this->redirect("/city/details/id/$city_id/country_id/$country_id");
-//    }
-
     public function postAction()
     {
         // action body
         
     }
 
+    public function getrateAction()
+    {
+         // action body
+    	//stop the layout from rendring in case you have enabled it
+		$this->_helper->layout()->disableLayout();
+            //when some one wirte /index/te7aajax they won't be rendered to the view script
+		 $this->_helper->viewRenderer->setNoRender(true);
+                 $country_id=$_POST['id']; 
+                 $user_id=$_POST['user_id']; 
+                 $country_rate=new Application_Model_CityRate();
+                 $prevRatingRow=$country_rate->check($user_id, $country_id);
+                 if($prevRatingRow == null)
+                 {
+                     echo 0 ;
+                 
+                 }else{
+                     echo $prevRatingRow['rate'];
+                 }
+    }
+
+    public function addrateAction()
+    {
+        
+         // action body
+        	
+    	//stop the layout from rendring in case you have enabled it
+		$this->_helper->layout()->disableLayout();
+
+		
+		//when some one wirte /index/te7aajax they won't be rendered to the view script
+		 $this->_helper->viewRenderer->setNoRender(true);
+
+        $country_rate=new Application_Model_CityRate();
+        $user_id=$_POST['user_id']; 
+        $country_id=$_POST['id']; 
+        //static for testing 
+        if(!empty($_POST['ratingPoints'])){
+              $ratingPoints =  $_POST['ratingPoints']; 
+              $prevRatingRow=$country_rate->check($user_id, $country_id);
+               if($prevRatingRow !=null): 
+                    $rate_id = $prevRatingRow->toArray()['id'];
+                    $country_rate->updaterate($rate_id,$ratingPoints);
+                else:
+                    $country_rate->addrate($user_id, $country_id,$ratingPoints);
+            endif;
+                }
+      
+        
+    }
+
 
 }
-
-
 
 
 

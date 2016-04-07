@@ -52,11 +52,10 @@ class Application_Form_Addnewcar extends Zend_Form
         
 $this->addElements(array(
 			
-                            $car_id,
+                        $car_id,
                         $user_id,
                         $start,
                         $end,
-    //$email,
 			$sumbit,
 			$reset
 ));
