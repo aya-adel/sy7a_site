@@ -109,6 +109,10 @@ class AdminController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $country_obj->addNewcountry($_POST);
                 $this->redirect('/admin/listcountry');
             }
@@ -124,6 +128,10 @@ class AdminController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $city_obj->addNewcity($_POST);
                 $this->redirect("/admin/listcity");
             }
@@ -337,7 +345,85 @@ class AdminController extends Zend_Controller_Action
         }
         $this->view->user_form = $form;
     }
+
+    public function listlocationAction()
+    {
+        // action body
+        $location_model = new Application_Model_Location();
+        $locationFields = $location_model->listLocation();
+        $city_obj = new Application_Model_City();
+        for($i=0;$i<count($locationFields);$i++){
+            //getcity name
+            $city_got = $city_obj->cityDetail($locationFields[$i]['id']);
+            $cityName=$city_got[0]['name'];
+            if($cityName==""){
+                $cityName= "Unknown";                 
+            }
+            array_push($locationFields[$i],$cityName);
+        }
+        $this->view->location = $locationFields ;
+    }
+
+    public function addlocationAction()
+    {
+        // action body
+        $form = new Application_Form_Location();
+        $this->view->addLocationForm = $form;
+        $location_obj = new Application_Model_Location();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jpg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
+                $location_obj->addNewlocation($_POST);
+                $this->redirect("/admin/listlocation");
+            }
+        }
+    }
+
+    public function editlocationAction()
+    {
+        // action body
+        $form = new Application_Form_Location();
+        $location_obj = new Application_Model_Location();
+        $id = $this->_request->getParam('id');
+        $location_got = $location_obj->locationDetail($id);
+        $form->populate($location_got[0]);
+        $this->view->editLocationForm = $form;
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                $upload->addFilter('Rename',"/var/www/html/fas7ny/public/images/".$_POST['name'].".jepg");
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jepg";
+                $location_obj->updataLocation($id, $_POST);
+                $this->redirect("/admin/listlocation");
+            }
+        }
+    }
+
+    public function deletelocationAction()
+    {
+        // action body
+        $location_obj = new Application_Model_Location();
+        $location_id = $this->_request->getParam("id");
+        $location_obj->deleteLocation($location_id);
+        $this->redirect("/admin/listlocation");
+    }
+
+
 }
+
+
+
+
+
+
+
+
 
 
 

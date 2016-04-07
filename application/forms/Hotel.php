@@ -28,15 +28,6 @@ $name->setAttribs(array(
 ));
 
 
-//  location
-$location = new Zend_Form_Element_Text('location');
-// h7ot label el label dah 2bal el 5ana elly feha el text field 
-$location->setLabel('The location of the hotel: ');
-// h7ot attribut l fnmae in feha placeholder + class mo7dd 
-$location->setAttribs(array(
-'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
-));
-
 
  // city_id
         $city_id = new Zend_Form_Element_Select('city_id');
@@ -70,7 +61,6 @@ $location->setAttribs(array(
     	$this->addElements(array(
     		$id,
     		$name,
-      		$location,
                 $city_id,
                 $submit,
     		$reset
