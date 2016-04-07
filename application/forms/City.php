@@ -14,17 +14,17 @@ class Application_Form_City extends Zend_Form {
 //  name
         $name = new Zend_Form_Element_Text('name');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $name->setLabel('The Name of the country: ');
+        $name->setLabel('City Name: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
         $name->setAttribs(array(
-            'placeholder' => 'example: EGYPT',
+            'placeholder' => 'example: Alex',
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
         ));
 // $name->addValidator('db_NoRecordExists', true, array('country', 'name'));// field dah 2sm msh bytkrr lw mwgod fe database 
 //  description
         $description = new Zend_Form_Element_Text('description');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $description->setLabel('The description of the country: ');
+        $description->setLabel('City Description: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
         $description->setAttribs(array(
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
@@ -46,7 +46,7 @@ class Application_Form_City extends Zend_Form {
 // longitude
         $longitude = new Zend_Form_Element_Text('longitude');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $longitude->setLabel('The longitude of the city: ');
+        $longitude->setLabel('City Longitude: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
         $longitude->setAttribs(array(
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
@@ -55,7 +55,7 @@ class Application_Form_City extends Zend_Form {
  // latitude
         $latitude = new Zend_Form_Element_Text('latitude');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $latitude->setLabel('The latitude of the city: ');
+        $latitude->setLabel('City latitude: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
         $latitude->setAttribs(array(
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
@@ -65,7 +65,7 @@ class Application_Form_City extends Zend_Form {
  // country_id
         $country_id = new Zend_Form_Element_Select('country_id');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $country_id->setLabel('The country_id of the country: ');
+        $country_id->setLabel('The Country of this City: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
         $country_id->setAttribs(array(
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class

@@ -92,6 +92,10 @@
           <actionMethod actionName="listhotel"/>
           <actionMethod actionName="listroom"/>
           <actionMethod actionName="adduser"/>
+          <actionMethod actionName="listlocation"/>
+          <actionMethod actionName="addlocation"/>
+          <actionMethod actionName="editlocation"/>
+          <actionMethod actionName="deletelocation"/>
         </controllerFile>
         <controllerFile controllerName="Room">
           <actionMethod actionName="index"/>
@@ -123,6 +127,10 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="update"/>
           <actionMethod actionName="details"/>
+<<<<<<< HEAD
+          <actionMethod actionName="delete"/>
+=======
+>>>>>>> b1969da777f49ee330ad6de51151c638465729a3
         </controllerFile>
         <controllerFile controllerName="City">
           <actionMethod actionName="addpost"/>
@@ -148,8 +156,11 @@
         <formFile formName="Zendx"/>
         <formFile formName="Addnewcar"/>
         <formFile formName="Test"/>
+<<<<<<< HEAD
+=======
         <formFile formName="Test"/>
         <formFile formName="Resroom"/>
+>>>>>>> b1969da777f49ee330ad6de51151c638465729a3
         <formFile formName="Location"/>
         <formFile formName="Ui"/>
       </formsDirectory>
@@ -417,6 +428,22 @@
               <viewScriptFile forActionName="adduser"/>
             </viewControllerScriptsDirectory>
           </viewControllerScriptsDirectory>
+<<<<<<< HEAD
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="listlocation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="addlocation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="editlocation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Admin">
+            <viewScriptFile forActionName="deletelocation"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Location">
+            <viewScriptFile forActionName="delete"/>
+=======
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="ratetest"/>
           </viewControllerScriptsDirectory>
@@ -431,6 +458,7 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="addrate"/>
+>>>>>>> b1969da777f49ee330ad6de51151c638465729a3
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Country">
             <viewScriptFile forActionName="avgrate"/>

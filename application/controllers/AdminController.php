@@ -109,6 +109,11 @@ class AdminController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                                                    $upload->addFilter('Rename', array('target' => "/var/www/html/fas7ny/public/images/". $name, 'overwrite' => true));
+
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $country_obj->addNewcountry($_POST);
                 $this->redirect('/admin/listcountry');
             }
@@ -124,6 +129,11 @@ class AdminController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                $upload= new Zend_File_Transfer_Adapter_Http();
+                                                    $upload->addFilter('Rename', array('target' => "/var/www/html/fas7ny/public/images/". $name, 'overwrite' => true));
+
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
                 $city_obj->addNewcity($_POST);
                 $this->redirect("/admin/listcity");
             }
@@ -132,16 +142,21 @@ class AdminController extends Zend_Controller_Action
 
     public function addhotelAction()
     {
-        // action body
+         // action body
+          // this funtion  that use to add form to the view 
         $form = new Application_Form_Hotel();
-        $this->view->addHotelForm = $form;
+        $this->view->hotel_form = $form;
+
         $hotel_obj = new Application_Model_Hotel();
+
+
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
                 $hotel_obj->addNewHotel($_POST);
-                $this->redirect("/admin/listhotel");
+                $this->redirect('/admin/listhotel');
             }
+        
         }
     }
 
@@ -191,17 +206,25 @@ class AdminController extends Zend_Controller_Action
     public function edithotelAction()
     {
         // action body
-        $form = new Application_Form_Hotel();
-        $hotel_obj = new Application_Model_Hotel();
-        $id = $this->_request->getParam('id');
-        $hotel_got = $hotel_obj->hotelDetail($id);
-        $form->populate($hotel_got[0]);
-        $this->view->editHotelForm = $form;
-        $request = $this->getRequest();
-        if($request->isPost()){
-            if($form->isValid($request->getPost())){
-                $hotel_obj->updataHotel($id,$_POST);
-                $this->redirect("/admin/listhotel");
+         $form = new Application_Form_Hotel(); // hgyb object mn el form w deh elly hmleha b data elly htg3ly mn database 3shan 2sht8l 3leh
+        $hotel_obj = new Application_Model_Hotel(); // deh el object elly hyrg3 data mn database
+        $id = $this->_request->getParam('id'); // deh ana b2os el ide mn ellly htb3tlly lma 2dos 3la button el update 
+        $hotel_got = $hotel_obj->hotelDetail($id); // deh hgyb el details bt3t el user dah b id bt3o 
+        // var_dump($client_got);exit();
+
+        $form->populate($hotel_got[0]); // deh function wzftha 2nha tmlly el form elly 3ndy b data elly htglly bt3t el one user
+        $this->view->form_c = $form; // mfrod hb3t l view el form el gdeda elly htb2a mmlya b data 
+
+        
+        $request = $this->getRequest(); // h3dal el data w hdos submit w btally lzm 2ml function wzftha 2nha bt3ml insert l data gdeda fe database
+        if($request->isPost())
+        {
+            if($form->isValid($request->getPost()))
+            {
+                
+                $hotel_obj->updataHotel($id,$_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
+                $this->redirect('/admin/listhotel'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
+
             }
         }
     }
@@ -281,19 +304,9 @@ class AdminController extends Zend_Controller_Action
     public function listcityAction()
     {
         // action body
+        
         $city_model = new Application_Model_City();
         $cityFields = $city_model->listCity();
-        //get country name of each city & send it to db
-        $country_obj = new Application_Model_Country();
-        for($i=0;$i<count($cityFields);$i++){
-            //getcountry name
-            $country_got = $country_obj->countryDetail($cityFields[$i]['id']);
-            $countryName=$country_got[0]['name'];
-            if($countryName==""){
-                $countryName= "Unknown";                 
-            }
-            array_push($cityFields[$i],$countryName);
-        }
         $this->view->city = $cityFields;
     }
 
@@ -330,14 +343,113 @@ class AdminController extends Zend_Controller_Action
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
+                $upload = new Zend_File_Transfer_Adapter_Http();
+                                    $upload->addFilter('Rename', array('target' => "/var/www/html/fas7ny/public/images/". $name, 'overwrite' => true));
+
+                $upload->receive();
+                $_POST['image'] = "/images/" . $_POST['name'] . ".jpg";
                 $user_obj = new Application_Model_User();
-                $user_obj->addNewUser($request->getParams());
-                $this->redirect('/user');
+                $user_obj->addNewUser($_POST);
+                $this->redirect('/admin/listuser');
             }
         }
         $this->view->user_form = $form;
     }
+
+    public function listlocationAction()
+    {
+        // action body
+        $location_model = new Application_Model_Location();
+        $locationFields = $location_model->listLocation();
+        $city_obj = new Application_Model_City();
+        for($i=0;$i<count($locationFields);$i++){
+            //getcity name
+            $city_got = $city_obj->cityDetail($locationFields[$i]['id']);
+            $cityName=$city_got[0]['name'];
+            if($cityName==""){
+                $cityName= "Unknown";                 
+            }
+            array_push($locationFields[$i],$cityName);
+        }
+        $this->view->location = $locationFields ;
+    }
+
+    public function addlocationAction()
+    {
+         // action body
+          // this funtion  that use to add form to the view 
+        $form = new Application_Form_Location();
+        $this->view->location_form = $form;
+        $location_obj = new Application_Model_Location();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            if ($form->isValid($request->getPost())) {
+                    $upload= new Zend_File_Transfer_Adapter_Http();
+ $upload->addFilter('Rename', array('target' => "/var/www/html/fas7ny/public/images/". $name, 'overwrite' => true));
+
+                $upload->receive(); 
+                $_POST['image']="/images/".$_POST['name'].".jpg";
+                $location_obj->addNewlocation($_POST);
+                $this->redirect('/admin/listlocation');
+            }
+        }
+    }
+
+    public function editlocationAction()
+    {
+      // action body
+         $form = new Application_Form_Location(); // hgyb object mn el form w deh elly hmleha b data elly htg3ly mn database 3shan 2sht8l 3leh
+        $location_obj = new Application_Model_Location(); // deh el object elly hyrg3 data mn database
+        $id = $this->_request->getParam('id'); // deh ana b2os el ide mn ellly htb3tlly lma 2dos 3la button el update 
+        $location_got = $location_obj->locationDetail($id); // deh hgyb el details bt3t el user dah b id bt3o 
+        // var_dump($client_got);exit();
+
+        $form->populate($location_got[0]); // deh function wzftha 2nha tmlly el form elly 3ndy b data elly htglly bt3t el one user
+        $this->view->form_c = $form; // mfrod hb3t l view el form el gdeda elly htb2a mmlya b data 
+
+
+        $request = $this->getRequest(); // h3dal el data w hdos submit w btally lzm 2ml function wzftha 2nha bt3ml insert l data gdeda fe database
+        if ($request->isPost()) {
+               if ($form->isValid($request->getPost())) {
+                $upload = new Zend_File_Transfer_Adapter_Http();
+
+                $name = $_FILES['image']['name'];
+
+
+                if ($name != "") {
+                    $upload->addFilter('Rename', array('target' => "/var/www/html/fas7ny/public/images/". $name, 'overwrite' => true));
+                    $_POST['image'] = "/images/" .$name;
+                } else {
+                    $_POST['image'] = "";
+                }
+
+                $upload->receive();
+              
+                $location_obj->updataLocation($id, $_POST); // deh function wzftha 2nha bt3ml update lzm 23mlha hindel 
+                $this->redirect('/admin/listlocation'); // deh 3shan yrg3 l nfs sf7t el list 3shan y3rd el data b3d el update 
+            }
+        }
+    }
+
+    public function deletelocationAction()
+    {
+        // action body
+        $location_obj = new Application_Model_Location();
+        $location_id = $this->_request->getParam("id");
+        $location_obj->deleteLocation($location_id);
+        $this->redirect("/admin/listlocation");
+    }
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
