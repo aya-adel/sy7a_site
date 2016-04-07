@@ -1,12 +1,14 @@
 <?php
 
-class CountryController extends Zend_Controller_Action {
+class CountryController extends Zend_Controller_Action
+{
 
     public function init()
     {
-        }
+    }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
         $country_model = new Application_Model_Country();
         $this->view->country = $country_model->listCountry();
@@ -33,12 +35,14 @@ class CountryController extends Zend_Controller_Action {
         $this->view->cityarr = $ss;
     }
 
-    public function listAction() {
+    public function listAction()
+    {
         $country_model = new Application_Model_Country();
         $this->view->country = $country_model->listCountry();
     }
 
-    public function detailsAction() {
+    public function detailsAction()
+    {
         $country_model = new Application_Model_Country();
         $city_model = new Application_Model_City();
         $country_id = $this->_request->getParam("id");
@@ -73,7 +77,8 @@ class CountryController extends Zend_Controller_Action {
         }
     }
 
-    public function addAction() {
+    public function addAction()
+    {
         // this funtion  that use to add form to the view 
         $form = new Application_Form_Country();
         $this->view->country_form = $form;
@@ -94,14 +99,16 @@ class CountryController extends Zend_Controller_Action {
         }
     }
 
-    public function deleteAction() {
+    public function deleteAction()
+    {
         $country_obj = new Application_Model_Country();
         $country_id = $this->_request->getParam("id");
         $country_obj->deleteCountry($country_id);
         $this->redirect("/country/list");
     }
 
-    public function updateAction() {
+    public function updateAction()
+    {
         // action body
         // 1- get client form to edit view
         $form = new Application_Form_Countryedit(); // hgyb object mn el form w deh elly hmleha b data elly htg3ly mn database 3shan 2sht8l 3leh
@@ -176,4 +183,26 @@ class CountryController extends Zend_Controller_Action {
                      echo $prevRatingRow['rate'];
                  }
     }
+
+    
+    public function totalrateAction()
+    {
+         $this->_helper->layout()->disableLayout();
+        //when some one wirte /index/te7aajax they won't be rendered to the view script
+        $this->_helper->viewRenderer->setNoRender(true);
+        $country_id=$_POST['id'];
+        $country_rate= new Application_Model_CountryRate();
+        $totalRate=$country_rate->calcRate($country_id);
+        if($totalRate == null)
+        { echo 0;}
+        else
+        {echo $totalRate;}
+    }
+
+
 }
+
+
+
+
+

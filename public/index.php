@@ -20,6 +20,12 @@ require_once 'Zend/Facebook/autoload.php';
 //require_once 'Zend/Glitch/Loader/Autoloader.php';
 /** Zend_Application */
 require_once 'Zend/Application.php';
+ require "twitteroauth/autoload.php";
+ include_once "google-api-php-client/examples/templates/base.php";
+require_once ('google-api-php-client/src/Google/autoload.php');
+
+
+
 
 // Create application, bootstrap, and run
 $application = new Zend_Application(
