@@ -20,8 +20,8 @@ class Application_Model_Hotel extends Zend_Db_Table_Abstract {
     }
     
     
-    function getAllHotels($city_id) {
-        return $this->fetchAll("city_id=$city_id")->toArray();
+    function getAllHotels($location_id) {
+        return $this->fetchAll("location_id=$location_id")->toArray();
     }
 
     // el function rkm 4 2no y add Hotel  
