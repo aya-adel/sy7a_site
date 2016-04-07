@@ -26,33 +26,31 @@ class Application_Form_Hotel extends Zend_Form {
         ));
 
 
-        // city_id
-        $city_id = new Zend_Form_Element_Select('city_id');
-//  location
-        $location = new Zend_Form_Element_Text('location_id');
-// h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $location->setLabel('The location of the hotel: ');
-// h7ot attribut l fnmae in feha placeholder + class mo7dd 
-        $location->setAttribs(array(
-            'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
-        ));
+
 // city_id
-        $city_id = new Zend_Form_Element_Select('city_id');
+$location_id = new Zend_Form_Element_Select('location_id');
 // h7ot label el label dah 2bal el 5ana elly feha el text field 
-        $city_id->setLabel('The city_id of the city: ');
+$location_id->setLabel('The location_id of the location: ');
 // h7ot attribut l fnmae in feha placeholder + class mo7dd 
-        $city_id->setAttribs(array(
+$location_id->setAttribs(array(
             'class' => 'form-control' // dah 3shan el bootstrap bt3y 3ml 2zay 27ot 3leh el class
         ));
-        $city_obj = new Application_Model_City();
-        $all_cities = $city_obj->listCity();
-        foreach ($all_cities as $key => $value) {
-            $city_id->addMultiOption($value['id'], $value['name']);
-        }
-        // submit
-        $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setValue('Save');
-        $submit->setAttrib('class', 'btn btn-success');
+$location_obj = new Application_Model_Location();
+$all_locations= $location_obj->listLocation();
+foreach ($all_locations as $key=>$value)
+{
+        $location_id->addMultiOption($value['id'],$value['name']);
+}
+	// submit
+    	$submit = new Zend_Form_Element_Submit('submit');
+    	$submit->setValue('Save');
+    	$submit->setAttrib('class', 'btn btn-success');
+    	
+    	//reset
+    	$reset = new Zend_Form_Element_Reset('reset');
+    	$reset->setValue('Reset');
+    	$reset->setAttrib('class', 'btn btn-danger');
+
 
         //reset
         $reset = new Zend_Form_Element_Reset('reset');
@@ -60,14 +58,16 @@ class Application_Form_Hotel extends Zend_Form {
         $reset->setAttrib('class', 'btn btn-danger');
 
 
-        // Add Element to my form
-        $this->addElements(array(
-            $id,
-            $name,
-            $city_id,
-            $submit,
-            $reset
-        ));
+    	// Add Element to my form
+    	$this->addElements(array(
+    		$id,
+    		$name,
+      		$location_id,
+               
+                $submit,
+    		$reset
+    		));
     }
+
 
 }

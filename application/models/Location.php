@@ -40,7 +40,9 @@ class Application_Model_Location extends Zend_Db_Table_Abstract {
 
         $location_Data['name'] = $locationData['name']; // 23dl 2sm el country
         $location_Data['city_id'] = $locationData['city_id']; // 23dl description  el country
+        if ($locationData['image']!=""){
         $location_Data['image'] = $locationData['image']; // 23dl image el country
+        }
         $this->update($location_Data, "id=$id"); // 2amr el update elly byst5dmo el zend
     }
 

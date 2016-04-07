@@ -112,25 +112,26 @@
 
 
 <?php
- if($this->country !== null)
-  {
-  	//var_dump($this->user["id"] );exit;
-  	?>
+if($this->country !== null)
+{
+//var_dump($this->user["id"] );exit;
+?>
+
 <div class="item">
-	<img src="<?=  $this->country["image"];?>"  style="width: 1800px ; height: 500px">
-        <div class="carousel-caption">
-          <h3><?=  $this->country["name"]; ?></h3>
-          <p><?= $this->country["description"];?></p>
-        </div>
+    <img src="<?= $this->country["image"]; ?>"  style="width: 1800px ; height: 500px">
+    <div class="carousel-caption">
+        <h3><?= $this->country["name"]; ?></h3>
+        <p><?= $this->country["description"]; ?></p>
+    </div>
 </div>	
 
 
 <?php
-  }
+}
 ?>
 <br/>
     <div>
-    <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
+        <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
     </div>
 <br/>
 <?php
@@ -161,23 +162,33 @@ echo "</table>";
 ?>
 
 <h2>available location in country <?php echo "( ".$this->countItems." )"; ?></h2> 
-<table class="table table-hover">
- <?php foreach ($this->cites as $tree): ?>
-    <tr>
-    <td>
-        
-        <a href="/city/details/id/<?= $tree['id'] ?>/country_id/<?= $this->country['id'] ?>"> READ MORE</a><br>
-    </td>
-    <td>
-    <h1><?= $tree['name'] ?></h1><br>
-    <h1> <?= $tree['description'] ?></h1><br>
-   
-   <img src='<?= $tree['image'] ?>'style='width: 200px;height: 200px'><br>
-   </td>
-    </tr>
- <?php endforeach; ?> 
-</table> <br/> 
-<a href="<?php echo $this->url(array('controller'=>'country','action'=>'details','p'=>$this->previousPage)) ?>">
-    previous </a> 
+
+
+<div class="blog-section">
+    <div class="container"> 
+        <h3 class="tittle-three">BLOGS</h3>
+
+        <div class="col-md-4 blog-post-grids">
+            <?php foreach ($this->cites as $tree): ?>
+            <div class="blog-post">
+                <a href="single.html"><img src='<?= $tree['image'] ?>' class="img-responsive" alt="  "/></a>
+                <div class="text-pos">
+                    <p> <?= $tree['name'] ?></p>
+                </div>
+                <div class="admin-tag">
+
+                    <p class="erat"> <?= $tree['description'] ?> </p>
+                    <a href="/city/details/id/<?= $tree['id'] ?>/country_id/<?= $this->country['id'] ?>" class="hvr-shutter-in-horizontal button-more">Readmore<span> </span></a>
+                </div>
+            </div>
+            <?php endforeach; ?> 
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+    <div class="blog-pagenat">
+        <a href="<?php echo $this->url(array('controller' => 'country', 'action' => 'details', 'p' => $this->previousPage)) ?>" class="frist">
+            previous </a> 
         <?php echo "".$this->currentPage."/".$this->countPages; ?> 
-<a href="<?php echo $this->url(array('controller'=>'country','action'=>'details','p'=>$this->nextPage)) ?>"> next </a> <br/>
+        <a href="<?php echo $this->url(array('controller' => 'country', 'action' => 'details', 'p' => $this->nextPage)) ?>" class="last"> next </a> <br/>
+    </div>
+</div> 
