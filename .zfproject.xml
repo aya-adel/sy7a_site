@@ -15,6 +15,9 @@
           <actionMethod actionName="chc"/>
           <actionMethod actionName="ajax"/>
           <actionMethod actionName="add"/>
+          <actionMethod actionName="twitterlogin"/>
+          <actionMethod actionName="twitterlog"/>
+          <actionMethod actionName="googlelog"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
@@ -45,6 +48,8 @@
           <actionMethod actionName="showcarrental"/>
           <actionMethod actionName="pagtest"/>
           <actionMethod actionName="ratetest"/>
+          <actionMethod actionName="twitterlog"/>
+          <actionMethod actionName="googlelog"/>
         </controllerFile>
         <controllerFile controllerName="Country">
           <actionMethod actionName="index"/>
@@ -55,6 +60,9 @@
           <actionMethod actionName="update"/>
           <actionMethod actionName="addrate"/>
           <actionMethod actionName="getrate"/>
+          <actionMethod actionName="avgrate"/>
+          <actionMethod actionName="getTotal"/>
+          <actionMethod actionName="totalrate"/>
         </controllerFile>
         <controllerFile controllerName="Admin">
           <actionMethod actionName="index"/>
@@ -423,6 +431,30 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="City">
             <viewScriptFile forActionName="addrate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="avgrate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="getTotal"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Country">
+            <viewScriptFile forActionName="totalrate"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="twitterlogin"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="twitterlog"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="twitterlog"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="googlelog"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="googlelog"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
