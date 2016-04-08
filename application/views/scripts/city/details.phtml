@@ -1,7 +1,14 @@
-    
 
+<?php
+            $auth = Zend_Auth::getInstance();
+            $storage = $auth->getStorage();
+            $sessionRead = $storage->read();
+            if (isset($sessionRead)) {
+                $user_id = $sessionRead->id;  // must be get from sesion
+                $logedusername =$sessionRead->name;
+                $logedimage = $sessionRead->image;
+            }?>
 <head>
-    
          <script language="javascript" type="text/javascript">
         //anynomous function to inital the page 
         (function (a) {
@@ -83,13 +90,11 @@ $(function () {
             $.ajax({
                 type: 'POST',
                 url: '/city/addrate',
-                data: 'id=' + attrVal + '&user_id=' + 2 + '&ratingPoints=' + val,
+                data: 'id=' + <?=$this->city['id']?> + '&user_id=' + <?=$user_id?> + '&ratingPoints=' + val,
                 dataType: 'json'
             });
         }
-    </script>
-    
-    
+    </script>    
     <style type="text/css">
         .overall-rating{font-size: 14px;margin-top: 5px;color: #8e8d8d;}
         .codexworld_rating_widget{
@@ -113,8 +118,8 @@ $(function () {
         }
     </style>
 </head>
-<a class="btn-primary" href="/user/addreservation/city_id/<?=$this->city['id']?>">Reserve Hotel</a>
-<a class="btn-primary" href="/user/addrescar/city_id/<?=$this->city['id']?>">Reserve Car</a>
+<!--<a class="btn-primary" href="/user/addreservation/city_id/<?//=$this->city['id']?>">Reserve Hotel</a>
+<a class="btn-primary" href="/user/addrescar/city_id/<?//=$this->city['id']?>">Reserve Car</a>-->
 
 <?php
  if($this->city !== null)
@@ -143,8 +148,8 @@ $(function () {
                      <img src="/images/pic.jpg" class="img-circle person" alt="Random Name">
                 <img src="/images/pic1.jpg" class="img-circle person" alt="Random Name">
                 <img src="/images/pic2.jpg" class="img-circle person" alt="Random Name">
-                <a href="/user/addreservation" class=" btn btn-info btn-xl"> <h3 class ="title"> BOOKING HOTEL </h3></a>
-                 <a href="/user/addrescar" class=" btn btn-info btn-xl"> <h3 class ="title"> BOOKING CAR </h3></a>
+                <a href="/user/addreservation/city_id/<?=$this->city['id']?>/user_id/<?=$user_id?>" class=" btn btn-info btn-xl"> <h3 class ="title"> BOOKING HOTEL </h3></a>
+                <a href="/user/addrescar/city_id/<?=$this->city['id']?>"  class=" btn btn-info btn-xl"> <h3 class ="title"> BOOKING CAR </h3></a>
 		</div>
 		
 		
@@ -234,14 +239,6 @@ $(function () {
 <table class="table">
           
             <?php
-            $auth = Zend_Auth::getInstance();
-            $storage = $auth->getStorage();
-            $sessionRead = $storage->read();
-            if (isset($sessionRead)) {
-                $user_id = $sessionRead->id;  // must be get from sesion
-                $logedusername =$sessionRead->name;
-                $logedimage = $sessionRead->image;
-            }
             if ($this->city !== null) {
                 ?>
               

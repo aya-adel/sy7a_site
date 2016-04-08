@@ -17,25 +17,46 @@ class ReservController extends Zend_Controller_Action {
         //when some one wirte /index/te7aajax they won't be rendered to the view script
         $this->_helper->viewRenderer->setNoRender(true);
         $q = trim(strip_tags($_GET['name']));
-        $city_id = $_GET['id'];
+        $city_id = $_GET['city_id'];
         $model_hotel = new Application_Model_Hotel();
         $locations = new Application_Model_Location();
         $allloc = $locations->getAllLocations($city_id);
         $allhotel = array();
-        foreach ($allloc as $loc)
-        {
-            $allhotel[]= $model_hotel->getAllHotels($loc['id']);
+        foreach ($allloc as $loc) {
+            $allhotel[] = $model_hotel->getAllHotels($loc['id']);
         }
-         $response = array();
+        $response = array();
         foreach ($allhotel as $hotel) {
-            
+
             foreach ($hotel as $hot) {
 
-                    if (strlen($q) && strpos($hot['name'], $q) === 0) {
-                        $response [] = $hot['name'];
-                    }
+                if (strlen($q) && strpos($hot['name'], $q) === 0) {
+                    $response [] = $hot['name'];
+                }
             }
-            
+        }
+        echo json_encode($response);
+    }
+
+    public function getroomsAction() {
+        // action body
+        $this->_helper->layout()->disableLayout();
+        //when some one wirte /index/te7aajax they won't be rendered to the view script
+        $this->_helper->viewRenderer->setNoRender(true);
+
+        $room = new Application_Model_Room();
+        $hotelname = $_GET['hotelname'];
+        $roomType = $_GET['roomtype'];
+        $hotel = new Application_Model_Hotel();
+        $hot = $hotel->fetchAll("name = '$hotelname'")->toArray()[0];
+        $hotel_id = $hot['id'];
+        $allRooms = $room->getAllRooms($hotel_id);
+        $response = array();
+        foreach ($allRooms as $rom) {
+            if($rom['type'] == $roomType)
+            {
+                $response [] = $rom;
+            }
         }
         echo json_encode($response);
     }

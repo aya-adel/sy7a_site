@@ -189,7 +189,7 @@ class CityController extends Zend_Controller_Action {
                     $city_rate->updaterate($rate_id,$ratingPoints);
                 else:
                     $city_rate->addrate($user_id, $city_id,$ratingPoints);
-            endif;
+                    endif;
                 }
       
         
