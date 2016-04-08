@@ -1,7 +1,8 @@
-
+    
 
 <head>
-    <script language="javascript" type="text/javascript">
+    
+         <script language="javascript" type="text/javascript">
         //anynomous function to inital the page 
         (function (a) {
             // execute the initalization of the page style 
@@ -58,22 +59,21 @@
         })(jQuery);
 
 
-
-        $(function () {
+$(function () {
             $("#rating_star").codexworld_rating_widget({
                 starLength: '5',
                 initialValue: prevrate(),
                 callbackFunctionName: 'processRating',
                 imageDirectory: '/images/',
-                inputAttr: 'postID'
+                inputAttr:'postID'
             });
         });
 
         function prevrate() {
             var x = $.ajax({
                 url: "/city/getrate",
-                type:'POST',
-                data: 'id=' + 1 + '&user_id='+ 2 ,
+                type: 'POST',
+                data: 'id=' + <?=$this->city['id']?> + '&user_id=' + 2,
                 async: false,
             }).responseText;
             return x;
@@ -83,11 +83,13 @@
             $.ajax({
                 type: 'POST',
                 url: '/city/addrate',
-                data: 'id=' + attrVal + '&user_id='+ 2 +  '&ratingPoints=' + val,
+                data: 'id=' + attrVal + '&user_id=' + 2 + '&ratingPoints=' + val,
                 dataType: 'json'
             });
         }
     </script>
+    
+    
     <style type="text/css">
         .overall-rating{font-size: 14px;margin-top: 5px;color: #8e8d8d;}
         .codexworld_rating_widget{
@@ -116,7 +118,6 @@
 <?php
  if($this->city !== null)
   {
-  	//var_dump($this->user["id"] );exit;
   	?>
 
 <div class="item">
@@ -150,9 +151,7 @@
 </div>
 
 <br/>
-    <div>
-    <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
-    </div>
+ <input name="rating" value="0" id="rating_star"  type="hidden" postID="1" />
 <br/>
 
 <div id="map"></div>
@@ -315,5 +314,7 @@ foreach ($this->posts as $key => $post):
                 <input type="button" value="Add" onclick="add(<?= $this->city["id"] ?>,<?= $user_id ?>, '<?= $logedusername ?>', '<?= $logedimage ?>')">
             </div> 
              <?php  } ?>
-            <script src="/js/jquery-1.11.1.min.js"></script>           
+            
+        
+            
             <script src="/js/comments.js"></script>

@@ -10,7 +10,7 @@ class Application_Model_Location extends Zend_Db_Table_Abstract {
     }
 
     // the second function delete country 
-    function deleteLocatin($id) {
+    function deleteLocation($id) {
         $this->delete("id=$id");
     }
 
