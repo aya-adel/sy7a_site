@@ -17,7 +17,7 @@
       
       
       
-      <div class="dropdown">
+<!--      <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
@@ -26,7 +26,7 @@
         <?php endforeach ;?>
      
     </ul>
-  </div>
+  </div>-->
       
       
       
@@ -67,48 +67,48 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="<?=  $this->countryarr[0][0]['image'];?>"  style="width: 1800px ; height: 500px">
+        <img src="<?=  $this->countryarr[0][0]['image'];?>"  style="width: 1800px ; height: 900px">
         <div class="carousel-caption">
-          <h1><?=  $this->countryarr[0][0]['name'];?></h1>
-          <h3>  <a href="/country/details/id/<?=  $this->countryarr[0][0]['id'];?>">ReadMore</a></h3>
+          <h3 class="title" style='color:#012231 ; font-size: 50'><?=  $this->countryarr[0][0]['name'];?></h3>
+           <a class="btn btn-info btn-xl" href="/country/details/id/<?=  $this->countryarr[0][0]['id'];?>">ReadMore</a>
         </div>      
        
       </div>
         
         <div class="item">
-            <img src="<?= $this->countryarr[1][0]['image'];?>" alt="Chicago" style="width: 1800px ; height: 500px">
+            <img src="<?= $this->countryarr[1][0]['image'];?>" alt="Chicago" style="width: 1800px ; height: 900px">
         <div class="carousel-caption">
-          <h3><?=  $this->countryarr[1][0]['name'];?></h3>
+          <h3 class="title" style='color:#012231 ; font-size: 50'><?=  $this->countryarr[1][0]['name'];?></h3>
            <h3>  <a href="/country/details/id/<?=  $this->countryarr[1][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
     
       <div class="item">
-        <img src="<?= $this->countryarr[2][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <img src="<?= $this->countryarr[2][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 900px">
         <div class="carousel-caption">
-          <h3><?=  $this->countryarr[2][0]['name'];?></h3>
+          <h3 class="title" style='color:#012231 ; font-size: 50'><?=  $this->countryarr[2][0]['name'];?></h3>
           <h3>  <a href="/country/details/id/<?=  $this->countryarr[2][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
         
         <div class="item">
-        <img src="<?= $this->countryarr[3][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <img src="<?= $this->countryarr[3][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 900px">
         <div class="carousel-caption">
-          <h3><?=  $this->countryarr[3][0]['name'];?></h3>
+          <h3 class="title" style='color:#012231 ; font-size: 50'><?=  $this->countryarr[3][0]['name'];?></h3>
           <h3>  <a href="/country/details/id/<?=  $this->countryarr[3][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
         <div class="item">
-        <img src="<?= $this->countryarr[4][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <img src="<?= $this->countryarr[4][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 900px">
         <div class="carousel-caption">
-          <h3><?=  $this->countryarr[4][0]['name'];?></h3>
+          <h3 class="title" style='color:#012231 ; font-size: 50'><?=  $this->countryarr[4][0]['name'];?></h3>
            <h3>  <a href="/country/details/id/<?=  $this->countryarr[4][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
         <div class="item">
-        <img src="<?= $this->countryarr[5][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 500px">
+        <img src="<?= $this->countryarr[5][0]['image'];?>" alt="Los Angeles"  style="width: 1800px ; height: 900px">
         <div class="carousel-caption">
-          <h3><?=  $this->countryarr[5][0]['name'];?></h3>
+          <h3 class="title" style='color:#012231 ; font-size: 50'><?=  $this->countryarr[5][0]['name'];?></h3>
            <h3>  <a href="/country/details/id/<?=  $this->countryarr[5][0]['id'];?>">ReadMore</a></h3>
         </div>      
       </div>
@@ -134,7 +134,13 @@
 	<div class="container">
 		<div class="btm-header">
 			<h3 class="tittle">HELLO!</h3>
-		
+                        
+		<img src="/images/pic.jpg" class="img-circle person" alt="Random Name">
+                <img src="/images/pic1.jpg" class="img-circle person" alt="Random Name">
+                <img src="/images/pic2.jpg" class="img-circle person" alt="Random Name">
+	
+			
+	
 		</div>
 		
 		
@@ -151,7 +157,7 @@
 		<div class="collection-grids cs-style-1">
 			<div class="col-md-4 collection-grid grid">
 				<figure>
-						<img src="<?=  $this->cityarr[0][0]['image'];?>"alt="">
+						<img  src="<?=  $this->cityarr[0][0]['image'];?>"alt="">
 						<figcaption>
 							<h3><?=  $this->cityarr[0][0]['name'];?></h3>
 							<span><?=  $this->cityarr[0][0]['description'];?></span>

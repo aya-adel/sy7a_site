@@ -138,6 +138,11 @@
 		<div class="btm-header">
 			<h3 class="tittle">HELLO!</h3>
 		
+                     <img src="/images/pic.jpg" class="img-circle person" alt="Random Name">
+                <img src="/images/pic1.jpg" class="img-circle person" alt="Random Name">
+                <img src="/images/pic2.jpg" class="img-circle person" alt="Random Name">
+                <a href="/user/addreservation" class=" btn btn-info btn-xl"> <h3 class ="title"> BOOKING HOTEL </h3></a>
+                 <a href="/user/addrescar" class=" btn btn-info btn-xl"> <h3 class ="title"> BOOKING CAR </h3></a>
 		</div>
 		
 		
@@ -256,7 +261,7 @@ foreach ($this->posts as $key => $post):
                     <div id="post-details<?= $post['id'] ?>">
                         <label><?= $username ?></label>
                         <img src="<?= $image ?>" width="50" height="50">
-                        <textarea id ="post<?= $post['id'] ?>" rows="20" cols="100" disabled="disabled" ><?= $post['content'] ?></textarea>
+                        <textarea rows="10" cols="50" class="form-control" id ="post<?= $post['id'] ?>" rows="20" cols="100" disabled="disabled" ><?= $post['content'] ?></textarea>
                                <?php if(isset($sessionRead)){if($us['id'] == $user_id){?>
                         <input type = "button" id="postedit<?= $post['id'] ?>" value="edit" onclick="edit(<?= $post['id'] ?>)"/>
                         <input type = "button" id="postdel<?= $post['id'] ?>" value="delete" onclick="del(<?= $post['id'] ?>)"/>
@@ -265,7 +270,7 @@ foreach ($this->posts as $key => $post):
                     
                         <div>
                             <label>Add New Comment : </label>
-                            <textarea id ="addcom<?= $post['id'] ?>" rows="3" cols="100"></textarea>
+                            <textarea onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type Your Comment here...';}" required="" id ="addcom<?= $post['id'] ?>" rows="3" cols="100"></textarea>
                             <input type="button" value="Add" onclick="addcom(<?= $post['id'] ?>,<?= $user_id ?>, '<?= $logedusername ?>', '<?= $logedimage ?>')">
                         </div> 
                             <?php  } ?>
@@ -281,7 +286,7 @@ foreach ($this->posts as $key => $post):
                                 <hr>
                                 <label><?= $username ?></label>
                                 <img src="<?= $image ?>" width="50" height="50">
-                                <textarea id ="com<?= $comment['id'] ?>" rows="3" cols="100" disabled="disabled"><?= $comment['content'] ?></textarea>
+                                <textarea rows="10" cols="50" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Type Your Comment here...';}" required="" id ="com<?= $comment['id'] ?>" rows="3" cols="100" disabled="disabled"><?= $comment['content'] ?></textarea>
                                 
                                <?php if(isset($sessionRead)){if($us['id'] == $user_id){?>
                                     <input type = "button" id="comedit<?= $comment['id'] ?>" value="edit" onclick="editcom(<?= $comment['id'] ?>)"/>
