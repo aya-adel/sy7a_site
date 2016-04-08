@@ -81,8 +81,19 @@ class LocationController extends Zend_Controller_Action
         // action body
     }
 
+    public function deleteAction()
+    {
+        // action body
+        $location_obj = new Application_Model_Location();
+        $location_id = $this->_request->getParam("id");
+        $location_obj->deleteLocation($location_id);
+        $this->redirect("/location/list");
+    }
+
 
 }
+
+
 
 
 

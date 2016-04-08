@@ -4,6 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+<<<<<<< HEAD
+.dd {
+    z-index: 100;
+}
+=======
+>>>>>>> cc4ce1d28a41b1643f51581439fc657d24073058
 html, body{
 	margin:0;
 	font-size: 100%;
@@ -425,7 +431,11 @@ ul.social-icons li a {
   border-left: 1px solid #9E8B54;
 }
 /*-- Slide toogle menu --*/
+<<<<<<< HEAD
+@import 'nav-icon.css';
+=======
 /*--@import 'nav-icon.css';--*/
+>>>>>>> cc4ce1d28a41b1643f51581439fc657d24073058
 .flex-row {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
@@ -798,7 +808,11 @@ width:100%;
 /*-- //banner-bottom --*/
 /*-- collections --*/
 .collections{
+<<<<<<< HEAD
+background:#C5A614;
+=======
 background:#FFCCCC;
+>>>>>>> cc4ce1d28a41b1643f51581439fc657d24073058
 }
 .collection-grid img{
 width:100%;
@@ -1901,7 +1915,11 @@ p.est span{
    -moz-box-shadow: 0 0 1px #000;
    box-shadow: 0 0 1px #000;
 }
+<<<<<<< HEAD
+.view a.info: hover {
+=======
 .view a.info:hover {
+>>>>>>> cc4ce1d28a41b1643f51581439fc657d24073058
    -webkit-box-shadow: 0 0 5px #000;
    -moz-box-shadow: 0 0 5px #000;
    box-shadow: 0 0 5px #000;

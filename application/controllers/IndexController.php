@@ -24,6 +24,7 @@ class IndexController extends Zend_Controller_Action
         // action body
         
     }
+
     public function ajaxAction()
     {
         // action body
@@ -57,4 +58,26 @@ class IndexController extends Zend_Controller_Action
 		 $user_name =$_POST['name'];
        		 echo json_encode($user_name);
     }
+
+    public function twitterloginAction()
+    {
+        // action body
+    }
+
+    public function twitterlogAction()
+    {
+        // action body
+    }
+
+    public function googlelogAction()
+    {
+        // action body
+    }
+
+
 }
+
+
+
+
+

@@ -4,11 +4,14 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+.dd {
+    z-index: 100;
+}
 html, body{
 	margin:0;
 	font-size: 100%;
 	font-family: 'Open Sans', sans-serif;
-	background: #fff;
+	background:#E8E8E8  ;
 }
 body a {
 	text-decoration:none;
@@ -17,6 +20,14 @@ body a {
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+}
+.ss {
+   
+    width: 1700px;
+    height: 200px;
+    padding: 30px;
+    border: 25px solid  #FFFFFF;
+    margin: 25px;
 }
 a:hover{
  text-decoration:none;
@@ -27,6 +38,9 @@ input[type="button"],input[type="submit"]{
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
+}
+img {
+    margin-top: 0;
 }
 @font-face {
    font-family: 'Metamorphous-Regular';
@@ -700,6 +714,13 @@ background: url(../images/img-sprite-hover.png) no-repeat -78px 0px;
   font-size: 31px;
   color: #464646;
 }
+
+.wrap {
+    width: 80%;
+    margin: 0px auto;
+    transition: all 0.2s linear 0s;
+}
+
 .banner-text h4 {
   font-size: 45px;
   color: #C5A614;
@@ -713,6 +734,7 @@ background: url(../images/img-sprite-hover.png) no-repeat -78px 0px;
 /*-- banner-bottom --*/
 .banner-bottom,.comfort,.collections,.about,.team,.advantages,.contact,.typrography,.blog-section,.gallery{
 padding:80px 0;
+border-color: #000033;
 }
 .highest {
 padding:80px 0 0 0;
@@ -722,7 +744,7 @@ margin-bottom:50px;
 text-align:center;
   font-family: 'Metamorphous-Regular';
   font-size: 50px;
-  color: #C5A614;
+  color: #000033;
 }
 h3.tittle-two,h3.tittle-three{
 margin-bottom:50px;

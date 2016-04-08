@@ -2,24 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/var/www/html/fas7ny/application/layouts/scripts/back.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/AdminController.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/UserController.php</file>
+	<group>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/admin/index.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/admin/listuser.phtml</file>
             <file>file:/var/www/html/fas7ny/application/layouts/scripts/layout.phtml</file>
-=======
-            <file>file:/var/www/html/fas7ny/application/models/User.php</file>
-            <file>file:/var/www/html/fas7ny/application/models/Hotel.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/AjaxController.php</file>
-            <file>file:/var/www/html/fas7ny/application/models/Car.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/Fas7nyController.php</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/UserController.php</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/city/details.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/ajax/details.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/controllers/CityController.php</file>
-            <file>file:/var/www/html/fas7ny/application/models/Room.php</file>
->>>>>>> cc4ce1d28a41b1643f51581439fc657d24073058
+            <file>file:/var/www/html/fas7ny/application/views/scripts/user/add-user.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/rescontroller/list.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/layouts/scripts/layout.phtml</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/user/log-in.phtml</file>
         </group>
     </open-files>
 </project-private>

@@ -1,3 +1,4 @@
+<br /><br />
 
 <?php
 echo "<table>";
@@ -14,10 +15,7 @@ echo "<tr>".
 "<td>" . $value['city_id'] . "</td>" .
 //"<td>" . $value['image'] . "</td>" .
 "<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
-
-"<td> <a class='btn btn-info' href='details/id/".$value['id']."/id/".$value['city_id']."'> Details </a> </td>" .
-
-"<td> <a class='btn btn-warning' href='delete/id/".$value['id']."/id/".$value['city_id']."'> Delete </a> </td>" .
+"<td> <a class='btn btn-warning' href='delete/id/" . $value['id'] . "'> Delete </a> </td>" .
 "<td> <a class='btn btn-primary' href='update/id/".$value['id']."'> Edit </a> </td>" .
 "</tr>";
 
