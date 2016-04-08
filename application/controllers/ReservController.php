@@ -17,13 +17,25 @@ class ReservController extends Zend_Controller_Action {
         //when some one wirte /index/te7aajax they won't be rendered to the view script
         $this->_helper->viewRenderer->setNoRender(true);
         $q = trim(strip_tags($_GET['name']));
+        $city_id = $_GET['id'];
         $model_hotel = new Application_Model_Hotel();
-        $allhotel = $model_hotel->getAllHotels(1);
-        $response = array();
+        $locations = new Application_Model_Location();
+        $allloc = $locations->getAllLocations($city_id);
+        $allhotel = array();
+        foreach ($allloc as $loc)
+        {
+            $allhotel[]= $model_hotel->getAllHotels($loc['id']);
+        }
+         $response = array();
         foreach ($allhotel as $hotel) {
-            if (strlen($q) && strpos($hotel['name'], $q) === 0) {
-                $response [] = $hotel['name'];
+            
+            foreach ($hotel as $hot) {
+
+                    if (strlen($q) && strpos($hot['name'], $q) === 0) {
+                        $response [] = $hot['name'];
+                    }
             }
+            
         }
         echo json_encode($response);
     }

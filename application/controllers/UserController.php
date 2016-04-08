@@ -130,6 +130,7 @@ class UserController extends Zend_Controller_Action
     {
 
         $form = new Application_Form_Addnewres();
+        $city_id = $this->_request->getParam("city_id");
         $request = $this->getRequest();
         if ($request->isPost()) {
             if ($form->isValid($request->getPost())) {
@@ -139,6 +140,7 @@ class UserController extends Zend_Controller_Action
             }
         }
         $this->view->form = $form;
+        $this->view->city_id = $city_id;
     }
 
     public function listrescarAction()
