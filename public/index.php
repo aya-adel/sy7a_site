@@ -21,11 +21,12 @@ require_once 'Zend/Facebook/autoload.php';
 /** Zend_Application */
 require_once 'Zend/Application.php';
  require "twitteroauth/autoload.php";
- include_once "google-api-php-client/examples/templates/base.php";
-require_once ('google-api-php-client/src/Google/autoload.php');
-require_once ('google-api-php-client/src/Google/autoload.php');
+// include_once "google-api-php-client/examples/templates/base.php";
+//require_once ('google-api-php-client/src/Google/autoload.php');
 
 
+// include_once "google-api-php-client/examples/templates/base.php";
+//require_once ('google-api-php-client/src/Google/autoload.php');
 
 
 

@@ -60,7 +60,7 @@ class AdminController extends Zend_Controller_Action
                     $auth = Zend_Auth::getInstance(); //if the user is valid register his info in session
                     $storage = $auth->getStorage();
                     // write in session email & id & first_name
-                    $storage->write($authAdapter->getResultRowObject(array('email', 'id', 'name')));
+                    $storage->write($authAdapter->getResultRowObject(array('email', 'id', 'name' , 'image')));
                     // redirect to root index/index
                     return $this->redirect('/admin');
                 } else {

@@ -127,10 +127,7 @@
           <actionMethod actionName="add"/>
           <actionMethod actionName="update"/>
           <actionMethod actionName="details"/>
-<<<<<<< HEAD
           <actionMethod actionName="delete"/>
-=======
->>>>>>> b1969da777f49ee330ad6de51151c638465729a3
         </controllerFile>
         <controllerFile controllerName="City">
           <actionMethod actionName="addpost"/>
@@ -141,6 +138,11 @@
         </controllerFile>
         <controllerFile controllerName="Ajax">
           <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="Reserv">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="getallhotels"/>
+          <actionMethod actionName="getrooms"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -156,11 +158,8 @@
         <formFile formName="Zendx"/>
         <formFile formName="Addnewcar"/>
         <formFile formName="Test"/>
-<<<<<<< HEAD
-=======
         <formFile formName="Test"/>
         <formFile formName="Resroom"/>
->>>>>>> b1969da777f49ee330ad6de51151c638465729a3
         <formFile formName="Location"/>
         <formFile formName="Ui"/>
       </formsDirectory>
@@ -428,7 +427,6 @@
               <viewScriptFile forActionName="adduser"/>
             </viewControllerScriptsDirectory>
           </viewControllerScriptsDirectory>
-<<<<<<< HEAD
           <viewControllerScriptsDirectory forControllerName="Admin">
             <viewScriptFile forActionName="listlocation"/>
           </viewControllerScriptsDirectory>
@@ -443,46 +441,54 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Location">
             <viewScriptFile forActionName="delete"/>
-=======
-          <viewControllerScriptsDirectory forControllerName="User">
-            <viewScriptFile forActionName="ratetest"/>
+            <viewControllerScriptsDirectory forControllerName="User">
+              <viewScriptFile forActionName="ratetest"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Country">
+              <viewScriptFile forActionName="addrate"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Country">
+              <viewScriptFile forActionName="getrate"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="City">
+              <viewScriptFile forActionName="getrate"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="City">
+              <viewScriptFile forActionName="addrate"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Country">
+              <viewScriptFile forActionName="avgrate"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Country">
+              <viewScriptFile forActionName="getTotal"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Country">
+              <viewScriptFile forActionName="totalrate"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Index">
+              <viewScriptFile forActionName="twitterlogin"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Index">
+              <viewScriptFile forActionName="twitterlog"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="User">
+              <viewScriptFile forActionName="twitterlog"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Index">
+              <viewScriptFile forActionName="googlelog"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="User">
+              <viewScriptFile forActionName="googlelog"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Reserv">
+              <viewScriptFile forActionName="index"/>
+            </viewControllerScriptsDirectory>
+            <viewControllerScriptsDirectory forControllerName="Reserv">
+              <viewScriptFile forActionName="getallhotels"/>
+            </viewControllerScriptsDirectory>
           </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Country">
-            <viewScriptFile forActionName="addrate"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Country">
-            <viewScriptFile forActionName="getrate"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
-            <viewScriptFile forActionName="getrate"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="City">
-            <viewScriptFile forActionName="addrate"/>
->>>>>>> b1969da777f49ee330ad6de51151c638465729a3
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Country">
-            <viewScriptFile forActionName="avgrate"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Country">
-            <viewScriptFile forActionName="getTotal"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Country">
-            <viewScriptFile forActionName="totalrate"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Index">
-            <viewScriptFile forActionName="twitterlogin"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Index">
-            <viewScriptFile forActionName="twitterlog"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="User">
-            <viewScriptFile forActionName="twitterlog"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="Index">
-            <viewScriptFile forActionName="googlelog"/>
-          </viewControllerScriptsDirectory>
-          <viewControllerScriptsDirectory forControllerName="User">
-            <viewScriptFile forActionName="googlelog"/>
+          <viewControllerScriptsDirectory forControllerName="Reserv">
+            <viewScriptFile forActionName="getrooms"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

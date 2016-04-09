@@ -47,49 +47,8 @@ if ($this->country !== null) {
 <h4> Evaluate Here: </h4>
 <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
 <br/>
-<?php
-echo "<table>";
-//var_dump( $this->country);exit();
-echo "<td> <a class='btn btn-info' href='/city/add'> ADD </a> </td>";
-foreach ($this->cites as $key => $value) {
 
-    echo "<tr>" .
-    "<td>" . $value['id']
-    . "</td>" .
-    "<td>" . $value['name'] . "</td>" .
-    "<td>" . $value['description'] . "</td>" .
-//"<td>" . $value['image'] . "</td>" .
-    "<td> <img  src='" . $value['image'] . "' height='42' width='42'>  </td>" .
-//"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
-    "<td> <a class='btn btn-info' href='/city/details/id/" . $value['id'] . "/country_id/" . $value['country_id'] . "'> Details </a> </td>" .
-    "<td> <a class='btn btn-warning' href='/city/delete/id/" . $value['id'] . "/country_id/" . $value['country_id'] . "'> Delete </a> </td>" .
-    "<td> <a class='btn btn-primary' href='/city/edit/id/" . $value['id'] . "'> Edit </a> </td>" .
-    "</tr>";
-}
-echo "</table>";
-?>
 
-<h2>available location in country <?php echo "( " . $this->countItems . " )"; ?></h2> 
-<table class="table table-hover">
-    <?php foreach ($this->cites as $tree): ?>
-        <tr>
-            <td>
-
-                <a href="/city/details/id/<?= $tree['id'] ?>/country_id/<?= $this->country['id'] ?>"> READ MORE</a><br>
-            </td>
-            <td>
-                <h1><?= $tree['name'] ?></h1><br>
-                <h1> <?= $tree['description'] ?></h1><br>
-
-                <img src='<?= $tree['image'] ?>'style='width: 200px;height: 200px'><br>
-            </td>
-        </tr>
-    <?php endforeach; ?> 
-</table> <br/> 
-<a href="<?php echo $this->url(array('controller' => 'country', 'action' => 'details', 'p' => $this->previousPage)) ?>">
-    previous </a> 
-<?php echo "" . $this->currentPage . "/" . $this->countPages; ?> 
-<a href="<?php echo $this->url(array('controller' => 'country', 'action' => 'details', 'p' => $this->nextPage)) ?>"> next </a> <br/>
 
    <script language="javascript" type="text/javascript">
         //anynomous function to inital the page 
@@ -188,66 +147,65 @@ echo "</table>";
             });
         }
     </script>
+    <style type="text/css">
+        .overall-rating{font-size: 14px;margin-top: 5px;color: #8e8d8d;}
+        .codexworld_rating_widget{
+            padding: 0px;
+            margin: 0px;
+            float: left;
+        }
+        .codexworld_rating_widget li{
+            line-height: 0px;
+            width: 28px;
+            height: 28px;
+            padding: 0px;
+            margin: 0px;
+            margin-left: 2px;
+            list-style: none;
+            float: left;
+            cursor: pointer;
+        }
+        .codexworld_rating_widget li span{
+            display: none;
+        }
+        
+  
+    </style>
+</head>
 
-<?php
-if($this->country !== null)
-{
-//var_dump($this->user["id"] );exit;
-?>
-
-<div class="item">
-    <img src="<?= $this->country["image"]; ?>"  style="width: 1800px ; height: 500px">
-    <div class="carousel-caption">
-        <h3><?= $this->country["name"]; ?></h3>
-        <p><?= $this->country["description"]; ?></p>
-    </div>
-</div>	
 
 
-<?php
-}
-?>
 <br/>
     <div>
         <input name="rating" value="0" id="rating_star" type="hidden" postID="1" />
     </div>
 <br/>
-<?php
-echo "<table>";
-//var_dump( $this->country);exit();
-echo "<td> <a class='btn btn-info' href='/city/add'> ADD </a> </td>" ;
-foreach($this->cites as $key => $value)
-{
-
-echo "<tr>".
-"<td>" . $value['id']
-. "</td>" .
-"<td>" . $value['name'] . "</td>" .
-"<td>" . $value['description'] . "</td>" .
-//"<td>" . $value['image'] . "</td>" .
-"<td> <img  src='".$value['image']."' height='42' width='42'>  </td>" .
-
-//"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
-"<td> <a class='btn btn-info' href='/city/details/id/".$value['id']."/country_id/".$value['country_id']."'> Details </a> </td>" .
-
-"<td> <a class='btn btn-warning' href='/city/delete/id/".$value['id']."/country_id/".$value['country_id']."'> Delete </a> </td>" .
-"<td> <a class='btn btn-primary' href='/city/edit/id/".$value['id']."'> Edit </a> </td>" .
-"</tr>";
 
 
-}
-echo "</table>";
-?>
-
-<h2>available location in country <?php echo "( ".$this->countItems." )"; ?></h2> 
-
+<div id="hello" class="banner-bottom">
+	<div class="container">
+		<div class="btm-header">
+			<h3 class="tittle">TRY TO ENJOY IN IT </h3>
+                        
+                        <img src="/images/20.jpg" class="img-circle person" alt="Random Name" style="width:300px ; height:300px">
+                <img src="/images/22.jpg" class="img-circle person" alt="Random Name" style="width:300px ; height:300px">
+                <img src="/images/21.jpg" class="img-circle person" alt="Random Name" style="width:300px ; height:300px">
+	
+			
+	
+		</div>
+		
+		
+	</div>
+</div>
 
 <div class="blog-section">
     <div class="container"> 
-        <h3 class="tittle-three">BLOGS</h3>
+        <h3 class="tittle-three" style="font-size: 40">CITIES</h3>
 
-        <div class="col-md-4 blog-post-grids">
+        <div class="col-md-9 blog-post-grids">
             <?php foreach ($this->cites as $tree): ?>
+            
             <div class="blog-post">
                 <a href="single.html"><img src='<?= $tree['image'] ?>' class="img-responsive" alt="  "/></a>
                 <div class="text-pos">
