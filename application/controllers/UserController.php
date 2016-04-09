@@ -5,14 +5,14 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-        $authorization = Zend_Auth::getInstance();
-        $fbsession = new Zend_Session_Namespace('facebook');
-        if (!$authorization->hasIdentity() &&
-                !isset($fbsession->name)) {
-            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
-                $this->redirect("user/log-in");
-            }
-        }
+//        $authorization = Zend_Auth::getInstance();
+//        $fbsession = new Zend_Session_Namespace('facebook');
+//        if (!$authorization->hasIdentity() &&
+//                !isset($fbsession->name)) {
+//            if ($this->_request->getActionName() != 'log-in' &&$this->_request->getActionName() != 'add-user' && $this->_request->getActionName() != 'fpauth') {
+//                $this->redirect("user/log-in");
+//            }
+//        }
     }
 
     public function indexAction()
@@ -469,13 +469,9 @@ class UserController extends Zend_Controller_Action
         $connection = new TwitterOAuth($key,$scret, $access_token['oauth_token'], $access_token['oauth_token_secret']);
         $content = $connection->get("account/verify_credentials");
         
+        }
 
-    }
 
-    public function googlelogAction()
-    {
-        
-    }
 
 
 }
