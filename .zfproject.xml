@@ -143,6 +143,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="getallhotels"/>
           <actionMethod actionName="getrooms"/>
+          <actionMethod actionName="getcars"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -489,6 +490,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Reserv">
             <viewScriptFile forActionName="getrooms"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reserv">
+            <viewScriptFile forActionName="getcars"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

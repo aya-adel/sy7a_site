@@ -1,16 +1,20 @@
 <?php
 
-class ReservController extends Zend_Controller_Action {
+class ReservController extends Zend_Controller_Action
+{
 
-    public function init() {
+    public function init()
+    {
         /* Initialize action controller here */
     }
 
-    public function indexAction() {
+    public function indexAction()
+    {
         // action body
     }
 
-    public function getallhotelsAction() {
+    public function getallhotelsAction()
+    {
         // action body
         //stop the layout from rendring in case you have enabled it
         $this->_helper->layout()->disableLayout();
@@ -27,7 +31,6 @@ class ReservController extends Zend_Controller_Action {
         }
         $response = array();
         foreach ($allhotel as $hotel) {
-
             foreach ($hotel as $hot) {
 
                 if (strlen($q) && strpos($hot['name'], $q) === 0) {
@@ -38,7 +41,8 @@ class ReservController extends Zend_Controller_Action {
         echo json_encode($response);
     }
 
-    public function getroomsAction() {
+    public function getroomsAction()
+    {
         // action body
         $this->_helper->layout()->disableLayout();
         //when some one wirte /index/te7aajax they won't be rendered to the view script
@@ -61,4 +65,28 @@ class ReservController extends Zend_Controller_Action {
         echo json_encode($response);
     }
 
+    public function getcarsAction()
+    {
+        // action body
+         // action body
+        $this->_helper->layout()->disableLayout();
+        //when some one wirte /index/te7aajax they won't be rendered to the view script
+        $this->_helper->viewRenderer->setNoRender(true);
+        
+        $locations = new Application_Model_Location();
+        $city_id = $_GET['city_id'];
+        $allloc = $locations->getAllLocations($city_id);
+        $car = new Application_Model_Car();
+        
+        $allcars = array();
+        foreach ($allloc as $loc) {
+            $allcars[] = $car->getAllCars($loc['id']);
+        }
+        echo json_encode($allcars);
+        
+    }
+
+
 }
+
+

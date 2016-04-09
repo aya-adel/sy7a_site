@@ -58,8 +58,15 @@ $(function () { // to check that the document laoded
                     var temp = JSON.parse(response);
                    
                     //alert(temp[0]['price']);
-                    $("#rmdata").append(" <h1> "+hotelname+" Rooms </h1>");
-                    
+                    for(i=0; i<temp.length; i++)
+                    {
+                        $("#rmdata").append(" <tr> "+
+                                "<td>"+temp[i]['id']+
+                                "</td><td>"+
+                                temp[i]['type']+
+                                "</td><td>"+temp[i]['price']+
+                                "<td><input type='button' value='Book' id='"+temp[i]['id']+"'></td></tr>");
+                    }
                     
                 },
             });
