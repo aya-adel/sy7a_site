@@ -13,34 +13,30 @@ class Application_Form_Addnewcar extends Zend_Form
         $this->setMethod('POST');
         
         $this->setAttrib('class','form-horizontal');
-        $car_id= new Zend_Form_Element_Text('Car_id');
-	$car_id->setLabel('CarId');
-	$car_id->setAttrib('class','form-control');
+     
 
         
-        $user_id= new Zend_Form_Element_Text('user_id');
-	$user_id->setLabel('UserID');
-	$user_id->setAttrib('class','form-control');
-
+        $city_id= new Zend_Form_Element_Hidden('city_id');
+	
+        $user_id= new Zend_Form_Element_Hidden('user_id');
+	
         
         $start= new Zend_Form_Element_Text('start');
         $start->setLabel('start');
-        $start->setAttrib("type", "date");
-	$start->setAttrib('class','form-control');
+	$start->setAttrib('class','form-control-lg');
         
         
         
         
         $end= new Zend_Form_Element_Text('end');
-        $end->setAttrib("type","date");
 	$end->setLabel('end');
-	$end->setAttrib('class','form-control');
+	$end->setAttrib('class','form-control-lg');
    
        // $email = $this->getEmailField();
         //add submit button
-	$sumbit=new Zend_Form_Element_Button('submit');
+	$sumbit=new Zend_Form_Element_Button('Search');
 	$sumbit->setvalue("Save");
-	$sumbit->setAttrib('class','btn btn-success');
+	$sumbit->setAttrib('class','btn btn-success form-control');
         $sumbit->setAttrib('id','btn');
 
 
@@ -51,8 +47,7 @@ class Application_Form_Addnewcar extends Zend_Form
 
         
 $this->addElements(array(
-			
-                        $car_id,
+			$city_id,
                         $user_id,
                         $start,
                         $end,

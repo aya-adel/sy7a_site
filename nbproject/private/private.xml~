@@ -2,14 +2,21 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-	<group>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/admin/index.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/admin/listuser.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/layouts/scripts/layout.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/user/add-user.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/rescontroller/list.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/layouts/scripts/layout.phtml</file>
-            <file>file:/var/www/html/fas7ny/application/views/scripts/user/log-in.phtml</file>
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <group/>
+=======
+        <group>
+            <file>file:/var/www/html/fas7ny/application/controllers/ReservController.php</file>
+            <file>file:/var/www/html/fas7ny/public/js/comments.js</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/UserController.php</file>
+            <file>file:/var/www/html/fas7ny/application/views/scripts/user/addreservation.phtml</file>
+            <file>file:/var/www/html/fas7ny/public/js/reservehotel.js</file>
+            <file>file:/var/www/html/fas7ny/application/controllers/CityController.php</file>
         </group>
+>>>>>>> 5cc48f4974139bc7964f0a817f9b6782eb10cd5f
+=======
+        <group/>
+>>>>>>> 7ace8341ac3be59750ee38655f9fb11102200c3d
     </open-files>
 </project-private>
